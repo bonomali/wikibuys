@@ -32,7 +32,8 @@
 			                <div class="work-item" data-project-id="project-1">
 				                <div class="work-img-holder">
 					                <p align="center"><a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
-                                        <%# HttpUtility.HtmlEncode(Eval("name").ToString().Trim().Substring(0,30)) %>
+                                        <%# Eval("name").ToString().Length > 30 ? HttpUtility.HtmlEncode(Eval("name").ToString().Trim().Substring(0,30)) : HttpUtility.HtmlEncode(Eval("name").ToString().Trim())%>
+                                       
                                         </a>
 					                </p>
                                     <a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
