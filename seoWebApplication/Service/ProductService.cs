@@ -282,6 +282,8 @@ namespace seoWebApplication.Service
                                            .Set(e => e.image, p.image)
                                            .Set(e => e.thumbnail, p.thumbnail)
                                            .Set(e => e.description, p.description)
+                                           .Set(e => e.promodept, p.promodept)
+                                           .Set(e => e.promofront, p.promofront)
                                            .Set(e => e.defaultAttCat, p.defaultAttCat)
                                            .Set(e => e.defaultAttribute, p.defaultAttribute)
                                            .Set(e => e.Categories, p.Categories)
