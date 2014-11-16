@@ -1,0 +1,21 @@
+﻿@model IEnumerable<seoWebApplication.Data.department>
+@{
+    Layout = null;
+}
+
+  <!-- start sidebar -->
+<ul class="breadcrumb">
+    <li>Categories</li>
+</ul>
+<div class="span3 product_list">
+    <ul class="nav">
+        <!-- Main menu -->
+        @foreach (var item in Model)
+{
+    <li>
+        <a href="@Link.ToDepartment(item.department_id)" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Name)</a>
+        @{Html.RenderAction("ShowMenu", "Category", new { id = item.department_id }); }
+    </li>
+}
+     </ul>
+</div><!-- end sidebar -->

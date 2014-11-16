@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3F31D77-389E-4259-9CE1-58B484573CBA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>seoWebApplication.Data</RootNamespace>
+    <AssemblyName>seoWebApplication.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attribute.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeValue.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeValueSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeValueSelectByAId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeValueSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeValueSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Audit.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditSelectByWOId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetAllproductsInCategory_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetCartRecommendations_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetCategoriesIndepartment_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetCategoriesWithoutProduct_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetCategoriesWithProduct_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetcategoryDetails_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetdepartmentDetails_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetProductAttributeValues_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetproductDetails_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetProductRecommendations_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetproductsIncategory_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetproductsOnDeptPromo_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogGetproductsOnFrontPromo_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="category.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorySelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorySelectByDId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorySelectByDWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorySelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorySelectByWIdws_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorySelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="city.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="citySelectAllGrid_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="citySelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="citySelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceLibOrderGetInfo_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceLibShippingGetInfo_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="controlType.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="controlTypeSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="controlTypeSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="country.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="countrySelectAllGrid_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="countrySelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="countrySelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cuisine.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cuisineSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cuisineSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cuisineSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customerLogin_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customerSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customerSelectByEmail_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customerSelectByFbId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customerSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="department.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="departmentSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="departmentSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="departmentSelectByWIdWs_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="departmentSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentDbModels\Products.cs" />
+    <Compile Include="GetProductCategories_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getShippingRegionByUsername_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemSelectByPWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="menuReview.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="menuReviewsSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="menuReviewsSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="menuReviewsSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cuisine.cs" />
+    <Compile Include="Models\webstore.cs" />
+    <Compile Include="Order.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailSelectByPId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderGetDetails_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderGetInfo_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersGetByDate_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersGetByRecent_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersGetUnverifiedUncanceled_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersGetVerifiedUncompleted_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersSelectByCId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersVerifiedSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pcategory.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pcategoryproduct.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Picture.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="point.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pointsSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pointsSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pointsSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAttributeValue.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAttributeValueSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAttributeValueSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAttributeValueSelectByPId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productcategory.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productcategorySelect_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productGetCustomAttById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productsSelectByCid_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="review.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewField.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewFieldsSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewFieldsSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewFieldsSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewSelectAllInActive_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewSelectByPId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewType.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewTypeSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reviewTypeSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchCatalog_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchWord_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeoWebAppModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeoWebAppModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeoWebAppModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeoWebAppModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeoWebAppModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Shipping.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingRegion.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingRegionSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingRegionSelectByDesc_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingRegionSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingSelectAllByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCartGetItems_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCartProductSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCartSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCartSelectByCId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCartSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCartSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SocialMedia.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="state.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stateSelectAllGrid_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stateSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stateSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storePointsSetting.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storeReview.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storeReviewsSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storeReviewsSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storeReviewsSelectByRId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tax.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaxSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaxSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaxSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccount.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountSelectByWIdEmail_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_admins.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Applications.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Profiles.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Roles.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Users.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_User.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_attributes.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_attribute_values.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_category.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_department.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_product.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_product_attribute.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_product_attributeSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_product_attributeSelectByPId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webstore.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebstoreCuisine.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webstoreSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webstoreSelectByCId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webstoreSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webstoreSelectByWebUrl_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webstoreSelectByWId_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Widget.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zone.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zoneSelectAllGrid_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zoneSelectAll_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zoneSelectById_Result.cs">
+      <DependentUpon>SeoWebAppModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SeoWebAppModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SeoWebAppModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="SeoWebAppModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SeoWebAppModel.edmx</DependentUpon>
+      <LastGenOutput>SeoWebAppModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SeoWebAppModel.edmx.diagram">
+      <DependentUpon>SeoWebAppModel.edmx</DependentUpon>
+    </None>
+    <None Include="SeoWebAppModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SeoWebAppModel.edmx</DependentUpon>
+      <LastGenOutput>SeoWebAppModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

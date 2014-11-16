@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication", "seoWebApplication\seoWebApplication.csproj", "{D53F71B7-424C-4382-A7E6-8B90108B349A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2484CEF6-B252-4370-A0EC-48F5FEA427E9}"
+	ProjectSection(SolutionItems) = preProject
+		seoWebApplication\SearchBox.ascx = seoWebApplication\SearchBox.ascx
+		seoWebApplication\SearchBox.ascx.cs = seoWebApplication\SearchBox.ascx.cs
+		seoWebApplication\SearchBox.ascx.designer.cs = seoWebApplication\SearchBox.ascx.designer.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication.Data", "seoWebApplication.Data\seoWebApplication.Data.csproj", "{A3F31D77-389E-4259-9CE1-58B484573CBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication.Admin", "seoWebApplication.Admin\seoWebApplication.Admin.csproj", "{CB6B3DB4-13E5-4655-B824-6616D6C791CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication.Admin.Tests", "seoWebApplication.Admin.Tests\seoWebApplication.Admin.Tests.csproj", "{F27C7B21-5CCD-485E-A773-A3098FFE13F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication.Common", "seoWebApplication.Common\seoWebApplication.Common.csproj", "{12A12CA2-01F6-49F4-BC58-390D1783D515}"
+EndProject
+Global
+
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D53F71B7-424C-4382-A7E6-8B90108B349A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53F71B7-424C-4382-A7E6-8B90108B349A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D53F71B7-424C-4382-A7E6-8B90108B349A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D53F71B7-424C-4382-A7E6-8B90108B349A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB6B3DB4-13E5-4655-B824-6616D6C791CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB6B3DB4-13E5-4655-B824-6616D6C791CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB6B3DB4-13E5-4655-B824-6616D6C791CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB6B3DB4-13E5-4655-B824-6616D6C791CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27C7B21-5CCD-485E-A773-A3098FFE13F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27C7B21-5CCD-485E-A773-A3098FFE13F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27C7B21-5CCD-485E-A773-A3098FFE13F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27C7B21-5CCD-485E-A773-A3098FFE13F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A12CA2-01F6-49F4-BC58-390D1783D515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A12CA2-01F6-49F4-BC58-390D1783D515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A12CA2-01F6-49F4-BC58-390D1783D515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A12CA2-01F6-49F4-BC58-390D1783D515}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

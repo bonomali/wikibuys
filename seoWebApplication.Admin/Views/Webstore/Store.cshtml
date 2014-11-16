@@ -1,0 +1,36 @@
+﻿@model IEnumerable<seoWebApplication.Data.product>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1>@ViewBag.Name</h1>
+<div class="row">
+    @foreach (var item in Model)
+    {
+         <div class="col-md-3">
+              
+                 <div class="thumbnail dark">
+                     <span class="label label-info price">@String.Format("{0:c}", item.price)</span>
+                     <div class="image_block">
+                         <a href="@Link.ToProduct(item.product_id)">
+                             <img width="225" border="0" src="/ProductImages/@Html.DisplayFor(modelItem => item.image)"
+                                  alt='@Html.DisplayFor(modelItem => item.name)' class="product-image" />
+                         </a>
+                     </div>
+                      
+                     <div class="caption">
+                         <a href="@Link.ToProduct(item.product_id)">
+                             @Html.DisplayFor(modelItem => item.name)
+                         </a> 
+                     </div>
+
+                     <a href="@Link.ToProduct(item.product_id)" class="btn btn-block">Details</a>
+
+                 </div>
+              
+</div>
+    }
+</div>
+
+     

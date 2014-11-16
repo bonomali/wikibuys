@@ -1,0 +1,46 @@
+﻿@model seoWebApplication.Data.state
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>state</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.idState)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stateSname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.stateSname)
+                @Html.ValidationMessageFor(model => model.stateSname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stateLname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.stateLname)
+                @Html.ValidationMessageFor(model => model.stateLname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,652 @@
+/**
+ * Main style file, contains all page styles, on top of the bootstrap css
+ *
+ * @author D. Tiems (dennis-at-bigbase-dot-nl)
+ * @version 1.1.0 - May 20th 2013
+ */
+
+/* Specific fonts */
+* {
+	font-family:arial, sans-serif;
+}
+h1,h2,h3,h4 {
+	font-family:'Ubuntu', sans-serif;
+}
+h5,h6 {
+	font-family:'McLaren', cursive;
+	color:#999;
+}
+
+/* Always use nice dots for password fields */
+input[type=password] {
+	font-family:verdana !important;
+}
+
+/* Fix for fluid input height in bootstrap 2.1.0 */
+.row-fluid input[class*='span'] {
+	min-height:20px;
+}
+
+/* Print adjustments */
+@media screen {
+	.print-show {
+		display:none !important;
+	}
+}
+@media print {
+	* {
+		font-family:Arial !important;
+	}
+	.print-hide {
+		display:none !important;
+	}
+}
+
+/* Message overlay background */
+.modal-backdrop {
+	opacity: 0.2;
+	filter: alpha(opacity=20);
+}
+
+/* Different icons */
+[class^="icon-"],
+[class*=" icon-"] {
+  background-image: url("/images/glyphicons-halflings.png");
+}
+.icon-white,
+.main-nav.navbar .nav > li > a:hover i,
+.main-nav.navbar .nav > .active > a i,
+.main-nav.navbar .nav > .active > a:hover i,
+.nav-tabs > .active > a > [class^="icon-"],
+.nav-tabs > .active > a > [class*=" icon-"],
+.nav-pills > .active > a > [class^="icon-"],
+.nav-pills > .active > a > [class*=" icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class*=" icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"] {
+  background-image: url("../images/glyphicons-halflings-white.png");
+}
+
+/* Page and menu layout */
+.header-shadow {
+	position:absolute;
+	width:100%;
+	overflow:hidden;
+	height:40px;
+	-moz-box-shadow: 0 0 10px #999;
+	-webkit-box-shadow: 0 0 10px #999;
+	box-shadow: 0 0 10px #999;
+}
+.header-action {
+	margin:10px 0 0 10px;
+}
+.header-search {
+	margin:auto;
+}
+.navbar .nav>li>.dropdown-menu:after, 
+.navbar .nav>li>.dropdown-menu:before,
+.navbar .nav>li>.dropdown-menu {
+    content: none !important;
+}
+.navbar .nav>li>.dropdown-menu {
+	margin:-5px 0 0 10px;
+	border:none;
+	padding:0;
+}
+.navbar .nav>li>.dropdown-menu li {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.header-nav .nav li {
+	font-size:12px;
+}
+.header-nav.navbar .nav > .active > a, 
+.header-nav.navbar .nav > .active > a:hover, 
+.header-nav.navbar .nav > .active > a:focus {
+	background-color:transparent;
+	color:#000;
+  -webkit-box-shadow:none;
+     -moz-box-shadow:none;
+          box-shadow:none;
+}
+.header-search-nav .nav li {
+	font-size:12px;
+}
+.header-search-nav.navbar .nav > .active > a, 
+.header-search-nav.navbar .nav > .active > a:hover, 
+.header-search-nav.navbar .nav > .active > a:focus {
+	background-color:transparent;
+	color:#000;
+  -webkit-box-shadow:none;
+     -moz-box-shadow:none;
+          box-shadow:none;
+}
+.main-nav.navbar .nav > li > a {
+  text-shadow:none;
+}
+.main-nav.navbar > .navbar-inner > .container > a.btn-navbar {
+  background-image:none;
+	background-color:#3a87ad;
+	padding:4px 13px 4px 13px;
+	margin-bottom:5px;
+}
+.main-nav.navbar .nav > .active > a,
+.main-nav.navbar .nav > li > a:hover,
+.main-nav.navbar .nav > .active > a:hover {
+	background-color:#3a87ad;
+	color:#fff;
+  -webkit-box-shadow:none;
+     -moz-box-shadow:none;
+          box-shadow:none;
+}
+.main-nav.navbar .nav > .active > a > .caret,
+.main-nav.navbar .nav > li > a:hover > .caret,
+.main-nav.navbar .nav > .active > a:hover > .caret {
+	border-top-color: #fff !important;
+	border-bottom-color: #fff !important;
+}
+.dropdown-content {
+	/* For using a div in a dropdown to show some info */
+	padding:5px 5px 5px 20px;
+	width:200px;
+}
+.dropdown-content-wide {
+	width:300px;
+}
+.dropdown-content form,
+.dropdown-content address {
+	padding:0;
+	margin:0;
+}
+.social-icons {
+	padding:20px 0 0 10px;
+	width:120px
+}
+.input-micro {
+	width:20px;
+	text-align:center;
+}
+td[align="right"] {
+	/* Reset to correct value */
+	text-align:right;
+}
+td[align="center"] {
+	/* Reset to correct value */
+	text-align:center;
+}
+.dropdown-menu small.label {
+}
+
+/* Article style */
+.article img {
+	float:right;
+	width:40%;
+}
+
+/* Product lists */
+.product-list-inline-small {
+}
+.product-list-inline-small .price {
+	font-size:125%;
+	padding:5px 10px 5px 10px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	/* Use for rotating price (IE9+) */
+	-webkit-transform:rotate(355deg);
+	-moz-transform:rotate(355deg);
+	-o-transform:rotate(355deg);
+	-ms-transform:rotate(355deg);
+}
+span.price {
+	font-size:125%;
+	padding:5px 10px 5px 10px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	/* Use for rotating price (IE9+) */
+	-webkit-transform:rotate(355deg);
+	-moz-transform:rotate(355deg);
+	-o-transform:rotate(355deg);
+	-ms-transform:rotate(355deg);
+}
+
+span.price {
+	font-size:200%;
+	line-height:150%;
+	position:absolute;
+	z-index:10;
+	margin-left:-15px;
+	margin-top:-10px;
+	width:115px;
+	text-align:center;
+	padding-left:5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	/* Use for rotating price (IE9+) */
+	-webkit-transform:rotate(350deg);
+	-moz-transform:rotate(350deg);
+	-o-transform:rotate(350deg);
+	-ms-transform:rotate(350deg);
+}
+.product-list-inline-large {
+}
+.product-list-inline-large .thumbnail {
+	padding:10px;
+	border:none;
+}
+.product-list-inline-large .thumbnail.light {
+	background-color:#eee;
+}
+.product-list-inline-large .thumbnail.dark {
+	background-color:#ccc;
+}
+
+div.thumbnail {
+	padding:10px;
+	border:none;
+    height:276px;
+}
+
+div.thumbnail.dark {
+	background-color:#ccc;
+}
+
+    div.image_block {
+        height:80%;
+        background-color:#FFF;
+    }
+
+.product-list-inline-large .thumbnail .price {
+	font-size:200%;
+	line-height:150%;
+	position:absolute;
+	z-index:10;
+	margin-left:-15px;
+	margin-top:-10px;
+	width:115px;
+	text-align:center;
+	padding-left:5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	/* Use for rotating price (IE9+) */
+	-webkit-transform:rotate(350deg);
+	-moz-transform:rotate(350deg);
+	-o-transform:rotate(350deg);
+	-ms-transform:rotate(350deg);
+}
+.product-list-inline-large .thumbnail .price.price-over {
+	/* Use for rotating price (IE9+) */
+	-webkit-transform:rotate(355deg);
+	-moz-transform:rotate(355deg);
+	-o-transform:rotate(355deg);
+	-ms-transform:rotate(355deg);
+}
+.product-list-inline-large .thumbnail .price sup {
+	font-size:60%;
+}
+.product-list-inline-large .thumbnail .caption {
+	text-align:center;
+}
+.product-list-inline-large .thumbnail .btn-block {
+	margin:0 0 -20px 0;
+}
+
+/* Product detail */
+.product-detail .price {
+	font-size:400%;
+	line-height:150%;
+	position:absolute;
+	z-index:10;
+	text-align:center;
+	padding-left:10px;
+	padding-right:10px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	/* Use for rotating price (IE9+) */
+	-webkit-transform:rotate(5deg);
+	-moz-transform:rotate(5deg);
+	-o-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+}
+
+/* Order process */
+#step1 table tr td:first-child > img {
+	max-width:75px;
+}
+#comments {
+	width:90%;
+}
+
+/* Footer links */
+.footer ul.unstyled {
+	font-size:80%;
+}
+.footer .footer-title {
+	font-weight:bold;
+}
+
+/* Google Maps */
+.googlemap {
+	height:300px;
+	width:100%;
+}
+
+/* Forms */
+.help-block {
+	font-style:italic;
+	color:#999;
+}
+
+/*
+Skin Name: Nivo Slider Bar Theme
+Skin URI: http://nivo.dev7studios.com
+Description: The bottom bar skin for the Nivo Slider.
+Version: 1.0
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+Supports Thumbs: false
+*/
+
+.theme-bar.slider-wrapper {
+    position: relative;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+.theme-bar .nivoSlider {
+	position:relative;
+	background:#fff url(loading.gif) no-repeat 50% 50%;
+}
+.theme-bar .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-bar .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.theme-bar .nivo-controlNav {
+    position: absolute;
+    left: 0;
+    bottom: -41px;
+    z-index: 10;
+    width: 100%;
+    height: 30px;
+	text-align: center;
+	padding: 5px 0;
+	border-top: 1px solid #333;
+	background: #333;
+    background: -moz-linear-gradient(top,  #565656 0%, #333333 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#565656), color-stop(100%,#333333)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #565656 0%,#333333 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #565656 0%,#333333 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #565656 0%,#333333 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #565656 0%,#333333 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565656', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
+    opacity: 0.5;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.theme-bar:hover .nivo-controlNav {
+    bottom: 0;
+    opacity: 1;
+}
+.theme-bar .nivo-controlNav a {
+	display:inline-block;
+	width:22px;
+	height:22px;
+	background:url(bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin: 5px 2px 0 2px;
+}
+.theme-bar .nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.theme-bar .nivo-directionNav a {
+	display:block;
+	border:0;
+	color: #fff;
+	text-transform: uppercase;
+	top: auto;
+	bottom: 10px;
+	z-index: 11;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 20px;
+	opacity: 0.5;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.theme-bar a.nivo-nextNav { right: -50px; }
+.theme-bar a.nivo-prevNav { left: -50px; }
+.theme-bar:hover a.nivo-nextNav { 
+    right: 15px; 
+    opacity: 1;
+}
+.theme-bar:hover a.nivo-prevNav { 
+    left: 15px; 
+    opacity: 1;
+}
+.theme-bar .nivo-directionNav a:hover { color: #ddd; }
+
+.theme-bar .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.theme-bar:hover .nivo-caption {
+    bottom: 41px;
+}
+.theme-bar .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-bar .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-bar .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+}
+.theme-bar .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-bar .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
+button.close {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    cursor: pointer;
+    padding: 0;
+}
+.btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+    border-image: none;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+}
+.btn:hover, .btn:focus, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
+    background-color: #F5F5F5;
+    background-image: linear-gradient(to bottom, #E6E6E6, #FFFFFF);
+    background-color: #E6E6E6;
+    color: #333333;
+}
+.btn:active, .btn.active {
+}
+.btn-primary.active, .btn-warning.active, .btn-danger.active, .btn-success.active, .btn-info.active, .btn-inverse.active {
+    color: rgba(255, 255, 255, 0.75);
+}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
+    background-color: #F89406;
+    color: #FFFFFF;
+}
+.btn-warning:active, .btn-warning.active {
+}
+.btn-danger {
+    background-color: #DA4F49;
+    background-image: linear-gradient(to bottom, #EE5F5B, #BD362F);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
+    background-color: #BD362F;
+    color: #FFFFFF;
+}
+
+.btn-danger:hover {
+    background-color: #DA4F49;
+    background-image: linear-gradient(to bottom, #BD362F, #EE5F5B);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+ 
+.links a {
+	margin-right: 5px;
+}
+
+/* product_list - the side bar*/
+.product_list {
+	margin-top: -5px;
+	margin-left: 5px;
+	min-height: 500px;
+}
+.product_list ul {
+	list-style: none;
+	margin: 0;
+}
+.product_list > ul > li {
+	padding: 8px 8px 8px 0px;
+}
+.product_list > ul > li + li {
+	border-top: 1px solid #EEEEEE;
+}
+.product_list > ul > li > a {
+	text-decoration: none;
+}
+.product_list > ul > li > a:hover{
+	text-decoration: none;
+	background: none;
+}
+.product_list > ul > li ul {
+	display: none;
+}
+.product_list > ul > li a.active {
+	font-weight: bold;
+}
+.product_list > ul > li a.active + ul {
+	display: block;
+}
+.product_list > ul > li ul > li {
+	padding: 5px 5px 0px 10px;
+}
+.product_list > ul > li ul > li > a {
+	text-decoration: none;
+	display: block;
+}
+.product_list > ul > li ul > li > a.active {
+	font-weight: bold;
+}
+
+
+.related_products .span2 {
+width:160px;
+}
+
+
+.product_comparison .thumbnail{
+border: none;
+text-align:center;
+
+}
+
+.product_comparison small{
+font-weight: normal;
+}
+
+.product_comparison .product_stars {
+text-align:center;
+margin: 0 auto;
+width: 85px;
+}
+.product_comparison .price_summary td{
+text-align:center;
+}
+.navbar .btn.search_btn {
+margin-top:1px;
+}
+
+.carousel-inner {
+    height: 286px;
+}
+.carousel-caption {
+bottom: -77px;
+}
+
+.popular_products .span2{
+width:160px;
+}
+
+
+.customer_service {
+text-align:right;
+font-size:13px;
+}
+
+.table td.center_text{
+text-align:center;
+}
+
+#theme_switcher {
+   top:10px;
+   left:10px;
+   position:fixed;
+}

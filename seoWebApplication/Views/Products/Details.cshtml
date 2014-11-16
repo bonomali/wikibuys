@@ -1,0 +1,139 @@
+﻿@model seoWebApplication.Data.product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>product</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webstore_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thumbnail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thumbnail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.promofront)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promofront)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.promodept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promodept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.defaultAttribute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.defaultAttribute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.defaultAttCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.defaultAttCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertENTUserAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertENTUserAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateENTUserAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateENTUserAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Version)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

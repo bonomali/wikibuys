@@ -1,0 +1,48 @@
+﻿@model IEnumerable<seoWebApplication.Data.category>
+
+@{
+    ViewBag.Title = "CategoryWebstore";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>CategoryWebstore</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.Id })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.webstore_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.category_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.category_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.category_id })
+        </td>
+    </tr>
+}
+
+</table>

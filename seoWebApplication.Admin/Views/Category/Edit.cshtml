@@ -1,0 +1,117 @@
+﻿@model seoWebApplication.Data.category
+@using Kendo.Mvc.UI 
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>category</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.category_id) 
+        <input type="hidden" value="@ViewBag.Id" name="webstore_id" /> 
+        <div class="form-group" style="width:800px;">
+            <div style="width:160px;" class="control-label col-md-2">Department</div>
+            <div style="width:400px;">
+                @(Html.Kendo().DropDownList()
+        .Name("department_id") //The name of the dropdownlist is mandatory. It specifies the "id" attribute of the widget.
+                .DataTextField("name") //Specifies which property of the Product to be used by the dropdownlist as a text.
+                .DataValueField("department_id") //Specifies which property of the Product to be used by the dropdownlist as a value.
+                .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("GetDepartments", "Department", new { Id = ViewBag.Id }); //Set the Action and Controller name
+        })
+        .ServerFiltering(true); //If true the DataSource will not filter the data on the client.
+    })
+    .Value(Model.department_id.ToString()) 
+                )
+            </div>
+
+        </div>
+     
+       
+
+     
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.description)
+                @Html.ValidationMessageFor(model => model.description)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InsertDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InsertDate)
+                @Html.ValidationMessageFor(model => model.InsertDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InsertENTUserAccountId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InsertENTUserAccountId)
+                @Html.ValidationMessageFor(model => model.InsertENTUserAccountId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UpdateDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UpdateDate)
+                @Html.ValidationMessageFor(model => model.UpdateDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UpdateENTUserAccountId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UpdateENTUserAccountId)
+                @Html.ValidationMessageFor(model => model.UpdateENTUserAccountId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Version, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Version)
+                @Html.ValidationMessageFor(model => model.Version)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+ 
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

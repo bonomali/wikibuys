@@ -1,0 +1,59 @@
+﻿@using Kendo.Mvc.UI 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@(Html.Kendo().Grid<seoWebApplication.Data.webstore>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.webstoreName);
+        columns.Bound(p => p.address);
+        columns.Bound(p => p.ownerFName);
+        columns.Bound(p => p.ownerName);
+        columns.Bound(p => p.webstore_id).ClientTemplate("<a href='" + Url.Action("../Webstore/Edit/", new { id = "#= webstore_id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>Edit</a>  ").Title("Edit").Groupable(false);
+        columns.Bound(p => p.webstore_id).ClientTemplate("<a href='" + Url.Action("../Webstore/Delete/", new { id = "#= webstore_id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-delete'></span>Delete</a>  ").Title("Delete").Groupable(false);
+
+    })
+     .DataSource(dataSource => dataSource
+        .Ajax() // Specify that the data source is of ajax type
+         // Specify that the UserAccountId property is the unique identifier of the model
+                     .Model(model => model.Id(p => p.webstore_id))
+
+           // Configure CRUD -->
+            .Events(events => events.Error("error_handler"))
+                .Create(create => create.Action("Create", "Webstore"))
+                        .Read(read => read.Action("Webstore_Read", "Webstore"))
+                .Update(update => update.Action("Edit", "Webstore"))
+                        .Destroy(destroy => destroy.Action("Webstore_Destroy", "Webstore"))
+        // <-- Configure CRUD
+    )
+    .Pageable()
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Resizable(resize => resize.Columns(true))
+)
+
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>

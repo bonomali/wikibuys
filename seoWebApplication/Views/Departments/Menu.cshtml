@@ -1,0 +1,19 @@
+﻿@model IEnumerable<seoWebApplication.Models.Departments>
+
+@{
+    ViewBag.Title = "Index";
+}
+ 
+        <ul class="navigation hide-for-small">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="@Linkor.ToDepartment(item.department_id.ToString())" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Name)</a>
+                </li>
+            }
+        </ul> 

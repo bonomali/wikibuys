@@ -1,0 +1,53 @@
+﻿@model IEnumerable<seoWebApplication.Models.Orders>
+
+@{
+    ViewBag.Title = "Index"; 
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+ 
+
+@(Html.Kendo().Grid<seoWebApplication.Models.Orders>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.OrderID);
+        columns.Bound(p => p.total);
+        columns.Bound(p => p.CustomerName);
+        columns.Bound(p => p.CustomerEmail);
+        columns.Bound(p => p.DateCreated);
+        columns.Bound(p => p.OrderID).ClientTemplate("<a href='" + Url.Action("Edit", "Orders", new { id = "#= OrderID #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>View</a>  ").Title("View").Groupable(false);
+    })
+    .ToolBar(toolBar => toolBar.Template("<a class='k-button k-button-icontext k-grid-add' href='/Orders/Create/'>Create</a>"))
+
+    .DataSource(dataSource => dataSource
+        .Ajax() // Specify that the data source is of ajax type
+        // Specify that the UserAccountId property is the unique identifier of the model
+            .Model(model => model.Id(p => p.OrderID))
+
+            // Configure CRUD -->
+            .Events(events => events.Error("error_handler"))
+            .Read(read => read.Action("Orders_Read", "Orders"))
+        // <-- Configure CRUD
+    )
+    .Pageable()
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Resizable(resize => resize.Columns(true))
+)
+
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script> 

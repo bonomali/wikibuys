@@ -1,0 +1,81 @@
+﻿@model IEnumerable<seoWebApplication.Data.ProductAttributeValue>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsertENTUserAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateENTUserAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttributeValue.Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.webstore_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsertDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsertENTUserAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateENTUserAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Version)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttributeValue.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductAttributeValueId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductAttributeValueId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductAttributeValueId })
+        </td>
+    </tr>
+}
+
+</table>

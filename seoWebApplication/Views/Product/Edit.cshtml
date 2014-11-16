@@ -1,0 +1,272 @@
+﻿@model seoWebApplication.Models.mProducts
+
+@{
+    ViewBag.Title = "Edit";
+
+    Layout = "~/Views/Shared/_BaseAdminDouble.cshtml";
+}
+ 
+        <h2>Edit</h2>
+
+
+        @using (Html.BeginForm())
+    {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>product</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.product_id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.name)
+                        @Html.ValidationMessageFor(model => model.name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.description, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.description)
+                        @Html.ValidationMessageFor(model => model.description)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.price, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.price)
+                        @Html.ValidationMessageFor(model => model.price)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.thumbnail, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.thumbnail)
+                        @Html.ValidationMessageFor(model => model.thumbnail)
+                        @(Html.Kendo().Upload()
+                      .Name("files")
+            .Async(a => a
+                .Save("Save", "Upload")
+                .Remove("Remove", "Upload")
+                .AutoUpload(true)
+
+                 ).Events(e => e
+                 .Success("onSuccess")
+             )
+                        )
+                        <script>
+                        function onSuccess(e) {
+                            $('#thumbnail').val($('.k-filename').attr(name = 'title'));
+                            $('#image').val($('.k-filename').attr(name = 'title'));
+                        }
+                        </script>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.image, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.image)
+                        @Html.ValidationMessageFor(model => model.image)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Url, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Url)
+                        @Html.ValidationMessageFor(model => model.Url)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Specifications, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Specifications)
+                        @Html.ValidationMessageFor(model => model.Specifications)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.promofront, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.promofront)
+                        @Html.ValidationMessageFor(model => model.promofront)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.promodept, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.promodept)
+                        @Html.ValidationMessageFor(model => model.promodept)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.defaultAttribute, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.defaultAttribute)
+                        @Html.ValidationMessageFor(model => model.defaultAttribute)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.defaultAttCat, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.defaultAttCat)
+                        @Html.ValidationMessageFor(model => model.defaultAttCat)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.InsertDate, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.InsertDate)
+                        @Html.ValidationMessageFor(model => model.InsertDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.InsertENTUserAccountId, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.InsertENTUserAccountId)
+                        @Html.ValidationMessageFor(model => model.InsertENTUserAccountId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UpdateDate, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UpdateDate)
+                        @Html.ValidationMessageFor(model => model.UpdateDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UpdateENTUserAccountId, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UpdateENTUserAccountId)
+                        @Html.ValidationMessageFor(model => model.UpdateENTUserAccountId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Version, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Version)
+                        @Html.ValidationMessageFor(model => model.Version)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+    }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+   
+@section Second {
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Add
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create</h4>
+            </div>
+            
+                @{Html.RenderAction("Create", "ProductAttributeValues", new { id = Model.product_id });} 
+           
+        </div>
+    </div>
+</div>
+<table class="table">
+    @if (Model.Attributes != null) { 
+    foreach (var item in Model.Attributes)
+    { 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td> 
+                <button class="demo btn btn-primary btn-large" data-id="@item.AttributeValueID" id="BtnEdit">Edit</button>
+                <button class="demo btn btn-primary btn-large" data-id="@item.AttributeValueID" id="BtnDelete">Delete</button>
+             </td>
+        </tr> 
+    }
+    }
+</table>
+    } 
+
+<div class="modal fade bs-example-modal-sm" id="ajax-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Delete</h4>
+        </div>
+        <div class="modal-content" id="modal-content">
+            ...
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="ajax-modal-edit" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Edit</h4>
+        </div>
+        <div class="modal-content" id="modal-content">
+            ...
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Handler for .ready() called.
+        var $modal = $('#ajax-modal');
+
+        $('#BtnDelete').on('click', function () {
+            var thisID = $(this).data("id");
+            console.log(thisID);
+
+            setTimeout(function () {
+                $('#ajax-modal #modal-content').load('/productattributevalues/delete?id=' + @Model.product_id  + '&attrId=' + thisID, '', function () {
+                    $('#ajax-modal').modal();
+                });
+            }, 1000);
+        });
+
+        $('#BtnEdit').on('click', function () {
+            var thisID = $(this).data("id"); 
+            setTimeout(function () {
+                $('#ajax-modal-edit #modal-content').load('/productattributevalues/edit?id=' + @Model.product_id  + '&attrId=' + thisID, '', function () {
+                    $('#ajax-modal-edit').modal();
+                });
+            }, 1000);
+        });
+
+    });
+
+
+</script>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

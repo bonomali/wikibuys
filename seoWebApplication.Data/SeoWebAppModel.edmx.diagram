@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31421b52e29f4ac689531da7537623b0" Name="Diagram1">
+        <EntityTypeShape EntityType="SeoWebAppModel.Attribute" Width="1.5" PointX="12.5" PointY="26.25" />
+        <EntityTypeShape EntityType="SeoWebAppModel.AttributeValue" Width="1.5" PointX="14.75" PointY="26.5" />
+        <EntityTypeShape EntityType="SeoWebAppModel.Audit" Width="1.5" PointX="16.25" PointY="5" />
+        <EntityTypeShape EntityType="SeoWebAppModel.category" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="SeoWebAppModel.city" Width="1.5" PointX="3" PointY="13.375" />
+        <EntityTypeShape EntityType="SeoWebAppModel.controlType" Width="1.5" PointX="10.25" PointY="27.25" />
+        <EntityTypeShape EntityType="SeoWebAppModel.country" Width="1.5" PointX="11.75" PointY="10" />
+        <EntityTypeShape EntityType="SeoWebAppModel.cuisine" Width="1.5" PointX="0.75" PointY="17" />
+        <EntityTypeShape EntityType="SeoWebAppModel.customer" Width="1.5" PointX="2.75" PointY="17" />
+        <EntityTypeShape EntityType="SeoWebAppModel.department" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="SeoWebAppModel.MenuItem" Width="1.5" PointX="4.75" PointY="17" />
+        <EntityTypeShape EntityType="SeoWebAppModel.OrderDetail" Width="1.5" PointX="16.25" PointY="8.375" />
+        <EntityTypeShape EntityType="SeoWebAppModel.Order" Width="1.5" PointX="14" PointY="3.375" />
+        <EntityTypeShape EntityType="SeoWebAppModel.point" Width="1.5" PointX="9.75" PointY="11.375" />
+        <EntityTypeShape EntityType="SeoWebAppModel.product" Width="1.5" PointX="9.75" PointY="5" />
+        <EntityTypeShape EntityType="SeoWebAppModel.ProductAttributeValue" Width="1.5" PointX="17" PointY="0.75" />
+        <EntityTypeShape EntityType="SeoWebAppModel.productcategory" Width="1.5" PointX="14.75" PointY="12" />
+        <EntityTypeShape EntityType="SeoWebAppModel.review" Width="1.5" PointX="0.75" PointY="3.25" />
+        <EntityTypeShape EntityType="SeoWebAppModel.ReviewField" Width="1.5" PointX="9.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SeoWebAppModel.reviewType" Width="1.5" PointX="14.75" PointY="15" />
+        <EntityTypeShape EntityType="SeoWebAppModel.Shipping" Width="1.5" PointX="11.75" PointY="19.125" />
+        <EntityTypeShape EntityType="SeoWebAppModel.ShippingRegion" Width="1.5" PointX="13.75" PointY="18" />
+        <EntityTypeShape EntityType="SeoWebAppModel.ShoppingCart" Width="1.5" PointX="12" PointY="22.25" />
+        <EntityTypeShape EntityType="SeoWebAppModel.state" Width="1.5" PointX="0.75" PointY="13.5" />
+        <EntityTypeShape EntityType="SeoWebAppModel.storeReview" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="SeoWebAppModel.sysdiagram" Width="1.5" PointX="15.75" PointY="18" />
+        <EntityTypeShape EntityType="SeoWebAppModel.Tax" Width="1.5" PointX="11.75" PointY="5.25" />
+        <EntityTypeShape EntityType="SeoWebAppModel.UserAccount" Width="1.5" PointX="16.75" PointY="12" />
+        <EntityTypeShape EntityType="SeoWebAppModel.User" Width="1.5" PointX="17.75" PointY="17" />
+        <EntityTypeShape EntityType="SeoWebAppModel.webstore" Width="1.5" PointX="7.5" PointY="4.125" />
+        <EntityTypeShape EntityType="SeoWebAppModel.WebstoreCuisine" Width="1.5" PointX="17.75" PointY="20" />
+        <EntityTypeShape EntityType="SeoWebAppModel.zone" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="SeoWebAppModel.menuReview" Width="1.5" PointX="12" PointY="13" />
+        <EntityTypeShape EntityType="SeoWebAppModel.storePointsSetting" Width="1.5" PointX="18.75" PointY="5" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_admins" Width="1.5" PointX="4.75" PointY="21" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_Applications" Width="1.5" PointX="18.75" PointY="9" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="19.75" PointY="12" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_Profiles" Width="1.5" PointX="14.75" PointY="21" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_Roles" Width="1.5" PointX="19.75" PointY="19" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_Users" Width="1.5" PointX="19.75" PointY="22" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="20.75" PointY="3" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="20.75" PointY="6" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="20.75" PointY="9" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="16.75" PointY="23" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_attribute_values" Width="1.5" PointX="0.75" PointY="24" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_attributes" Width="1.5" PointX="2.75" PointY="24" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_category" Width="1.5" PointX="4.75" PointY="24" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_department" Width="1.5" PointX="21.75" PointY="12" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_product" Width="1.5" PointX="21.75" PointY="15" />
+        <EntityTypeShape EntityType="SeoWebAppModel.vw_product_attribute" Width="1.5" PointX="21.75" PointY="19" />
+        <AssociationConnector Association="SeoWebAppModel.FK_Attribute_controlType" />
+        <AssociationConnector Association="SeoWebAppModel.FK_AttributeValue_Attribute" />
+        <AssociationConnector Association="SeoWebAppModel.FK_ProductAttributeValue_AttributeValue" />
+        <AssociationConnector Association="SeoWebAppModel.FK_Audit_Orders" />
+        <AssociationConnector Association="SeoWebAppModel.FK_category_department" />
+        <AssociationConnector Association="SeoWebAppModel.FK_city_state" />
+        <AssociationConnector Association="SeoWebAppModel.FK_zone_city" />
+        <AssociationConnector Association="SeoWebAppModel.FK_OrderDetail_Orders" />
+        <AssociationConnector Association="SeoWebAppModel.FK_OrderDetail_product" />
+        <AssociationConnector Association="SeoWebAppModel.FK_Orders_Shipping" />
+        <AssociationConnector Association="SeoWebAppModel.FK_Orders_Tax" />
+        <AssociationConnector Association="SeoWebAppModel.FK_points_webstore" />
+        <AssociationConnector Association="SeoWebAppModel.FK_menuReviews_product" />
+        <AssociationConnector Association="SeoWebAppModel.FK_ProductAttributeValue_Product" />
+        <AssociationConnector Association="SeoWebAppModel.FK_ShoppingCart_product" />
+        <AssociationConnector Association="SeoWebAppModel.FK_storeReviews_review" />
+        <AssociationConnector Association="SeoWebAppModel.FK_menuReviews_ReviewFields" />
+        <AssociationConnector Association="SeoWebAppModel.FK_ReviewFields_webstore" />
+        <AssociationConnector Association="SeoWebAppModel.FK_menuReviews_webstore" />
+        <AssociationConnector Association="SeoWebAppModel.FK_webstore_zone" />
+        <EntityTypeShape EntityType="SeoWebAppModel.pcategory" Width="1.5" PointX="22.375" PointY="22" />
+        <EntityTypeShape EntityType="SeoWebAppModel.pcategoryproduct" Width="1.5" PointX="24.625" PointY="13.75" />
+        <AssociationConnector Association="SeoWebAppModel.FK_pcategoryproduct_product" />
+        <AssociationConnector Association="SeoWebAppModel.FK_productcategory_product" />
+        <AssociationConnector Association="SeoWebAppModel.FK_pcategory_pcategory" />
+        <AssociationConnector Association="SeoWebAppModel.FK_pcategoryproduct_pcategory" />
+        <EntityTypeShape EntityType="SeoWebAppModel.Client" Width="1.5" PointX="5.375" PointY="1.875" />
+        <EntityTypeShape EntityType="SeoWebAppModel.Picture" Width="1.5" PointX="12" PointY="0.75" />
+        <EntityTypeShape EntityType="SeoWebAppModel.SocialMedia" Width="1.5" PointX="7.375" PointY="1.875" />
+        <EntityTypeShape EntityType="SeoWebAppModel.Widget" Width="1.5" PointX="23.375" PointY="1.875" />
+        <AssociationConnector Association="SeoWebAppModel.FK_Picture_product" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

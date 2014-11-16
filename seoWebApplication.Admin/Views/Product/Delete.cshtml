@@ -1,0 +1,145 @@
+﻿@model seoWebApplication.Data.product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webstore_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thumbnail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thumbnail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.promofront)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promofront)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.promodept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promodept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.defaultAttribute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.defaultAttribute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.defaultAttCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.defaultAttCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertENTUserAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertENTUserAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateENTUserAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateENTUserAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Version)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

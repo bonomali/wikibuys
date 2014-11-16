@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <title>@ViewBag.seoTitle - @ViewBag.storeName</title>
+    <meta name="description" content="@ViewBag.seoDesc">
+    <meta name="keywords" content="@ViewBag.seoKeywords">
+
+
+    <meta name="robots" content="INDEX,FOLLOW">
+    <link rel="stylesheet" href="/css/foundation.css">
+    <link rel="stylesheet" href="/css/flexslider.css">
+    <link rel="stylesheet" href="/css/typicons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Petrona' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="images/page_images/haletabimage.ico">
+    
+    
+</head>
+<body>
+    <div id="loader">
+        <div id="progress-bar"></div>
+    </div>
+    <a id="home-nav"></a>
+    <section id="nav">
+        <div class="row">
+            <div class="large-3 columns text-right width200">
+                @if (@ViewBag.imgLogo != null)    {
+                <img src="@ViewBag.imgLogo" alt="@ViewBag.seoTitle at @ViewBag.storeName" style="width: 200px;" />
+                }
+                else{
+                <span class="label label-info"><h1>@ViewBag.storeName</h1> </span>
+                <span class="label label-info">@ViewBag.seoTitle</span>
+                }
+            </div>
+
+            <div class="large-6 columns text-right width600">
+                <uc4:SearchBox runat="server" ID="SearchBox" />
+            </div>
+
+            <div class="large-3 columns text-right width200">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderSoMed" runat="server">
+                </asp:ContentPlaceHolder>
+                <!-- Facebook div for like button -->
+
+                <div id="fb-root"></div>
+                <script>
+(function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=741995452511167";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                <br />
+
+                <a class="scroll" href="/shoppingcart.aspx">Cart</a>
+                <a class="scroll" href="/Account/Register">Register</a>
+
+            </div>
+        </div> 
+       
+    </section>
+    <section class="row">
+        <div class="pad-small">
+            <div class="large-12 columns text-right width100">
+                @Html.Action("Menu", "Departments")
+            </div>
+        </div>
+    </section>
+    <br /> 
+    <a id="work-nav">&nbsp;</a>
+    <section id="work" class="row">
+        <section class="small-6 columns">
+            @RenderBody()
+        </section>
+    </section>
+    <section class="row">
+        <div style="width:50%;float:left;">
+            <div class="fb-comments" data-href="@ViewBag.url" data-numposts="5" data-colorscheme="light"></div>
+        </div>
+    </section>
+
+    <a id="pricing-nav"></a>
+    <section id="pricing">
+
+        <div class="row pad-small">
+            <div class="columns large-12">
+
+                <div class="page-header pad-small-bottom-2">
+                    <h2 class="text-center">PRICES</h2>
+                    <div class="hr large-1 small-3"></div>
+                </div>
+
+                <div class="text-center pad-small2">
+                    <img src="/images/page_images/buy_images/medium_paypalg.png" height="45" width="45" align="absmiddle" />
+                    <br>
+                    <font size="-3">Account not required</font>
+                </div>
+
+                <div class="pricing-text" style="display:">
+
+
+                    <h4>Packet Pricing</h4>
+
+                    <p>
+                        Single packet: $3.99
+                        <br>
+                        Addtional fruit or nut: +50¢
+                        <br>
+                        Added Flaxseed: +10¢
+                    </p>
+
+
+                    <h4>Shipping</h4>
+
+                    <p>
+                        1-7 Packets: $5.00
+                        <br>
+                        8-16 Packets: $10.00
+                        <br>
+                        17-24 Packets: $15.00
+                        <br>
+                        25+ Packets <b>ships free</b>
+                        <br>
+                        *<font size="-3">Residents local to Raleigh, NC are eliable for refunded shipping. Please indicate "pick-up" in the Paypal order form to request hand delivery.</font>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <a id="contact-nav"></a>
+    <section id="contact">
+
+        <div id="contact-holder">
+            <div class="row">
+                <div class="large-12 columns text-center">
+                    <div class="page-header pad-small-bottom">
+                        <h2>Be Hale</h2>
+                    </div>
+                    <a href="mailto:support@livinghale.com"><img src="/images/page_images/footer_images/email2.png" height="32" width="32" /></a>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+                <div class="large-10 columns">
+                     <div id="contact-form">
+                        <div id="name">
+                            <input id="form-name" type="text" placeholder="Name" />
+                        </div>
+
+                        <div id="email">
+                            <input id="form-email" type="email" placeholder="Email" />
+                        </div>
+                        <div class="btn-wrapper"><div class="btn">SIGN UP</div></div>
+
+                        <div id="details-error" class="text-white"><i class="typcn typcn-warning">&nbsp;</i>Error: Please ensure all fields are completed correctly.</div>
+                        <div id="form-sent" class="text-white"><i class="typcn typcn-thumbs-up">&nbsp;</i>You are now on the list! Stay tuned for some exciting updates.</div>
+                    </div>
+                </div>-->
+        </div>
+
+        <div class="row">
+            <div class="large-12 columns text-center">
+                <div id="footer">
+                    <ul id="footer-social">
+                        <li><a href="http://instagram.com/madewithfaded" target="_blank"><i class="myicon myicon-instagram"></i></a></li>
+                        <li><a href="http://facebook.com/madewithfaded" target="_blank"><i class="myicon myicon-facebook"></i></a></li>
+                        <li><a href="http://twitter.com/madewithfaded" target="_blank"><i class="myicon myicon-twitter"></i></a></li>
+                        <li><a href="mailto:support@livinghale.com"><i class="myicon myicon-email"></i></a></li>
+                    </ul>
+                    <div id="copy-text" &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    - Powered By - <a href="http://www.Shoppersparadise.co.zw">Shoppersparadise.co.zw <i class="icon-chevron-right"></i></a>
+                        <span class="logo-text">Hale</span>&nbsp;&nbsp;2014     <span class="label label-info"><%=address%>, <%=city2%> Phone: <%=phone%></span></div>
+                </div>
+            </div>
+        </div>
+
+       <!-- end of contact holder -->
+
+
+
+
+    </section>
+
+
+    <script src="/js/custom.modernizr.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/foundation.min.js"></script>
+    <script src="/js/foundation.reveal.js"></script>
+    <script src="/js/jquery.flexslider.js"></script>
+    <script src="/js/smooth-scroll.js"></script>
+    <script src="/js/scripts.js"></script>
+    <!-- <script>
+    var video_link = 'http://player.vimeo.com/video/80870342?title=0&amp;byline=0&amp;portrait=0&amp;color=64b0af;autoplay=1';
+    </script> -->
+
+    <script>
+            $(document).foundation();
+    </script>
+
+      
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<seoWebApplication.Data.state>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.stateSname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stateLname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.stateSname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stateLname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idState }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idState }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idState })
+        </td>
+    </tr>
+}
+
+</table>

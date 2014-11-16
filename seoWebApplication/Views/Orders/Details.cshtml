@@ -1,0 +1,170 @@
+﻿@model seoWebApplication.Data.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webstore_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateShipped)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateShipped)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Verified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Verified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Canceled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Canceled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippingAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShippingAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cart_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cart_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shipping.ShippingType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shipping.ShippingType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tax.TaxType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tax.TaxType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

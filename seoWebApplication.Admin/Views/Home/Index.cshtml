@@ -1,0 +1,16 @@
+﻿@model IEnumerable<seoWebApplication.Data.cuisine>
+@{
+    ViewBag.Title = "Home Page";
+}
+ 
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <h2>@Html.DisplayFor(modelItem => item.name)</h2>
+            <p>@Html.DisplayFor(modelItem => item.SeoDescription)</p>
+            <p><a class="btn btn-default" href="@Link.ToCategoryType(item.cuisine_id)">@Html.DisplayFor(modelItem => item.SeoTitle) &raquo;</a></p>
+        </div>
+    }
+</div>
+    

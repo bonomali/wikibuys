@@ -1,0 +1,75 @@
+﻿@model seoWebApplication.Models.mProductAttributeValue
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>ProductAttributeValue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </dt>
+        @Html.HiddenFor(model => model.product_id)
+        @Html.HiddenFor(model => model.AttributeValueID)
+        <dd>
+            @Html.DisplayFor(model => model.webstore_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertENTUserAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertENTUserAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateENTUserAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateENTUserAccountId)
+        </dd>  
+
+         
+    </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

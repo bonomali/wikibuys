@@ -1,0 +1,26 @@
+﻿@model IEnumerable<seoWebApplication.Data.webstore>
+ 
+
+@section head{ 
+    <title>@ViewBag.Title - @mvcConfig.SiteName</title> 
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@ViewBag.Keywords" /> 
+    }
+<h1>@ViewBag.Title</h1> 
+
+<div class="row">
+    @foreach (var item in Model) 
+    {
+        <div class="col-md-4">
+            <h2>@Html.DisplayFor(modelItem => item.webstoreName)</h2>
+            <p>@Html.DisplayFor(modelItem => item.seoDescription)</p>
+            <p><a class="btn btn-default" href="@Link.ToStore(item.webstore_id)">View &raquo;</a></p>
+        </div>
+    }
+</div>
+
+
+ 
+ 
+
+   

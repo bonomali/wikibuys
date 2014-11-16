@@ -1,0 +1,35 @@
+﻿@model seoWebApplication.Data.state
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>state</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.stateSname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stateSname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stateLname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stateLname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idState }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

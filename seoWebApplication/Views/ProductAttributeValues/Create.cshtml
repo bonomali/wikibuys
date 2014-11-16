@@ -1,0 +1,48 @@
+﻿@model seoWebApplication.Data.ProductAttributeValue
+
+@{
+    ViewBag.Title = "Create";
+}
+ 
+@using (Html.BeginForm("Create", "ProductAttributeValues")) 
+{ 
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+            <h4>Attribute Value</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+           
+            @Html.HiddenFor(model => model.product_id,  new { @Value = ViewBag.product_id })
+            @Html.HiddenFor(model => model.webstore_id, new { @Value = ViewBag.webstore_id })
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AttributeValueID, "AttributeValueID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("AttributeValueID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AttributeValueID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                </div>
+            </div>
+             
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" value="Save changes" class="btn btn-primary" /> 
+    </div>
+}
+ 
