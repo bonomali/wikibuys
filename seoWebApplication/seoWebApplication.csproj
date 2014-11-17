@@ -1596,6 +1596,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RavenController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\ScrapeController.cs" />
     <Compile Include="Controllers\SubscribeController.cs" />
     <Compile Include="Controllers\TweetController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -1682,6 +1683,7 @@
     <Compile Include="Models\mAttributeValue.cs" />
     <Compile Include="Models\mControlType.cs" />
     <Compile Include="Models\mProductAttributeValue.cs" />
+    <Compile Include="Models\mScrape.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\OGMeta.cs" />
     <Compile Include="Models\Post.cs" />
@@ -1689,6 +1691,7 @@
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\Results.cs" />
     <Compile Include="Models\mShoppingCart.cs" />
+    <Compile Include="Models\ScrapeProperties.cs" />
     <Compile Include="Models\Subscribe.cs" />
     <Compile Include="Models\Subscriber.cs" />
     <Compile Include="Models\Orders.cs" />
@@ -1780,6 +1783,7 @@
     <Compile Include="Service\DeviceLogService.cs" />
     <Compile Include="Service\DeviceService.cs" />
     <Compile Include="Service\PostService.cs" />
+    <Compile Include="Service\ScrapeService.cs" />
     <Compile Include="Service\TwitterService.cs" />
     <Compile Include="st.SharkTankDAL\checkCoordinates.cs" />
     <Compile Include="st.SharkTankDAL\commonClasses.cs" />
@@ -2489,6 +2493,12 @@
     <Content Include="Views\Shared\_BaseAdminTriple.cshtml" />
     <Content Include="Views\Tweet\Create.cshtml" />
     <Content Include="Views\Tweet\Crawl.cshtml" />
+    <Content Include="Views\Scrape\Create.cshtml" />
+    <Content Include="Views\Scrape\Scrape.cshtml" />
+    <Content Include="Views\Scrape\Edit.cshtml" />
+    <Content Include="Views\Scrape\Index.cshtml" />
+    <Content Include="Views\Shared\_partialModal.cshtml" />
+    <Content Include="Views\Scrape\AddKeyValues.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

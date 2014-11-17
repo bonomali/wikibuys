@@ -12,6 +12,52 @@ namespace seoWebApplication.DAL
 {
     public class HtmlTool
     {
+        public static OGMeta FetchAmazon(string url) {
+            OGMeta meta = new OGMeta();
+
+            string html = FetchHtml(url);
+
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            var priceList = doc.DocumentNode.SelectNodes("//span");
+            foreach (var node in priceList)
+            {
+                if (node.HasAttributes)
+                { 
+                    if (node.Attributes["id"] != null)
+                    {
+                        if (node.Attributes["id"].Value == "priceblock_ourprice")
+                        {
+                            meta.Price = node.InnerText.Replace("$", "");
+                        }
+                        if (node.Attributes["id"].Value == "productTitle")
+                        {
+                            meta.Title = node.InnerText;
+                        }
+                    }
+                }
+            }
+
+            var imageList = doc.DocumentNode.SelectNodes("//div");
+            foreach (var node in imageList)
+            {
+                if (node.HasAttributes)
+                {
+                    if (node.Attributes["id"] != null)
+                    {
+                        if (node.Attributes["id"].Value == "imgTagWrapperId")
+                        {
+                            meta.Image = node.InnerHtml;
+                        } 
+                    }
+                }
+            }
+
+            //imgTagWrapperId
+
+            return meta;
+        }
 
         public static OGMeta FetchOG(string url)
         {
@@ -21,6 +67,7 @@ namespace seoWebApplication.DAL
 
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
+
 
             var offerlink = doc.DocumentNode.SelectNodes("//a");
             foreach (var node in offerlink)
@@ -45,6 +92,13 @@ namespace seoWebApplication.DAL
                     if (node.Attributes["class"] != null)
                     {
                         if (node.Attributes["class"].Value == "price")
+                        {
+                            meta.Price = node.InnerText.Replace("$", "");
+                        } 
+                    }
+                    if (node.Attributes["id"] != null)
+                    { 
+                        if (node.Attributes["id"].Value == "priceblock_ourprice")
                         {
                             meta.Price = node.InnerText.Replace("$", "");
                         }

@@ -1,0 +1,114 @@
+﻿@model seoWebApplication.Models.mScrape
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BaseAdminDouble.cshtml";
+}
+@section Second {
+   
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create</h4>
+            </div>
+
+            @{Html.RenderAction("AddKeyValues", "Scrape", new { id = Model.Id });}
+
+        </div>
+    </div>
+</div>
+
+@(Html.Kendo().Grid<seoWebApplication.Models.ScrapeProperties>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Class);
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Id).ClientTemplate("<a href='" + Url.Action("DeleteScrapeProperties", "Scrape", new { id = "#= Id #", Pid = Model.Id }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>Delete</a>  ").Title("View").Groupable(false);
+         
+    })
+        .ToolBar(toolBar => toolBar.Template("<a class='k-button k-button-icontext k-grid-add' data-toggle='modal' data-target='#myModal'>Add Key/Value Pairs</a>"))
+
+    .DataSource(dataSource => dataSource
+        .Ajax() // Specify that the data source is of ajax type
+        // Specify that the UserAccountId property is the unique identifier of the model
+                .Model(model => model.Id(p => p.Id))
+
+            // Configure CRUD -->
+            .Events(events => events.Error("error_handler"))
+                        .Read(read => read.Action("ScrapeProperties_Read", "Scrape", new { Id = Model.Id }))
+        // <-- Configure CRUD
+    )
+    .Pageable()
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Resizable(resize => resize.Columns(true))
+)
+
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script> 
+    }
+<h2>Crawl</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal col-md-7">
+        <hr /> 
+
+       @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Url, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Url)
+            @Html.ValidationMessageFor(model => model.Url)
+        </div>
+    </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
