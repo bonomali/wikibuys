@@ -47,7 +47,7 @@
                                     <%# HttpUtility.HtmlEncode(Eval("description").ToString().Trim().Substring(0,60) + "(...)") %>         
                                     </div> 
 			                        </div>
-                                    <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="btn btn-block">Details</a> 
+                                    <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button [tiny small large radius round]">Details</a> 
 				                </div>
 			                </div>
 	                  </div> 

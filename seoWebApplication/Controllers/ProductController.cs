@@ -51,6 +51,22 @@ namespace seoWebApplication.Controllers
             return Json(result);
         }
 
+        // GET: /SetPromoDefault/
+        public ActionResult SetPromoDefault(int Id)
+        {
+            _productService.SetPromoDefault(Id);
+
+            return RedirectToAction("Index", "Product");
+        }
+
+        // GET: /RemovePromoDefault/
+        public ActionResult RemovePromoDefault()
+        {
+            _productService.RemovePromoDefault();
+
+            return RedirectToAction("Index", "Product");
+        }
+
         // POST: /Product/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

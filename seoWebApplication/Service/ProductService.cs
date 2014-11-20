@@ -373,5 +373,20 @@ namespace seoWebApplication.Service
             }
         }
 
+        internal void SetPromoDefault(int Id)
+        { 
+            var query = Query<mProducts>.EQ(e => e.product_id, Id);
+            var update = Update<mProducts>.Set(e => e.promofront, true);
+
+            _product.Collection.Update(query, update);
+        }
+
+        internal void RemovePromoDefault()
+        { 
+            var query = Query<mProducts>.EQ(e => e.promofront, true);
+            var update = Update<mProducts>.Set(e => e.promofront, false); 
+
+            _product.Collection.Update(query, update, UpdateFlags.Multi); 
+        }
     }
 }

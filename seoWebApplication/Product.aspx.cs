@@ -22,6 +22,7 @@ namespace seoWebApplication
         public string city2;
         public string phone;
         public string url;
+        public string RedirectUrl;
         public string host;
         public string price; 
         public string fbUrl;
@@ -90,7 +91,10 @@ namespace seoWebApplication
         string shortDesc = pd.description.ToString();
         descriptionLabel.Text = shortDesc;
         priceLabel.Text += String.Format("{0:c}", pd.price);
-        price = String.Format("{0:c}", pd.price); 
+        price = String.Format("{0:c}", pd.price);
+
+        var product = new ProductService(); 
+        RedirectUrl = product.GetProduct(Convert.ToInt32(productId)).Url;
         string fileName = pd.image;
         if (fileName.Length <= 0)
         {
@@ -115,19 +119,7 @@ namespace seoWebApplication
         }
 
         
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            // Retrieve ProductID from the query string
-            string pid = Request.QueryString["idProduct"];
-
-            string[] words = pid.Split(',');
-
-            string productId = words[1];
-            // Retrieves product details  
-            var product = new ProductService(); 
-            Response.Redirect(product.GetProduct(Convert.ToInt32(productId)).Url);
-        }
+ 
 }
 
  
