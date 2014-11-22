@@ -2533,6 +2533,7 @@
     <Content Include="Styles\jade\navbar-fixed.jade" />
     <Content Include="Styles\jade\navbar-grid.jade" />
     <Content Include="Styles\jade\navbar-more.jade" />
+    <Content Include="Views\Departments\Categories.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

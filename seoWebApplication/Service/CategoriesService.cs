@@ -21,6 +21,7 @@ namespace seoWebApplication.Service
          public void Create(Categories categories)
         {
             categories.category_id = GetLastId();
+            categories.webstore_id = dBHelper.GetWebstoreId();
             _categories.Collection.Insert(categories);
         }
 
@@ -93,6 +94,17 @@ namespace seoWebApplication.Service
             return post;
         }
 
+         internal void Update(Categories p)
+         {
+             var query = Query<Categories>.EQ(e => e.category_id, p.category_id);
+             var update = Update<Categories>.Set(e => e.Name, p.Name)
+                                            .Set(e => e.department_id, p.department_id)
+                                            .Set(e => e.Description, p.Description)
+                                            .Set(e => e.UpdateENTUserAccountId, p.UpdateENTUserAccountId)
+                                            .Set(e => e.UpdateDate, p.UpdateDate);
+
+             _categories.Collection.Update(query, update);
+         }
          public int GetLastId()
          {
              try

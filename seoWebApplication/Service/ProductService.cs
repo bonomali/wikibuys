@@ -183,7 +183,21 @@ namespace seoWebApplication.Service
             }
            
         }
+        internal List<Departments> GetDepartments(int Id)
+        {
+            if (Id > 0)
+            {
+                mProducts pquery = (from e in _product.Collection.AsQueryable<mProducts>()
+                                    where e.product_id == Id
+                                    select e).First();
+                return pquery.Departments.ToList();
+            }
+            else
+            {
+                return null;
+            }
 
+        }
         internal mProductAttributeValue GetProductAttribute(int Id, int AttrId)
         {
             if (Id > 0)
@@ -232,8 +246,7 @@ namespace seoWebApplication.Service
             {
                 return new List<mProducts>();
             }
-        }
-
+        } 
         internal void AddProductToCategory(int productid, int categoryid)
         {
             try

@@ -24,7 +24,7 @@
 
             // configure crud -->
                     .Events(events => events.Error("error_handler"))
-                                    .Read(read => read.Action("Category_Read", "Category"))
+                                        .Read(read => read.Action("Categories_Read", "Category", new { id = ViewBag.id }))
         // <-- configure crud
     )
         .Pageable()

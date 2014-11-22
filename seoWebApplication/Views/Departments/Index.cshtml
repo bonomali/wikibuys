@@ -12,6 +12,7 @@
         columns.Bound(p => p.department_id);
         columns.Bound(p => p.Description);
         columns.Bound(p => p.Name);
+        columns.Bound(p => p.department_id).ClientTemplate("<a href='" + Url.Action("Categories", "departments", new { id = "#= department_id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>Categories</a>  ").Title("view").Groupable(false);
         columns.Bound(p => p.department_id).ClientTemplate("<a href='" + Url.Action("edit", "departments", new { id = "#= department_id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>view</a>  ").Title("view").Groupable(false);
     })
             .ToolBar(toolbar => toolbar.Template("<a class='k-button k-button-icontext k-grid-add' href='/departments/create/'>create</a>"))

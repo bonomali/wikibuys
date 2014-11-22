@@ -59,5 +59,6 @@ namespace seoWebApplication.Models
         public byte[] Version { get; set; }
         public List<mProductAttributeValue> Attributes { get; set; } 
         public List<Categories> Categories { get; set; } 
+        public List<Departments> Departments { get; set; } 
     }
 }

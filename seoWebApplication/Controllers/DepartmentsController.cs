@@ -15,9 +15,9 @@ using seoWebApplication.Models;
 
 namespace seoWebApplication.Controllers
 {
+   // [Authorize(Roles = "Admin")]
     public class DepartmentsController : Controller
-    {
-        private SeoWebAppEntities db = new SeoWebAppEntities();
+    { 
         private DepartmentService _departmentService = new DepartmentService();
         // GET: /Departments/
         public ActionResult Index()
@@ -25,6 +25,12 @@ namespace seoWebApplication.Controllers
             return View();
         }
 
+        public ActionResult Categories(int id)
+        {
+            ViewBag.Id = id;
+            return View();
+        }
+         
         public ActionResult Departments_Read([DataSourceRequest]DataSourceRequest request)
         { 
             var depts = (from e in _departmentService.GetDepartments()
@@ -128,14 +134,6 @@ namespace seoWebApplication.Controllers
             _departmentService.Delete(id); 
             return RedirectToAction("Index");
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+         
     }
 }
