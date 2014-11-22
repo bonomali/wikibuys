@@ -76,6 +76,15 @@ namespace seoWebApplication {
         protected global::seoWebApplication.SearchBox SearchBox1;
         
         /// <summary>
+        /// DepartmentsList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::seoWebApplication.UserControls.DepartmentsList DepartmentsList;
+        
+        /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>

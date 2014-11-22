@@ -1278,6 +1278,36 @@
 .classic-style-nav .mk-search-trigger {
   padding: 16px 0;
 }
+
+#wikibuys-nav-category-wrapper {
+  position: absolute;
+  right: -90px;
+  width: 330px;
+  height: 100%;
+  -webkit-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  display: none;
+}
+#wikibuys-nav-category-wrapper:before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  border-right: none;
+  border-bottom: none;
+  top: -6px;
+  right: 88px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  z-index: 8;
+}
 #mk-nav-search-wrapper {
   position: absolute;
   right: -90px;
@@ -1311,6 +1341,51 @@
   display: block;
   overflow: hidden;
 }
+#mk-nav-search-wrapper form.ajax-searching .nav-side-search-icon:before {
+  -moz-animation: spin 0.8s infinite linear;
+  -o-animation: spin 0.8s infinite linear;
+  -webkit-animation: spin 0.8s infinite linear;
+  animation: spin 0.8s infinite linear;
+  display: inline-block;
+  content: "\e2a2";
+}
+#mk-nav-search-wrapper input[type=text] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: none;
+  height: 100%;
+  background-color: #fff;
+  padding: 0 10px;
+  width: 275px;
+  line-height: 30px;
+  border: 1px solid #e3e3e3;
+  border-right: none;
+}
+#mk-nav-search-wrapper input[type=submit] {
+  width: 24%;
+  height: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 0;
+  top: 0; 
+}
+#mk-nav-search-wrapper .nav-side-search-icon {
+  width: 56px;
+  height: 100%;
+  line-height: 56px;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  color: #fff;
+  text-align: center;
+  background-color: #bfbcbc;
+} 
+
 #mk-nav-search-wrapper form.ajax-searching .nav-side-search-icon:before {
   -moz-animation: spin 0.8s infinite linear;
   -o-animation: spin 0.8s infinite linear;
@@ -12337,3 +12412,9 @@ table td {
     position: fixed !important;
   }
 }
+
+div.out { 
+    margin-top: 58px !important;
+    width: 100%; 
+    background-color: #bfbcbc; 
+  }

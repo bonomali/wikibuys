@@ -52,7 +52,7 @@
 <div class="main-nav-side-search">
 <a class="mk-search-trigger mk-toggle-trigger mk-toggle-active" href="#"><i class="fa fa-search"></i>Search</a>
 <div id="mk-nav-search-wrapper" class="mk-box-to-trigger" style="display: none; top: 30px;"> 
-    <uc4:SearchBox runat="server" ID="SearchBox" />
+    <uc4:SearchBox runat="server" id="SearchBox2" />  
 </div>
 </div>  
 <div class="mk-header-right">
@@ -73,22 +73,15 @@
  
 </div>
 </div> 
-            <div class="clearboth"></div>
-</div>
- 
+<div class="clearboth"></div>
+</div> 
         <a id="home-nav"></a>
         <section id="nav">
 	    <div class="row">
 		<div class="large-4 columns text-right width375">
 			<ul class="navigation hide-for-small">
 				<li><a class="scroll" href="#highlights-nav">Stores</a></li>
-                <li><a href="#" data-dropdown="hover1" data-options="is_hover:true">Categories</a>
-
-<ul id="hover1" class="f-dropdown" data-dropdown-content>
-  <li><a href="#">This is a link</a></li>
-  <li><a href="#">This is another</a></li>
-  <li><a href="#">Yet another</a></li>
-</ul></li>
+                <li><a class="wiki-category-trigger scroll" href="#">Categories</a></li>
                 <!-- <li><a class="scroll" href="#buy-nav">BUY</a></li> -->
 			</ul>
 		</div>
@@ -126,10 +119,10 @@
 
         </section>
 
-        <div id="myModal" class="reveal-modal large" style="padding: 0;">
-            <div class="flex-video" style="-webkit-transform-origin: 0px 0px; opacity: 1; -webkit-transform: scale(1, 1);">
-                <iframe id="video_frame" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
+        <div class="row"> 
+            <div class="wiki-box-to-trigger f-dropdown" style="display: none; top: 54px;left: 360px;">  
+             <uc3:DepartmentsList runat="server" id="DepartmentsList" />
+            </div> 
         </div>
          
         <a id="work-nav">&nbsp;</a>

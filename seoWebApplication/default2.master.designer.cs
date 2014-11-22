@@ -40,13 +40,13 @@ namespace seoWebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SearchBox control.
+        /// SearchBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::seoWebApplication.SearchBox SearchBox;
+        protected global::seoWebApplication.SearchBox SearchBox2;
         
         /// <summary>
         /// UserInfo2 control.
@@ -74,6 +74,15 @@ namespace seoWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::seoWebApplication.SearchBox SearchBox1;
+        
+        /// <summary>
+        /// DepartmentsList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::seoWebApplication.UserControls.DepartmentsList DepartmentsList;
         
         /// <summary>
         /// ContentPlaceHolder1 control.
