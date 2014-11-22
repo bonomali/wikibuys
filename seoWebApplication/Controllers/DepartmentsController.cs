@@ -26,8 +26,7 @@ namespace seoWebApplication.Controllers
         }
 
         public ActionResult Departments_Read([DataSourceRequest]DataSourceRequest request)
-        {
-            //int clientId = Convert.ToInt32(Session["ClientId"]);
+        { 
             var depts = (from e in _departmentService.GetDepartments()
                             select e).ToList();
 
@@ -40,13 +39,13 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Departments/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            seoWebApplication.Data.department department = db.departments.Find(id);
+            var department = _departmentService.GetDepartmentsById(id);
             if (department == null)
             {
                 return HttpNotFound();
@@ -77,61 +76,58 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Departments/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    department department = db.departments.Find(id);
-        //    if (department == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(department);
-        //}
+        public ActionResult Edit(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var department = _departmentService.GetDepartmentsById(id);
+            if (department == null)
+            {
+                return HttpNotFound();
+            }
+            return View(department);
+        }
 
         // POST: /Departments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="department_id,webstore_id,Description,Name,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version")] department department)
+        public ActionResult Edit([Bind(Include = "department_id,webstore_id,Description,Name,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version")] Departments department)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(department).State = EntityState.Modified;
-                db.SaveChanges();
+                _departmentService.Update(department);
                 return RedirectToAction("Index");
             }
             return View(department);
         }
 
         // GET: /Departments/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    department department = db.departments.Find(id);
-        //    if (department == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(department);
-        //}
+        public ActionResult Delete(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var department = _departmentService.GetDepartmentsById(id);
+            if (department == null)
+            {
+                return HttpNotFound();
+            }
+            return View(department);
+        }
 
         // POST: /Departments/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    department department = db.departments.Find(id);
-        //    db.departments.Remove(department);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            _departmentService.Delete(id); 
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {

@@ -29,6 +29,17 @@ namespace seoWebApplication.Service
             _product.Collection.Insert(product);
         }
 
+        public IEnumerable<mProducts> GetProducts(int limit, int skip)
+        {
+            var productsCursor = _product.Collection.FindAllAs<mProducts>()
+                .SetSortOrder(SortBy<mProducts>.Ascending(p => p.name))
+                .SetLimit(limit)
+                .SetSkip(skip)
+                .SetFields(Fields<mProducts>.Include(p => p.Id, p => p.name));
+            return productsCursor;
+        }
+ 
+
 
         public IList<mProducts> GetProducts()
         {

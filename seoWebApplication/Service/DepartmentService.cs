@@ -37,7 +37,17 @@ namespace seoWebApplication.Service
                  return false;
              }
          }
-        
+
+         internal void Update(Departments p)
+         {
+             var query = Query<Departments>.EQ(e => e.department_id, p.department_id);
+             var update = Update<Departments>.Set(e => e.Name, p.Name)
+                                            .Set(e => e.Description, p.Description)
+                                            .Set(e => e.UpdateENTUserAccountId, p.UpdateENTUserAccountId)
+                                            .Set(e => e.UpdateDate, p.UpdateDate);
+
+             _departments.Collection.Update(query, update);
+         }
 
          public IList<Departments> GetDepartments()
         {
