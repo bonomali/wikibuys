@@ -18,7 +18,10 @@ $(".wiki-category-trigger").mouseover(function () {
     $(this).addClass('active');
     $('.mk-login-register').hide();
     $('#mk-header-subscribe').hide();
-    $('.wiki-box-to-trigger').show();
+    var p = $(this);
+    var offset = p.offset();
+    console.log(offset);
+    $('.wiki-box-to-trigger').show().css("left", offset.left).css("top", offset.top+15);
     $('#mk-nav-search-wrapper').hide(); 
     $('.mk-shopping-cart-box').hide();
 });

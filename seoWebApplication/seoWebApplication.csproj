@@ -1092,6 +1092,7 @@
     <Content Include="DefaultMasterIndex.master" />
     <Content Include="bootstrap-theme.css.map" />
     <Content Include="bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\wikibuys.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wikibuys.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
