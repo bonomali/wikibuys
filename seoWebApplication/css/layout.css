@@ -1289,6 +1289,7 @@
   box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
   background-color: #fff;
   display: none;
+  z-index: 100000;
 }
 #wikibuys-nav-category-wrapper:before {
   position: absolute;
