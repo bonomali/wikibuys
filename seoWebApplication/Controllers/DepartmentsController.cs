@@ -15,7 +15,7 @@ using seoWebApplication.Models;
 
 namespace seoWebApplication.Controllers
 {
-   // [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class DepartmentsController : Controller
     { 
         private DepartmentService _departmentService = new DepartmentService();

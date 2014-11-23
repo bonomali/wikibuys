@@ -13,6 +13,7 @@ using Kendo.Mvc.Extensions;
 
 namespace seoWebApplication.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     { 
         private CategoriesService _categoriesService = new CategoriesService();
