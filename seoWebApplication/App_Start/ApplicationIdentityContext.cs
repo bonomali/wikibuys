@@ -20,8 +20,7 @@
             MongoUrl con = new MongoUrl(connectionString);
             MongoClient client = new MongoClient(con);
             MongoServer mongoServer = client.GetServer();
-            string dbName = ConfigurationManager.AppSettings["DatabaseId"];
-            MongoDatabase database = mongoServer.GetDatabase(dbName); 
+            MongoDatabase database = mongoServer.GetDatabase(ConfigurationManager.AppSettings["DatabaseId"]); 
 
             var users = database.GetCollection<IdentityUser>("users");
             var roles = database.GetCollection<IdentityRole>("roles");

@@ -51,28 +51,12 @@ namespace seoWebApplication.Controllers
             return Json(result);
         }
 
-        // GET: /SetPromoDefault/
-        public ActionResult SetPromoDefault(int Id)
-        {
-            _productService.SetPromoDefault(Id);
-
-            return RedirectToAction("Index", "Product");
-        }
-
-        // GET: /RemovePromoDefault/
-        public ActionResult RemovePromoDefault()
-        {
-            _productService.RemovePromoDefault();
-
-            return RedirectToAction("Index", "Product");
-        }
-
         // POST: /Product/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost, ValidateInput(false)]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications")] mProducts product)
+        public ActionResult Create([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial")] mProducts product)
         {
             if (ModelState.IsValid)
             {
@@ -101,9 +85,9 @@ namespace seoWebApplication.Controllers
         // POST: /Product/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-         [HttpPost, ValidateInput(false)]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications")] mProducts product)
+        public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial")] mProducts product)
         {
             if (ModelState.IsValid)
             {

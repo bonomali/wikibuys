@@ -15,9 +15,8 @@
         columns.Bound(p => p.IsActive);
         columns.Bound(p => p.promodept);
         columns.Bound(p => p.product_id).ClientTemplate("<a href='" + Url.Action("Edit", "Product", new { id = "#= product_id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>View</a>  ").Title("View").Groupable(false);
-        columns.Bound(p => p.product_id).ClientTemplate("<a href='" + Url.Action("SetPromoDefault", "Product", new { id = "#= product_id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>Promo Default</a>  ").Title("View").Groupable(false);
     })
-                .ToolBar(toolBar => toolBar.Template("<a class='k-button k-button-icontext k-grid-add' href='/Product/Create/'>Create</a><a class='k-button k-button-icontext k-grid-add' href='/Product/RemovePromoDefault/'>Remove Default Promo</a>"))
+    .ToolBar(toolBar => toolBar.Template("<a class='k-button k-button-icontext k-grid-add' href='/Product/Create/'>Create</a>"))
 
     .DataSource(dataSource => dataSource
         .Ajax() // Specify that the data source is of ajax type
