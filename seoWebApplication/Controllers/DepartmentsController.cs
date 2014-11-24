@@ -39,7 +39,7 @@ namespace seoWebApplication.Controllers
             DataSourceResult result = depts.ToDataSourceResult(request);
             return Json(result);
         }
-
+        [AllowAnonymous]
         public ActionResult Menu(string Id) { 
             return PartialView(_departmentService.GetDepartments());
         }

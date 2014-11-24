@@ -15,10 +15,11 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-
-
+ <title><%=seoTitle + " at " + storeName%></title>
+ <meta name="description" content="<%= "" + seoDesc %>">
+ <meta name="keywords" content="<%= "" + seoKeywords %>"> 
     <!-- Open Graph data --> 
-<meta property="og:type" content="article" />
+<meta property="og:type"   content="website" />
 <meta property="og:title" content="<%=seoTitle + " at " + storeName%>"/>
 <meta property="og:image" content="<%= "" + host + imgLogo%>"/>
 <meta property="og:site_name" content="<%= "" + storeName %>"/>
@@ -44,8 +45,7 @@
             <div style="width:50%;float:right;">
             <asp:Label ID="descriptionLabel" runat="server" Text="Label"></asp:Label> <br />
                 <br />
-                <br />
-            <asp:CheckBox ID="isActive" runat="server" />       
+                <br />     
             <right><asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text=""></asp:Label></right>
             <br />  
             <uc4:ProductCustomAttributes ID="ProductCustomAttributes1" runat="server" />
@@ -55,11 +55,22 @@
             <uc3:ProductAttributesRadio ID="ProductAttributesRadio1" runat="server" /> 
             </div>  
             <uc1:PicturesModals runat="server" id="PicturesModals" /> 
-            <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click"></asp:Button>
+            <a href='<%=RedirectUrl%>' class="button [tiny small large radius round]">Click to View Offer</a> 
     </section>
      
 
     </section>
-   
-   
+    <section class="row">
+             <div style="width:50%;float:left;">
+                  <div class="fb-comments" data-href="<%= "" + url %>" data-numposts="5" data-colorscheme="light"></div>
+             </div>
+        </section>
+    <div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<%=facebookAppId %>&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </asp:Content>

@@ -113,7 +113,7 @@
 
         </section>
            <div class="row">
-            <div id="wikibuys-nav-category-wrapper" class="wiki-box-to-trigger f-dropdown" style="display: none; left: 360px; top: 54px;">  
+            <div id="wikibuys-nav-category-wrapper" class="wiki-box-to-trigger f-dropdown" style="display: none;">  
      
                 <uc3:DepartmentsList runat="server" id="DepartmentsList" />
             </div>
