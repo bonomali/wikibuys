@@ -14,7 +14,7 @@
         columns.Bound(p => p.Url);
         columns.Bound(p => p.IsActive);
         columns.Bound(p => p.AffiliateId); 
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(160);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(260);
      })
    .ToolBar(toolbar => toolbar.Create())
     .Editable(editable => editable.Mode(GridEditMode.PopUp))
