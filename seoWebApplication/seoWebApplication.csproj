@@ -679,6 +679,7 @@
     <Content Include="content\themes\start\images\ui-icons_f7a50d_256x240.png" />
     <Content Include="content\themes\start\images\ui-icons_fcd113_256x240.png" />
     <Content Include="content\themes\start\jquery-ui-1.8.16.custom.css" />
+    <Content Include="css\admin.css" />
     <Content Include="css\Application.js" />
     <Content Include="css\area.js" />
     <Content Include="css\base-admin-2-responsive.css" />
@@ -1653,6 +1654,7 @@
     <Compile Include="Controllers\PCategoryProductController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\ProductAttributeValuesController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RavenController.cs" />
@@ -1834,8 +1836,10 @@
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\CategoriesService.cs" />
     <Compile Include="Service\CustomerService.cs" />
+    <Compile Include="Models\mStores.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\AttributeService.cs" />
+    <Compile Include="Service\StoreService.cs" />
     <Compile Include="Service\ScrapeService.cs" />
     <Compile Include="Service\ShoppingCartService.cs" />
     <Compile Include="Service\ProductService.cs" />
@@ -2551,6 +2555,9 @@
     <Content Include="Views\ProductAttributeValues\Index.cshtml" />
     <Content Include="Views\Shared\_BaseAdminTriple.cshtml" />
     <Content Include="Views\Departments\Categories.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Store\Details.cshtml" />
+    <Content Include="Views\Store\Create.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
