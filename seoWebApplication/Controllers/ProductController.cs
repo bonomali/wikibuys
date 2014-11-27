@@ -1,20 +1,20 @@
-﻿using System; 
+﻿using System;
 using System.Linq;
-using System.Net; 
-using System.Web.Mvc; 
+using System.Net;
+using System.Web.Mvc;
 using seoWebApplication.Service;
 using seoWebApplication.Models;
-using Kendo.Mvc.UI; 
+using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
 
 namespace seoWebApplication.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class ProductController : Controller
-    { 
-        private ProductService _productService = new ProductService(); 
-        
-         // GET: /Product/
+    {
+        private ProductService _productService = new ProductService();
+
+        // GET: /Product/
         public ActionResult Index()
         {
             return View();
@@ -45,22 +45,38 @@ namespace seoWebApplication.Controllers
         {
             //int clientId = Convert.ToInt32(Session["ClientId"]);
             var products = (from e in _productService.GetProducts()
-                                select e).ToList();
+                            select e).ToList();
 
             DataSourceResult result = products.ToDataSourceResult(request);
             return Json(result);
         }
 
+        // GET: /SetPromoDefault/
+        public ActionResult SetPromoDefault(int Id)
+        {
+            _productService.SetPromoDefault(Id);
+
+            return RedirectToAction("Index", "Product");
+        }
+
+        // GET: /RemovePromoDefault/
+        public ActionResult RemovePromoDefault()
+        {
+            _productService.RemovePromoDefault();
+
+            return RedirectToAction("Index", "Product");
+        }
+
         // POST: /Product/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial")] mProducts product)
+        public ActionResult Create([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications")] mProducts product)
         {
             if (ModelState.IsValid)
             {
-                _productService.Create(product); 
+                _productService.Create(product);
                 return RedirectToAction("Index");
             }
 
@@ -85,13 +101,13 @@ namespace seoWebApplication.Controllers
         // POST: /Product/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial")] mProducts product)
+        public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications")] mProducts product)
         {
             if (ModelState.IsValid)
             {
-                _productService.Update(product); 
+                _productService.Update(product);
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -117,9 +133,9 @@ namespace seoWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _productService.Delete(id); 
+            _productService.Delete(id);
             return RedirectToAction("Index");
         }
-         
+
     }
 }

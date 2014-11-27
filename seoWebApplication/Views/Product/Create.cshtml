@@ -1,4 +1,4 @@
-﻿@model seoWebApplication.Models.mProducts 
+﻿@model seoWebApplication.Models.mProducts
 @{
     ViewBag.Title = "Create";
 
@@ -6,117 +6,130 @@
 }
 
 
- @using (Html.BeginForm())
-                 {
-        @Html.AntiForgeryToken()
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-        <div class="form-horizontal col-md-7">
-            <h4>product</h4>
-            <hr />
-            @Html.ValidationSummary(true)
-             
-            <div class="form-group">
-                @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.name)
-                    @Html.ValidationMessageFor(model => model.name)
-                </div>
+    <div class="form-horizontal col-md-7">
+        <h4>product</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.description, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.description)
-                    @Html.ValidationMessageFor(model => model.description)
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.description)
+                @Html.ValidationMessageFor(model => model.description)
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.price, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.price)
-                    @Html.ValidationMessageFor(model => model.price)
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.price, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.price)
+                @Html.ValidationMessageFor(model => model.price)
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.thumbnail, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.thumbnail)
-                    @Html.ValidationMessageFor(model => model.thumbnail)
-                    @(Html.Kendo().Upload()
+        <div class="form-group">
+            @Html.LabelFor(model => model.thumbnail, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thumbnail)
+                @Html.ValidationMessageFor(model => model.thumbnail)
+                @(Html.Kendo().Upload()
                       .Name("files")
             .Async(a => a
                 .Save("Save", "Upload")
                 .Remove("Remove", "Upload")
                 .AutoUpload(true)
 
-                 ).Events(e => e 
+                 ).Events(e => e
                  .Success("onSuccess")
              )
-                    )
-                    <script>
-                        function onSuccess(e) { 
-                            $('#thumbnail').val($('.k-filename').attr(name = 'title'));
-                            $('#image').val($('.k-filename').attr(name = 'title'));
-                        }
-                    </script>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.image, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.image)
-                    @Html.ValidationMessageFor(model => model.image)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.promofront, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.promofront)
-                    @Html.ValidationMessageFor(model => model.promofront)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.promodept, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.promodept)
-                    @Html.ValidationMessageFor(model => model.promodept)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.defaultAttribute, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.defaultAttribute)
-                    @Html.ValidationMessageFor(model => model.defaultAttribute)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.defaultAttCat, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.defaultAttCat)
-                    @Html.ValidationMessageFor(model => model.defaultAttCat)
-                </div>
-            </div>
-             
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+                )
+                <script>
+                    function onSuccess(e) {
+                        $('#thumbnail').val($('.k-filename').attr(name = 'title'));
+                        $('#image').val($('.k-filename').attr(name = 'title'));
+                    }
+                </script>
             </div>
         </div>
-                 }
- 
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+        <div class="form-group">
+            @Html.LabelFor(model => model.image, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.image)
+                @Html.ValidationMessageFor(model => model.image)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Url)
+                @Html.ValidationMessageFor(model => model.Url)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Specifications, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Specifications)
+                @Html.ValidationMessageFor(model => model.Specifications)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.promofront, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.promofront)
+                @Html.ValidationMessageFor(model => model.promofront)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.promodept, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.promodept)
+                @Html.ValidationMessageFor(model => model.promodept)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.defaultAttribute, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.defaultAttribute)
+                @Html.ValidationMessageFor(model => model.defaultAttribute)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.defaultAttCat, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.defaultAttCat)
+                @Html.ValidationMessageFor(model => model.defaultAttCat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
     </div>
+}
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
