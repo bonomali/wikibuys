@@ -666,6 +666,7 @@
     <Content Include="content\kendo\2014.1.528\kendo.bootstrap.mobile.min.css" />
     <Content Include="content\kendo\2014.1.528\kendo.common-bootstrap.core.min.css" />
     <Content Include="content\kendo\2014.1.528\kendo.common-bootstrap.min.css" />
+    <Content Include="content\kendo\2014.1.528\kendo.common-material.min.css" />
     <Content Include="content\kendo\2014.1.528\kendo.common.core.min.css" />
     <Content Include="content\kendo\2014.1.528\kendo.common.min.css" />
     <Content Include="content\kendo\2014.1.528\kendo.dataviz.black.min.css" />
