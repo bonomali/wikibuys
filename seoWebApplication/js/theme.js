@@ -14,6 +14,18 @@
 //    $('.mk-shopping-cart-box').hide();
 //});
 
+$(".wiki-store-trigger").mouseover(function () {
+    $(this).addClass('active');
+    $('.mk-login-register').hide();
+    $('#mk-header-subscribe').hide();
+    var p = $(this);
+    var offset = p.offset(); 
+    $('.wiki-store-box').show().css("left", offset.left).css("top", offset.top + 15);
+    $('#mk-nav-search-wrapper').hide();
+    $('.mk-shopping-cart-box').hide();
+});
+
+
 $(".wiki-category-trigger").mouseover(function () { 
     $(this).addClass('active');
     $('.mk-login-register').hide();
@@ -44,6 +56,7 @@ $("#work").mouseover(function () {
     $('#mk-header-subscribe').hide();
     $('#mk-nav-search-wrapper').hide();
     $('.mk-shopping-cart-box').hide();
+    $('.wiki-store-box').hide();
 });
   
 $(".shoping-cart-link").mouseover(function () {

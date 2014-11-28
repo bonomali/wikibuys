@@ -313,6 +313,7 @@ namespace seoWebApplication.Service
                                            .Set(e => e.Categories, p.Categories)
                                            .Set(e => e.Attributes, p.Attributes)
                                            .Set(e => e.Url, p.Url)
+                                           .Set(e => e.store, p.store)
                                            .Set(e => e.Specifications, p.Specifications);
 
             _product.Collection.Update(query, update); 
@@ -411,6 +412,18 @@ namespace seoWebApplication.Service
             var update = Update<mProducts>.Set(e => e.promofront, false); 
 
             _product.Collection.Update(query, update, UpdateFlags.Multi); 
+        }
+
+        internal List<mProducts> GetProductsByStore(Guid id)
+        {
+            try
+            { 
+                return _product.Collection.Find(Query.EQ("store", id)).ToList<mProducts>();
+            }
+            catch (MongoConnectionException)
+            {
+                return new List<mProducts>();
+            }
         }
     }
 }

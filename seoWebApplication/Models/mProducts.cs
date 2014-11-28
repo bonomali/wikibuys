@@ -15,6 +15,8 @@ namespace seoWebApplication.Models
         public Guid Id { get; set; }
          [BsonElement("product_id")]
         public int product_id { get; set; }
+         [BsonElement("store")]
+         public Guid store { get; set; }
          [BsonElement("webstore_id")]
         public int webstore_id { get; set; }
           [BsonElement("category_id")]

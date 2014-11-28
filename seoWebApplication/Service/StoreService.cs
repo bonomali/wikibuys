@@ -80,7 +80,7 @@ namespace seoWebApplication.Service
 
         public mStores Getstores(string name)
         {
-            var post = _store.Collection.Find(Query.EQ("Name", name)).Single();
+            var post = _store.Collection.Find(Query.EQ("name", name)).Single();
             return post;
         }
 

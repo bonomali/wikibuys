@@ -11,11 +11,7 @@
 <%@ Register Src="~/UserControls/SearchBox.ascx" TagPrefix="uc4" TagName="SearchBox" %>
 <%@ Register Src="~/UserControls/LogIn.ascx" TagPrefix="uc3" TagName="LogIn" %>
 <%@ Register Src="~/UserControls/UserInfo2.ascx" TagPrefix="uc3" TagName="UserInfo2" %>
-
-
-
-
-
+<%@ Register Src="~/UserControls/StoreList.ascx" TagPrefix="uc3" TagName="StoreList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -80,7 +76,7 @@
 	    <div class="row">
 		<div class="large-4 columns text-right width375">
 			<ul class="navigation hide-for-small">
-				<li><a class="scroll" href="#highlights-nav">Stores</a></li>
+				<li><a class="scroll wiki-store-trigger" href="#highlights-nav">Stores</a></li>
                 <li><a class="wiki-category-trigger scroll" href="#">Categories</a></li>
                 <!-- <li><a class="scroll" href="#buy-nav">BUY</a></li> -->
 			</ul>
@@ -118,7 +114,11 @@
 	</div>
 
         </section>
-
+          <div class="row"> 
+            <div id="wikibuys-nav-store-wrapper" class="wiki-store-box f-dropdown" style="display: none;">  
+                <uc3:StoreList runat="server" id="StoreList" />
+            </div> 
+        </div>
         <div class="row"> 
             <div id="wikibuys-nav-category-wrapper" class="wiki-box-to-trigger f-dropdown" style="display: none;">  
              <uc3:DepartmentsList runat="server" id="DepartmentsList" />

@@ -6,6 +6,7 @@ using seoWebApplication.Service;
 using seoWebApplication.Models;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
+using System.Collections.Generic;
 
 namespace seoWebApplication.Controllers
 {
@@ -13,12 +14,15 @@ namespace seoWebApplication.Controllers
     public class StoreController : Controller
     {
         private StoreService _StoreService = new StoreService();
+        private ProductService _productService = new ProductService();
 
         // GET: /Store/
         public ActionResult Index()
         {
             return View();
         }
+
+       
 
         // GET: /Store/Details/5
         public ActionResult Details(Guid id)

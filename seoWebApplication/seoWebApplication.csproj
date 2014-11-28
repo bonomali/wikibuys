@@ -1972,6 +1972,7 @@
     <Content Include="UserControls\CategoriesList.ascx" />
     <Content Include="UserControls\contact.ascx" />
     <Content Include="UserControls\CuisineList.ascx" />
+    <Content Include="UserControls\StoreList.ascx" />
     <Content Include="UserControls\DeptCategoriesList.ascx" />
     <Content Include="UserControls\LogIn.ascx" />
     <Content Include="UserControls\MapLocation.ascx" />
@@ -2645,6 +2646,13 @@
     <Compile Include="UserControls\CuisineList.ascx.designer.cs">
       <DependentUpon>CuisineList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\StoreList.ascx.cs">
+      <DependentUpon>StoreList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\StoreList.ascx.designer.cs">
+      <DependentUpon>StoreList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DeptCategoriesList.ascx.cs">
       <DependentUpon>DeptCategoriesList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3179,6 +3187,8 @@
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Store\Details.cshtml" />
     <Content Include="Views\Store\Create.cshtml" />
+    <Content Include="Views\Store\Products.cshtml" />
+    <Content Include="Views\Products\Store.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

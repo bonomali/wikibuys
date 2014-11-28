@@ -38,6 +38,9 @@ namespace seoWebApplication.Controllers
         // GET: /Product/Create
         public ActionResult Create()
         {
+            var stores = new StoreService().Getstores();
+            ViewBag.stores = new SelectList(stores, "Id", "Name");
+
             return View();
         }
 
@@ -72,7 +75,7 @@ namespace seoWebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications")] mProducts product)
+        public ActionResult Create([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications,store")] mProducts product)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +93,10 @@ namespace seoWebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var stores = new StoreService().Getstores();
+            
             seoWebApplication.Models.mProducts product = _productService.GetProduct(id);
+            ViewBag.store = new SelectList(stores, "Id", "Name", product.store); 
             if (product == null)
             {
                 return HttpNotFound();
@@ -103,7 +109,7 @@ namespace seoWebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications")] mProducts product)
+        public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications,store")] mProducts product)
         {
             if (ModelState.IsValid)
             {

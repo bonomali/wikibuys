@@ -1279,11 +1279,42 @@
   padding: 16px 0;
 }
 
+#wikibuys-nav-store-wrapper {
+  position: absolute;
+  right: -90px;
+  width: 330px;
+  height: auto;
+  -webkit-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  display: none;
+  z-index: 100000;
+}
+#wikibuys-nav-store-wrapper:before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  border-right: none;
+  border-bottom: none;
+  top: -6px;
+  right: 88px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  z-index: 8;
+}
+
 #wikibuys-nav-category-wrapper {
   position: absolute;
   right: -90px;
   width: 330px;
-  height: 100%;
+  height: auto;
   -webkit-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
   box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
