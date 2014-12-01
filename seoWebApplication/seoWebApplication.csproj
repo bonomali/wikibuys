@@ -169,6 +169,12 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="PayPalCoreSDK">
       <HintPath>..\packages\PayPalCoreSDK.1.5.0\lib\net45\PayPalCoreSDK.dll</HintPath>
     </Reference>
@@ -805,6 +811,7 @@
     <Content Include="content\Metro\slider-h.gif" />
     <Content Include="content\Metro\slider-v.gif" />
     <Content Include="content\Metro\sprite.png" />
+    <Content Include="content\PagedList.css" />
     <Content Include="content\Silver\editor.png" />
     <Content Include="content\Silver\imagebrowser.png" />
     <Content Include="content\Silver\loading-image.gif" />
@@ -2258,6 +2265,7 @@
     <Compile Include="Common\Config.cs" />
     <Compile Include="Common\mvcConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
@@ -2276,12 +2284,14 @@
     <Compile Include="Controllers\PCategoryProductController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\ProductAttributeValuesController.cs" />
+    <Compile Include="Controllers\ScrapeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RavenController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SubscribeController.cs" />
+    <Compile Include="Controllers\TweetController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -3189,6 +3199,13 @@
     <Content Include="Views\Store\Create.cshtml" />
     <Content Include="Views\Store\Products.cshtml" />
     <Content Include="Views\Products\Store.cshtml" />
+    <Content Include="Views\Scrape\AddKeyValues.cshtml" />
+    <Content Include="Views\Scrape\Create.cshtml" />
+    <Content Include="Views\Scrape\Edit.cshtml" />
+    <Content Include="Views\Scrape\Index.cshtml" />
+    <Content Include="Views\Scrape\Scrape.cshtml" />
+    <Content Include="Views\Tweet\Crawl.cshtml" />
+    <Content Include="Views\Tweet\Create.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

@@ -12,7 +12,7 @@ using seoWebApplication.Service;
 
 namespace seoWebApplication.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private StoreService _StoreService = new StoreService();
         private ProductService _productService = new ProductService();
@@ -24,20 +24,14 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Products/Store/5
-        public ActionResult Store(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var storeId = _StoreService.Getstores(id).Id;
-            List<mProducts> products = _productService.GetProductsByStore(storeId);
-            if (products == null)
-            {
+        public ActionResult Store(string id, int? page)
+        {  
+            var listPaged = GetPagedNames(page, id); // GetPagedNames is found in BaseController
+            if (listPaged == null)
                 return HttpNotFound();
-            }
-            return View(products);
+            ViewBag.Name = id;
+
+            return View(listPaged);
         }
         
 
