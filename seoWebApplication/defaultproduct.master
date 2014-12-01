@@ -142,14 +142,7 @@
      <asp:ContentPlaceHolder ID="ContentPlaceHolderSoMed" runat="server">
                                                 </asp:ContentPlaceHolder> 
                               <!-- Facebook div for like button -->
-         
-                           
-
-
- 
-
- 
-
+          
 </div>
 </div>
 
@@ -166,7 +159,7 @@
 					 <ul id="footer-social"> 
 						<li><a href="<%=facebookUrl %>" target="_blank"><i class="myicon myicon-facebook"></i></a></li>
 						<li><a href="<%=twitterUrl %>" target="_blank"><i class="myicon myicon-twitter"></i></a></li>
-						<li><a href="mailto:support@livinghale.com"><i class="myicon myicon-email"></i></a></li>
+						<li><a href="mailto:info@wikibuys.com"><i class="myicon myicon-email"></i></a></li>
 					</ul>
 					<div id="copy-text" &copy;
                   
