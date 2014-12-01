@@ -8,7 +8,8 @@
 <%@ Register Src="~/UserControls/DeptCategoriesList.ascx" TagPrefix="uc3" TagName="DeptCategoriesList" %>
 <%@ Register Src="~/UserControls/ProductSpecials.ascx" TagPrefix="uc3" TagName="ProductSpecials" %>
 <%@ Register Src="~/UserControls/LogIn.ascx" TagPrefix="uc3" TagName="LogIn" %> 
-<%@ Register Src="~/UserControls/UserInfo2.ascx" TagPrefix="uc3" TagName="UserInfo2" %>
+<%@ Register Src="~/UserControls/UserInfo2.ascx" TagPrefix="uc3" TagName="UserInfo2" %> 
+<%@ Register Src="~/UserControls/StoreList.ascx" TagPrefix="uc3" TagName="StoreList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head id="Head1" runat="server" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
@@ -75,7 +76,7 @@
 	    <div class="row">
 		<div class="large-4 columns text-right width375">
 			<ul class="navigation hide-for-small">
-				<li><a class="scroll" href="#highlights-nav">Stores</a></li>
+				<li><a class="scroll wiki-store-trigger" href="#highlights-nav">Stores</a></li>
                  <li><a class="wiki-category-trigger scroll" href="#">Categories</a></li> 
 			</ul>
 		</div>
@@ -112,13 +113,17 @@
 	</div>
 
         </section>
+         <div class="row"> 
+            <div id="wikibuys-nav-store-wrapper" class="wiki-store-box f-dropdown" style="display: none;">  
+                <uc3:StoreList runat="server" id="StoreList" />
+            </div> 
+        </div>
            <div class="row">
             <div id="wikibuys-nav-category-wrapper" class="wiki-box-to-trigger f-dropdown" style="display: none;">  
      
                 <uc3:DepartmentsList runat="server" id="DepartmentsList" />
             </div>
-        </div>
-        <br /> 
+        </div> 
        
 
         <a id="work-nav">&nbsp;</a>
