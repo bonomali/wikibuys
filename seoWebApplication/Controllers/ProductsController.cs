@@ -31,6 +31,13 @@ namespace seoWebApplication.Controllers
                 return HttpNotFound();
             ViewBag.Name = id;
 
+            ViewBag.Title = id;
+
+            ViewBag.seoTitle  = id;
+            ViewBag.storeName = id;
+            ViewBag.seoDesc = id;
+            ViewBag.seoKeywords = id;
+
             return View(listPaged);
         }
         

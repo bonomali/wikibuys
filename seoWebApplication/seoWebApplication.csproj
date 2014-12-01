@@ -2355,6 +2355,7 @@
     <Compile Include="Framework\ControlTypes.cs" />
     <Compile Include="Framework\emailSend.cs" />
     <Compile Include="Framework\EmailService.cs" />
+    <Compile Include="Framework\HtmlHelpers\SeoHtmlHelper.cs" />
     <Compile Include="Framework\phasher.cs" />
     <Compile Include="Framework\ResultHelper.cs" />
     <Compile Include="Global.asax.cs">

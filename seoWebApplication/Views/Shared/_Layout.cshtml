@@ -8,35 +8,245 @@
     <meta name="description" content="@ViewBag.seoDesc">
     <meta name="keywords" content="@ViewBag.seoKeywords">
 
-
+    @using seoWebApplication.Framework.HtmlHelpers
     <meta name="robots" content="INDEX,FOLLOW">
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/foundation.css">
     <link rel="stylesheet" href="/css/flexslider.css">
     <link rel="stylesheet" href="/css/typicons.min.css">
+
+    <link rel="stylesheet" href="/Styles/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/responsive.css">
+    <link href="/css/layout.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Petrona' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,100,300,400,700,900' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="images/page_images/haletabimage.ico">
-    
+    <link rel="shortcut icon" href="/images/page_images/haletabimage.ico">
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5454ed505a28dd75" async="async"></script>
+
     
 </head>
 <body>
-    <div id="loader">
-        <div id="progress-bar"></div>
+    <div class="mk-header-toolbar">
+        <span class="header-toolbar-contact"><i class="fa fa-phone"></i>@SeoHtmlHelper.GetPhone()</span>
+        <span class="header-toolbar-contact"><i class="fa fa-envelope-o"></i><a href="mailto:@SeoHtmlHelper.GetEmail()">@SeoHtmlHelper.GetEmail()</a></span>
+        <div class="main-nav-side-search">
+            <a class="mk-search-trigger mk-toggle-trigger mk-toggle-active" href="#"><i class="fa fa-search"></i>Search</a>
+            <div id="mk-nav-search-wrapper" class="mk-box-to-trigger" style="display: none; top: 30px;">
+                <div style="top: 30px; display: none;" class="mk-box-to-trigger" id="mk-nav-search-wrapper">
+
+                    <script type="text/javascript" language="javascript">
+                        // &lt;!CDATA[
+
+                        function searchQueryInputField_onclick() {
+
+                        }
+
+                        // ]]&gt;
+                    </script>
+
+                    <div style="display: flex;">
+                        <input type="text" style="height:55px;margin: 2px 2px 11px 73px;" placeholder="Search all products..." size="30" class="input-search" id="ctl00_SearchBox2_searchTextBox" maxlength="100" name="ctl00$SearchBox2$searchTextBox">
+                        <span class="searchAllWords"><input type="checkbox" name="ctl00$SearchBox2$allWordsCheckBox" id="ctl00_SearchBox2_allWordsCheckBox"></span>
+                        all words
+                        <input type="submit" style="height: 56px;margin-right: 23px;" class="tiny button" id="ctl00_SearchBox2_goButton" value="Search" name="ctl00$SearchBox2$goButton">
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="mk-header-right">
+
+        </div>
+
+        <div class="mk-header-login">
+            <uc3:UserInfo2 runat="server" ID="UserInfo2" />
+            <div class="mk-login-register mk-box-to-trigger">
+                <div id="mk-login-panel">
+                    <uc3:LogIn runat="server" ID="LogIn" />
+                </div>
+            </div>
+        </div>
+        <div class="mk-header-signup">
+            <a href="#" id="mk-header-subscribe-button" class="mk-subscribe-link mk-toggle-trigger"><i class="fa fa-envelope"></i>Subscribe</a>
+            <div id="mk-header-subscribe" class="mk-box-to-trigger">
+
+            </div>
+        </div>
+        <div class="clearboth"></div>
     </div>
     <a id="home-nav"></a>
     <section id="nav">
         <div class="row">
+            <div class="large-4 columns text-right width375">
+                <ul class="navigation hide-for-small">
+                    <li><a class="scroll wiki-store-trigger" href="#highlights-nav">Stores</a></li>
+                    <li><a class="wiki-category-trigger scroll" href="#">Categories</a></li> 
+                </ul>
+            </div>
+
+            <div class="large-3 columns text-center">
+                <a class="home-link scroll" href="#home-nav"><div id="hale-logo"><img src="/Images/wikibuys.png" /></div></a>
+            </div>
+
+            <div class="large-4 columns text-left width375">
+                <ul class="navigation hide-for-small">
+                    <li><a class="scroll" href="/wiki">Wiki</a></li>
+                    <li><a class="scroll" href="/blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="open-menu show-for-small right"><i class="typcn typcn-th-menu"></i></div>
+        </div>
+
+        <div class="row">
+            <div class="large-12 columns mobile-nav">
+                <ul class="navigation">
+                    <li><a class="scroll" href="#highlights-nav">Stores</a></li>
+                    <li><a class="scroll" href="#info-nav">Categories</a></li>
+                    <li><a class="scroll" href="/wiki">Wiki</a></li>
+                    <li><a class="scroll" href="/blog">Blog</a></li>
+                </ul>
+                <div class="main-nav-side-search">
+                    <a class="mk-search-trigger mk-toggle-trigger" href="#"><i class="mk-icon-search"></i></a>
+                    <div id="mk-nav-search-wrapper" class="mk-box-to-trigger" style="display: none; top: 93px;">
+                        <div style="top: 30px; display: none;" class="mk-box-to-trigger" id="mk-nav-search-wrapper">
+
+                            <script type="text/javascript" language="javascript">
+                                // &lt;!CDATA[
+
+                                function searchQueryInputField_onclick() {
+
+                                }
+
+                                // ]]&gt;
+                            </script>
+
+                            <div style="display: flex;">
+                                <input type="text" style="height:55px;margin: 2px 2px 11px 73px;" placeholder="Search all products..." size="30" class="input-search" id="ctl00_SearchBox2_searchTextBox" maxlength="100" name="ctl00$SearchBox2$searchTextBox">
+                                <span class="searchAllWords"><input type="checkbox" name="ctl00$SearchBox2$allWordsCheckBox" id="ctl00_SearchBox2_allWordsCheckBox"></span>
+                                all words
+                                <input type="submit" style="height: 56px;margin-right: 23px;" class="tiny button" id="ctl00_SearchBox2_goButton" value="Search" name="ctl00$SearchBox2$goButton">
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div id="wikibuys-nav-store-wrapper" class="wiki-store-box f-dropdown" style="display: none;">
+
+            <li id="ctl00_StoreList_list_ctl00_liProdView" class="prodviewwide">
+                <a id="ctl00_StoreList_list_ctl00_storeHyperLink" title="Amazon Deals" class="class_menuitem_categorytype" href="/products/store/Amazon">Amazon</a>
+            </li>
+
+            <li id="ctl00_StoreList_list_ctl01_liProdView" class="prodviewwide">
+                <a id="ctl00_StoreList_list_ctl01_storeHyperLink" title="No more rack" class="class_menuitem_categorytype" href="/products/store/Nomorerack">Nomorerack</a>
+            </li>
+
+            <li id="ctl00_StoreList_list_ctl02_liProdView" class="prodviewwide">
+                <a id="ctl00_StoreList_list_ctl02_storeHyperLink" title="Best Buy" class="class_menuitem_categorytype" href="/products/store/Best%20Buy">Best Buy</a>
+            </li>
+
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div id="wikibuys-nav-category-wrapper" class="wiki-box-to-trigger f-dropdown" style="display: none; left: 428.623504638672px; top: 52px;">
+
+
+            <li id="ctl00_DepartmentsList_list_ctl00_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl00_deptHyperLink" title="Electronics" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Electronics-d1.html">Electronics</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl01_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl01_deptHyperLink" title="Apparel" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Apparel-d2.html">Apparel</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl02_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl02_deptHyperLink" title="Automotive" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Automotive-d3.html">Automotive</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl03_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl03_deptHyperLink" title="Children" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Children-d4.html">Children</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl04_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl04_deptHyperLink" title="Computers" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Computers-d5.html">Computers</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl05_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl05_deptHyperLink" title="Finance" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Finance-d6.html">Finance</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl06_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl06_deptHyperLink" title="Games" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Games-d7.html">Games</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl07_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl07_deptHyperLink" title="Freebies" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Freebies-d8.html">Freebies</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl08_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl08_deptHyperLink" title="Jewelry" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Jewelry-d9.html">Jewelry</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl09_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl09_deptHyperLink" title="Groceries" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Groceries-d10.html">Groceries</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl10_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl10_deptHyperLink" title="HDTV" class="class_menuitem_categorytype" href="http://wikibuys.com:80/High-Definition-Televisions-d11.html">High Definition Televisions</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl11_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl11_deptHyperLink" title="Home" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Home-d12.html">Home</a>
+            </li>
+
+            <li id="ctl00_DepartmentsList_list_ctl12_liProdView" class="prodviewwide">
+                <a id="ctl00_DepartmentsList_list_ctl12_deptHyperLink" title="Photos" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Photos-d13.html">Photos</a>
+            </li>
+
+
+
+        </div>
+    </div>
+    <br />
+    <a id="work-nav">&nbsp;</a>
+    <section id="work" >
+        <div class="row">
+            <div class="large-12 columns text-center">
+                <div class="page-header pad-bottom">
+                    <h2>@ViewBag.Title</h2>
+                    <div class="hr large-1 small-3"></div>
+                </div>
+            </div>
+        </div>
+         
+
+    </section>
+    <a id="home-nav"></a>
+    <section id="nav">
+        <div class="row">
             <div class="large-3 columns text-right width200">
-                @if (@ViewBag.imgLogo != null)    {
-                <img src="@ViewBag.imgLogo" alt="@ViewBag.seoTitle at @ViewBag.storeName" style="width: 200px;" />
-                }
-                else{
-                <span class="label label-info"><h1>@ViewBag.storeName</h1> </span>
-                <span class="label label-info">@ViewBag.seoTitle</span>
-                }
+              
             </div>
 
             <div class="large-6 columns text-right width600">
@@ -44,8 +254,7 @@
             </div>
 
             <div class="large-3 columns text-right width200">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolderSoMed" runat="server">
-                </asp:ContentPlaceHolder>
+                
                 <!-- Facebook div for like button -->
 
                 <div id="fb-root"></div>
@@ -56,88 +265,22 @@
                     js = d.createElement(s); js.id = id;
                     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=741995452511167";
                     fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-                <br />
-
-                <a class="scroll" href="/shoppingcart.aspx">Cart</a>
-                <a class="scroll" href="/Account/Register">Register</a>
+                }(document, 'script', 'facebook-jssdk'));</script> 
 
             </div>
         </div> 
        
-    </section>
-    <section class="row">
-        <div class="pad-small">
-            <div class="large-12 columns text-right width100">
-                @Html.Action("Menu", "Departments")
-            </div>
-        </div>
-    </section>
-    <br /> 
+    </section>  
     <a id="work-nav">&nbsp;</a>
-    <section id="work" class="row">
-        <section class="small-6 columns">
-            @RenderBody()
-        </section>
+    <section id="work" class="row"> 
+            @RenderBody() 
     </section>
     <section class="row">
         <div style="width:50%;float:left;">
             <div class="fb-comments" data-href="@ViewBag.url" data-numposts="5" data-colorscheme="light"></div>
         </div>
     </section>
-
-    <a id="pricing-nav"></a>
-    <section id="pricing">
-
-        <div class="row pad-small">
-            <div class="columns large-12">
-
-                <div class="page-header pad-small-bottom-2">
-                    <h2 class="text-center">PRICES</h2>
-                    <div class="hr large-1 small-3"></div>
-                </div>
-
-                <div class="text-center pad-small2">
-                    <img src="/images/page_images/buy_images/medium_paypalg.png" height="45" width="45" align="absmiddle" />
-                    <br>
-                    <font size="-3">Account not required</font>
-                </div>
-
-                <div class="pricing-text" style="display:">
-
-
-                    <h4>Packet Pricing</h4>
-
-                    <p>
-                        Single packet: $3.99
-                        <br>
-                        Addtional fruit or nut: +50¢
-                        <br>
-                        Added Flaxseed: +10¢
-                    </p>
-
-
-                    <h4>Shipping</h4>
-
-                    <p>
-                        1-7 Packets: $5.00
-                        <br>
-                        8-16 Packets: $10.00
-                        <br>
-                        17-24 Packets: $15.00
-                        <br>
-                        25+ Packets <b>ships free</b>
-                        <br>
-                        *<font size="-3">Residents local to Raleigh, NC are eliable for refunded shipping. Please indicate "pick-up" in the Paypal order form to request hand delivery.</font>
-
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
+     
     <a id="contact-nav"></a>
     <section id="contact">
 
@@ -145,9 +288,9 @@
             <div class="row">
                 <div class="large-12 columns text-center">
                     <div class="page-header pad-small-bottom">
-                        <h2>Be Hale</h2>
+                        <h2>WikiBuys.com</h2>
                     </div>
-                    <a href="mailto:support@livinghale.com"><img src="/images/page_images/footer_images/email2.png" height="32" width="32" /></a>
+                    <a href="mailto:info@wikibuys.com"><img src="/images/page_images/footer_images/email2.png" height="32" width="32" /></a>
                 </div>
             </div>
 
@@ -172,12 +315,7 @@
         <div class="row">
             <div class="large-12 columns text-center">
                 <div id="footer">
-                    <ul id="footer-social">
-                        <li><a href="http://instagram.com/madewithfaded" target="_blank"><i class="myicon myicon-instagram"></i></a></li>
-                        <li><a href="http://facebook.com/madewithfaded" target="_blank"><i class="myicon myicon-facebook"></i></a></li>
-                        <li><a href="http://twitter.com/madewithfaded" target="_blank"><i class="myicon myicon-twitter"></i></a></li>
-                        <li><a href="mailto:support@livinghale.com"><i class="myicon myicon-email"></i></a></li>
-                    </ul>
+                    
                     <div id="copy-text" &copy;
                     <script>document.write(new Date().getFullYear());</script>
                     - Powered By - <a href="http://www.Shoppersparadise.co.zw">Shoppersparadise.co.zw <i class="icon-chevron-right"></i></a>
@@ -197,19 +335,36 @@
     <script src="/js/custom.modernizr.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/js/foundation.min.js"></script>
+    <script src="/js/foundation/foundation.dropdown.js"></script>
     <script src="/js/foundation.reveal.js"></script>
     <script src="/js/jquery.flexslider.js"></script>
     <script src="/js/smooth-scroll.js"></script>
     <script src="/js/scripts.js"></script>
-    <!-- <script>
-    var video_link = 'http://player.vimeo.com/video/80870342?title=0&amp;byline=0&amp;portrait=0&amp;color=64b0af;autoplay=1';
-    </script> -->
+    <script src="/js/theme.js"></script>
+
 
     <script>
-            $(document).foundation();
+        $(document).foundation({
+            dropdown: {
+                // specify the class used for active dropdowns
+                active_class: 'open'
+            }
+        });
     </script>
 
-      
+     
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-56717811-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -4,10 +4,15 @@
 
 @Styles.Render("~/Content/PagedList.css")
 
-<h2>@ViewBag.Name</h2> 
-
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("store/" + ViewBag.Name, new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
-     <div class="row" work-row="">
+<div class="row">
+    <div class="large-12 columns text-center">
+        <div class="page-header pad-bottom">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("store/" + ViewBag.Name, new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+             
+        </div>
+    </div>
+</div>
+    <div class="row" work-row="">
     @foreach (var item in Model)
     {
 
