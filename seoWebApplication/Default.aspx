@@ -41,14 +41,15 @@
                                     src="<%# Link.ToProductImage(Eval("thumbnail").ToString()) %>"
                                     alt='<%# HttpUtility.HtmlEncode(Eval("name").ToString())%>' class="product-image" />
                                     </a>
-                                    <span class="label label-info price"><%# Eval("price", "{0:c}") %></span>  
+                                  
 				                </div>
                                  <div class="caption"> 
                                     <div class="description-block">
                                     <%# HttpUtility.HtmlEncode(Eval("description").ToString().Trim().Substring(0,60) + "(...)") %>         
                                     </div> 
 			                        </div>
-                                    <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button [tiny small large radius round]">Details</a> 
+                                    <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button [tiny small large radius round]">Details</a>
+                                  <span class="label label-info price pull-right"><%# Eval("price", "{0:c}") %></span>   
 			                </div>
 	                  </div> 
                  <asp:Literal ID="lblDivEnd" runat="server"></asp:Literal>

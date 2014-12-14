@@ -42,8 +42,10 @@
             <div class="fb-like" data-href="<%= "" + url %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
             <asp:Image ID="productImage" runat="server" Height="75%" Width="100%" CssClass="img-thumbnail" />
             </div>
-            <div style="width:50%;float:right;">
-            <asp:Label ID="descriptionLabel" runat="server" Text="Label"></asp:Label> <br />
+            <div style="width:50%;float:right;"> 
+            <asp:Literal ID="litDescription" runat="server" Mode="PassThrough"></asp:Literal> 
+               
+                 <br />
                 <br />
                 <br />     
             <right><asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text=""></asp:Label></right>

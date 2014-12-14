@@ -4,7 +4,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls; 
 using seoWebApplication.st.SharkTankDAL; 
 using seoWebApplication.Data;
-using seoWebApplication.Service; 
+using seoWebApplication.Service;
+using System.Net;
+using System.IO;
+using System.Text; 
 
 namespace seoWebApplication
 {
@@ -75,6 +78,23 @@ namespace seoWebApplication
             // Retrieves product details
           
         }
+
+        public static string HtmlEncode(string text)
+        {
+            char[] chars = HttpUtility.HtmlEncode(text).ToCharArray();
+            StringBuilder result = new StringBuilder(text.Length + (int)(text.Length * 0.1));
+
+            foreach (char c in chars)
+            {
+                int value = Convert.ToInt32(c);
+                if (value > 127)
+                    result.AppendFormat("&#{0};", value);
+                else
+                    result.Append(c);
+            }
+
+            return result.ToString();
+        }
         // Fill the control with data
         private void PopulateControls(ProductDetails pd)
         {
@@ -89,7 +109,8 @@ namespace seoWebApplication
         // Display product details
         titleLabel.Text = pd.name;
         string shortDesc = pd.description.ToString();
-        descriptionLabel.Text = shortDesc;
+
+        litDescription.Text = HttpUtility.HtmlDecode(shortDesc);
         priceLabel.Text += String.Format("{0:c}", pd.price);
         price = String.Format("{0:c}", pd.price);
 

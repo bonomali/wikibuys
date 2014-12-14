@@ -41,6 +41,7 @@ namespace seoWebApplication.Controllers
             var stores = new StoreService().Getstores();
             ViewBag.stores = new SelectList(stores, "Id", "Name");
 
+
             return View();
         }
 
@@ -78,7 +79,8 @@ namespace seoWebApplication.Controllers
         public ActionResult Create([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications,store")] mProducts product)
         {
             if (ModelState.IsValid)
-            {
+            { 
+                product.description = WebUtility.HtmlDecode(product.description); 
                 _productService.Create(product);
                 return RedirectToAction("Index");
             }
@@ -96,6 +98,7 @@ namespace seoWebApplication.Controllers
             var stores = new StoreService().Getstores();
             
             seoWebApplication.Models.mProducts product = _productService.GetProduct(id);
+            product.description = WebUtility.HtmlDecode(product.description); 
             ViewBag.store = new SelectList(stores, "Id", "Name", product.store); 
             if (product == null)
             {
@@ -113,6 +116,7 @@ namespace seoWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.description = product.description; 
                 _productService.Update(product);
                 return RedirectToAction("Index");
             }

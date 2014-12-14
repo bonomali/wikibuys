@@ -8,8 +8,7 @@
     <div class="large-12 columns text-center">
         <div class="page-header pad-bottom">
             @Html.PagedListPager((IPagedList)Model, page => Url.Action("store/" + ViewBag.Name, new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
-             
-        </div>
+         </div>
     </div>
 </div>
     <div class="row" work-row="">
