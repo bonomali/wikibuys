@@ -167,6 +167,14 @@ namespace seoWebApplication
             details.product_id = int.Parse(product_id);
             details.name = dr.name.ToString();
             details.description = dr.description.ToString();
+            if (dr.Specifications != null)
+            {
+                details.specfications = dr.Specifications.ToString();
+            }
+            else {
+                details.specfications = "";
+            }
+            
             details.price = Decimal.Parse(dr.price.ToString());
             details.thumbnail = dr.thumbnail.ToString();
             details.image = dr.image.ToString();

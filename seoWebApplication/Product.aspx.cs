@@ -109,8 +109,9 @@ namespace seoWebApplication
         // Display product details
         titleLabel.Text = pd.name;
         string shortDesc = pd.description.ToString();
-
+        string specs = pd.specfications.ToString();
         litDescription.Text = HttpUtility.HtmlDecode(shortDesc);
+        LitSpecs.Text = HttpUtility.HtmlDecode(specs);
         priceLabel.Text += String.Format("{0:c}", pd.price);
         price = String.Format("{0:c}", pd.price);
 

@@ -80,7 +80,8 @@ namespace seoWebApplication.Controllers
         {
             if (ModelState.IsValid)
             { 
-                product.description = WebUtility.HtmlDecode(product.description); 
+                product.description = WebUtility.HtmlDecode(product.description);
+                product.Specifications = WebUtility.HtmlDecode(product.Specifications); 
                 _productService.Create(product);
                 return RedirectToAction("Index");
             }
@@ -99,6 +100,7 @@ namespace seoWebApplication.Controllers
             
             seoWebApplication.Models.mProducts product = _productService.GetProduct(id);
             product.description = WebUtility.HtmlDecode(product.description); 
+            product.Specifications = WebUtility.HtmlDecode(product.Specifications); 
             ViewBag.store = new SelectList(stores, "Id", "Name", product.store); 
             if (product == null)
             {
@@ -115,8 +117,7 @@ namespace seoWebApplication.Controllers
         public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications,store")] mProducts product)
         {
             if (ModelState.IsValid)
-            {
-                product.description = product.description; 
+            { 
                 _productService.Update(product);
                 return RedirectToAction("Index");
             }

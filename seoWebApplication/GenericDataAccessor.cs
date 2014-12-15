@@ -52,6 +52,7 @@ namespace seoWebApplication
             public int webstore_id;
             public string name;
             public string description;
+            public string specfications;
             public decimal price;
             public string thumbnail;
             public string image;

@@ -45,7 +45,7 @@
 				                </div>
                                  <div class="caption"> 
                                     <div class="description-block">
-                                    <%# HttpUtility.HtmlEncode(Eval("description").ToString().Trim().Substring(0,60) + "(...)") %>         
+                                    <%# HttpUtility.HtmlDecode(Eval("description").ToString().Trim().Substring(0,60) + "(...)") %>         
                                     </div> 
 			                        </div>
                                     <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button [tiny small large radius round]">Details</a>

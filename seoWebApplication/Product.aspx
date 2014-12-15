@@ -46,6 +46,8 @@
             <asp:Literal ID="litDescription" runat="server" Mode="PassThrough"></asp:Literal> 
                
                  <br />
+            <asp:Literal ID="LitSpecs" runat="server" Mode="PassThrough"></asp:Literal> 
+            
                 <br />
                 <br />     
             <right><asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text=""></asp:Label></right>

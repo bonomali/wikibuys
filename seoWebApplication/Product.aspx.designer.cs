@@ -40,6 +40,15 @@ namespace seoWebApplication {
         protected global::System.Web.UI.WebControls.Literal litDescription;
         
         /// <summary>
+        /// LitSpecs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LitSpecs;
+        
+        /// <summary>
         /// priceLabel control.
         /// </summary>
         /// <remarks>
