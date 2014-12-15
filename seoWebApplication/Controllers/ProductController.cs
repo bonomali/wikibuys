@@ -39,7 +39,7 @@ namespace seoWebApplication.Controllers
         public ActionResult Create()
         {
             var stores = new StoreService().Getstores();
-            ViewBag.stores = new SelectList(stores, "Id", "Name");
+            ViewBag.store = new SelectList(stores, "Id", "Name");
 
 
             return View();
