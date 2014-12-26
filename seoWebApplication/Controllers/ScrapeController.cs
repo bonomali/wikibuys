@@ -54,9 +54,57 @@ namespace seoWebApplication.Controllers
         // GET: Scrape/Create
         public ActionResult Scrape(Guid id)
         {
-            var json = _scrapeService.GetmScrapeById(id);
-            ScrapePage(json);
+            var json = _scrapeService.GetmScrapeById(id); 
+
+            OGMeta meta = ScrapePage(json);
+
+            System.Drawing.Image image = DownloadImageFromUrl(meta.Image);
+            string rootPath = Server.MapPath("~/ProductImages");
+            string slug = Helpers.GenerateSlug(meta.Title) + ".jpg";
+            string fileName = System.IO.Path.Combine(rootPath, slug);
+            image.Save(fileName);
+
+            ProductService PS = new ProductService();
+            mProducts mp = new mProducts();
+
+            mp.description = meta.Description;
+            mp.name = meta.Title;
+            mp.price = Convert.ToDecimal(meta.Price);
+            mp.IsActive = false;
+            mp.image = slug;
+            mp.thumbnail = slug;
+
+            mp.Url = json.Url + "?tag=wikibuys-20";
+
+            PS.Create(mp);
+
             return View(json);
+        }
+
+        public System.Drawing.Image DownloadImageFromUrl(string imageUrl)
+        {
+            System.Drawing.Image image = null;
+
+            try
+            {
+                System.Net.HttpWebRequest webRequest = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(imageUrl);
+                webRequest.AllowWriteStreamBuffering = true;
+                webRequest.Timeout = 30000;
+
+                System.Net.WebResponse webResponse = webRequest.GetResponse();
+
+                System.IO.Stream stream = webResponse.GetResponseStream();
+
+                image = System.Drawing.Image.FromStream(stream);
+
+                webResponse.Close();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return image;
         }
 
         public ActionResult DeleteScrapeProperties(Guid Id, Guid Pid)
@@ -94,9 +142,9 @@ namespace seoWebApplication.Controllers
             return RedirectToAction("Index", "Scrape");
         }
 
-        private void ScrapePage(mScrape json)
+        private OGMeta ScrapePage(mScrape json)
         {
-            OGMeta meta = HtmlTool.FetchAmazon(json.Url);
+            return HtmlTool.FetchAmazon(json.Url);
         }
 
         private static Dictionary<string, string> ScrapeOnePage(string url)
