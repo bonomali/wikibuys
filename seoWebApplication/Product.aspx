@@ -50,7 +50,7 @@
             
                 <br />
                 <br />     
-            <right><asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text=""></asp:Label></right>
+ 
             <br />  
             <uc4:ProductCustomAttributes ID="ProductCustomAttributes1" runat="server" />
             <br /> 
@@ -60,6 +60,7 @@
             </div>  
             <uc1:PicturesModals runat="server" id="PicturesModals" /> 
             <a href='<%=RedirectUrl%>' class="button [tiny small large radius round]">Click to View Offer</a> 
+            <span class="[success alert secondary] round radius label pull-right"><asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text=""></asp:Label></span>
     </section>
      
 

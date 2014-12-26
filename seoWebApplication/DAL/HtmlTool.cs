@@ -15,46 +15,33 @@ namespace seoWebApplication.DAL
         public static OGMeta FetchAmazon(string url) {
             OGMeta meta = new OGMeta();
 
-            string html = FetchHtml(url);
+            var getHtmlWeb = new HtmlWeb();
+            var doc = getHtmlWeb.Load(url);
+              
+            meta.Description = doc.DocumentNode.SelectSingleNode("//div[@id='feature-bullets']").InnerHtml.Replace("\n","").Replace("\t","");
 
-            var doc = new HtmlDocument();
-            doc.LoadHtml(html);
+            //var releaseYearNode = doc.DocumentNode.SelectNodes("//*[contains(@class,'productDescriptionWrapper')]");
 
-            var priceList = doc.DocumentNode.SelectNodes("//span");
-            foreach (var node in priceList)
+            meta.Title = doc.DocumentNode.SelectSingleNode("//span[@id='productTitle']").InnerHtml.Replace("\n", "").Replace("\t", "");
+                
+
+            string imageWrapper = doc.DocumentNode.SelectSingleNode("//div[@id='imgTagWrapperId']").InnerHtml;
+            //data-old-hires
+            var imageStr = "";
+            var pairs = imageWrapper.Split(' ');
+            foreach (var pair in pairs)
             {
-                if (node.HasAttributes)
-                { 
-                    if (node.Attributes["id"] != null)
-                    {
-                        if (node.Attributes["id"].Value == "priceblock_ourprice")
-                        {
-                            meta.Price = node.InnerText.Replace("$", "");
-                        }
-                        if (node.Attributes["id"].Value == "productTitle")
-                        {
-                            meta.Title = node.InnerText;
-                        }
-                    }
-                }
+                var index2 = pair.Split('='); 
+              
+                if (index2[0] == "data-old-hires") { 
+                    imageStr = index2[1].Replace("\"", "");
+                } 
             }
 
-            var imageList = doc.DocumentNode.SelectNodes("//div");
-            foreach (var node in imageList)
-            {
-                if (node.HasAttributes)
-                {
-                    if (node.Attributes["id"] != null)
-                    {
-                        if (node.Attributes["id"].Value == "imgTagWrapperId")
-                        {
-                            meta.Image = node.InnerHtml;
-                        } 
-                    }
-                }
-            }
-
-            //imgTagWrapperId
+            meta.Image = imageStr;
+            meta.Price = doc.DocumentNode.SelectSingleNode("//td[@id='priceblock_dealprice']//span[1]").InnerHtml.Replace("$", "");
+              
+            
 
             return meta;
         }
@@ -187,6 +174,40 @@ namespace seoWebApplication.DAL
                 Stream stream = resp.GetResponseStream();
                 StreamReader reader = new StreamReader(stream);
                 o = reader.ReadToEnd();
+
+                var getHtmlWeb = new HtmlWeb();
+                var document = getHtmlWeb.Load(url);
+                var aTags = document.DocumentNode.SelectNodes("//a");
+                int counter = 1;
+                string OutputLabelText = "";
+                if (aTags != null)
+                {
+                    foreach (var aTag in aTags)
+                    {
+                        OutputLabelText += counter + ". " + aTag.InnerHtml + " - " + aTag.Attributes["href"].Value + "\t" + "<br />";
+                        counter++;
+                    }
+                }
+
+                // ParseErrors is an ArrayList containing any errors from the Load statement
+                if (document.ParseErrors != null && document.ParseErrors.Count() > 0)
+                {
+                    // Handle any parse errors as required
+
+                }
+                else
+                {
+
+                    if (document.DocumentNode != null)
+                    {
+                        HtmlAgilityPack.HtmlNode bodyNode = document.DocumentNode.SelectSingleNode("//body");
+
+                        if (bodyNode != null)
+                        {
+                            // Do something with bodyNode
+                        }
+                    }
+                }
             }
             catch (Exception ex) { }
 

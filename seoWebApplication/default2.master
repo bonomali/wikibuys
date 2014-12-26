@@ -37,6 +37,15 @@
     <link rel="shortcut icon" href="images/page_images/haletabimage.ico">
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5454ed505a28dd75" async="async"></script>
+   <script type="text/javascript">
+       var vglnk = { key: '327ad1daff3797a2a18196f7ec86ca66' };
+
+       (function (d, t) {
+           var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+           s.src = '//cdn.viglink.com/api/vglnk.js';
+           var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+       }(document, 'script'));
+</script> 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -64,7 +73,7 @@
 </div>
 </div>
 <div class="mk-header-signup">
-<a href="#" id="mk-header-subscribe-button" class="mk-subscribe-link mk-toggle-trigger"><i class="fa fa-envelope"></i>Subscribe</a>
+<%--<a href="#" id="mk-header-subscribe-button" class="mk-subscribe-link mk-toggle-trigger"><i class="fa fa-envelope"></i>Subscribe</a>--%>
 <div id="mk-header-subscribe" class="mk-box-to-trigger">
  
 </div>
@@ -131,7 +140,7 @@
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<div class="page-header pad-bottom">
-				<h2>Latest Deals</h2>
+				<h2>Featured Deals</h2>
 				<div class="hr large-1 small-3"></div>
 			</div>
 		</div>

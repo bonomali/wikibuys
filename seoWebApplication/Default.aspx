@@ -49,7 +49,7 @@
                                     </div> 
 			                        </div>
                                     <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button [tiny small large radius round]">Details</a>
-                                  <span class="label label-info price pull-right"><%# Eval("price", "{0:c}") %></span>   
+                                  <span class="[success alert secondary] round radius label pull-right"><%# Eval("price", "{0:c}") %></span>   
 			                </div>
 	                  </div> 
                  <asp:Literal ID="lblDivEnd" runat="server"></asp:Literal>
