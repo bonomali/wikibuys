@@ -74,6 +74,7 @@ namespace seoWebApplication.Controllers
             mp.IsActive = false;
             mp.image = slug;
             mp.thumbnail = slug;
+            mp.store = new StoreService().Getstores("Amazon").Id;
 
             mp.Url = json.Url + "?tag=wikibuys-20";
 

@@ -11,12 +11,15 @@ using System.Threading.Tasks;
 namespace seoWebApplication.DAL
 {
     public class HtmlTool
-    {
+    { 
         public static OGMeta FetchAmazon(string url) {
             OGMeta meta = new OGMeta();
 
-            var getHtmlWeb = new HtmlWeb();
-            var doc = getHtmlWeb.Load(url);
+            //var getHtmlWeb = new HtmlWeb(); 
+          
+
+            var doc = Download(url);
+            //var doc = getHtmlWeb.Load(url);
               
             meta.Description = doc.DocumentNode.SelectSingleNode("//div[@id='feature-bullets']").InnerHtml.Replace("\n","").Replace("\t","");
 
@@ -39,11 +42,86 @@ namespace seoWebApplication.DAL
             }
 
             meta.Image = imageStr;
-            meta.Price = doc.DocumentNode.SelectSingleNode("//td[@id='priceblock_dealprice']//span[1]").InnerHtml.Replace("$", "");
-              
-            
+
+            string _price = ""; 
+
+            var node = doc.DocumentNode.SelectSingleNode("//td[@id='priceblock_dealprice']//span[1]");
+
+            if (node != null)
+            {
+                //do something with node
+                _price = node.InnerHtml.Replace("$", "");
+            }
+            else {
+                _price = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_ourprice']").InnerHtml.Replace("$", "");
+            } 
+
+            meta.Price = _price;
 
             return meta;
+        }
+
+        public static HtmlDocument Download(string url)
+        {
+            HtmlDocument hdoc = new HtmlDocument();
+            HtmlNode.ElementsFlags.Remove("option");
+            HtmlNode.ElementsFlags.Remove("select");
+            Stream read = null;
+            // Create web client.
+            WebClient client = new WebClient();
+            client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11";
+            client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+            client.Headers[HttpRequestHeader.Accept] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"; 
+            client.Headers[HttpRequestHeader.AcceptLanguage] = "en-GB,en-US;q=0.8,en;q=0.6";
+            client.Headers[HttpRequestHeader.AcceptCharset] = "ISO-8859-1,utf-8;q=0.7,*;q=0.3";
+
+            // Download string.
+            string value = "";
+            try
+            {
+                value = client.DownloadString(url); 
+            }
+            catch (ArgumentException)
+            {
+                read = client.OpenRead(WebUtility.UrlEncode(url));
+            }
+
+            string newVal = value.Replace("\n", "").Replace("\t", "");
+            hdoc.LoadHtml(newVal);
+
+
+            return hdoc;
+        }
+
+        public class CookieWebClient : WebClient
+        {
+
+            public CookieContainer m_container = new CookieContainer();
+            public WebProxy proxy = null;
+
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                try
+                {
+                    ServicePointManager.DefaultConnectionLimit = 1000000;
+                    WebRequest request = base.GetWebRequest(address);
+                    request.Proxy = proxy;
+
+                    HttpWebRequest webRequest = request as HttpWebRequest;
+                    webRequest.Pipelined = true;
+                    webRequest.KeepAlive = true;
+                    if (webRequest != null)
+                    {
+                        webRequest.CookieContainer = m_container;
+                    }
+
+                    return request;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
         }
 
         public static OGMeta FetchOG(string url)
