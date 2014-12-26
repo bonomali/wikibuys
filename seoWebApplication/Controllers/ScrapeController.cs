@@ -67,7 +67,8 @@ namespace seoWebApplication.Controllers
             ProductService PS = new ProductService();
             mProducts mp = new mProducts();
 
-            mp.description = meta.Description;
+            mp.description = meta.Title;
+            mp.Specifications = meta.Description;
             mp.name = meta.Title;
             mp.price = Convert.ToDecimal(meta.Price);
             mp.IsActive = false;
