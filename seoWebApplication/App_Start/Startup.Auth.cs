@@ -54,9 +54,9 @@ namespace seoWebApplication
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: seoWebAppConfiguration.FacebookAppId,
+               appSecret: seoWebAppConfiguration.FacebookSecret);
 
             //app.UseGoogleAuthentication();
         }

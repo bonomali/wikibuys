@@ -20,6 +20,8 @@ namespace seoWebApplication.DAL
 
             var doc = Download(url);
             //var doc = getHtmlWeb.Load(url);
+
+
               
             meta.Description = doc.DocumentNode.SelectSingleNode("//div[@id='feature-bullets']").InnerHtml.Replace("\n","").Replace("\t","");
 
@@ -31,6 +33,7 @@ namespace seoWebApplication.DAL
             string imageWrapper = doc.DocumentNode.SelectSingleNode("//div[@id='imgTagWrapperId']").InnerHtml;
             //data-old-hires
             var imageStr = "";
+            var imageStr2 = "";
             var pairs = imageWrapper.Split(' ');
             foreach (var pair in pairs)
             {
@@ -38,7 +41,16 @@ namespace seoWebApplication.DAL
               
                 if (index2[0] == "data-old-hires") { 
                     imageStr = index2[1].Replace("\"", "");
-                } 
+                }
+                else if (index2[0] == "data-a-dynamic-image")
+                {
+                    imageStr2 = index2[1].Replace("\"", "");
+                }
+            }
+
+            if (imageStr == "") {
+                var inBetween = GetBetween(imageStr2, "http", ".jpg");
+                imageStr = "http" + inBetween + ".jpg";
             }
 
             meta.Image = imageStr;
@@ -59,6 +71,21 @@ namespace seoWebApplication.DAL
             meta.Price = _price;
 
             return meta;
+        }
+
+        public static string GetBetween(string strSource, string strStart, string strEnd)
+        {
+            int Start, End;
+            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            {
+                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
+                End = strSource.IndexOf(strEnd, Start);
+                return strSource.Substring(Start, End - Start);
+            }
+            else
+            {
+                return "";
+            }
         }
 
         public static HtmlDocument Download(string url)

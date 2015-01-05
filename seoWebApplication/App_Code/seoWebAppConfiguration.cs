@@ -52,6 +52,7 @@
         private readonly static string twitterUrl;
         private readonly static string facebookUrl;
         private readonly static string facebookAppId;
+        private readonly static string facebookSecret;
         private readonly static string storeUrl;
         private readonly static string paypalClientId;
         // Caches the connection string
@@ -62,7 +63,9 @@
         static seoWebAppConfiguration()
         { 
             storeUrl = ConfigurationManager.AppSettings["StoreUrl"];
+
             facebookAppId = ConfigurationManager.AppSettings["FacebookAppId"];
+            facebookSecret = ConfigurationManager.AppSettings["FacebookAppSecret"];
             storeName = ConfigurationManager.AppSettings["StoreName"];
             storeImgLogo = ConfigurationManager.AppSettings["StoreImgLogo"];
             storePhone = ConfigurationManager.AppSettings["Phone"];
@@ -97,6 +100,14 @@
             paypalClientSecret = ConfigurationManager.AppSettings["PaypalClientSecret"];
             paypalReturnUrl = ConfigurationManager.AppSettings["PaypalReturnUrl"];
             paypalCancelUrl = ConfigurationManager.AppSettings["PaypalCancelUrl"];
+        }
+
+        public static string FacebookSecret
+        {
+            get
+            {
+                return facebookSecret;
+            }
         }
         public static string PaypalReturnUrl
         {

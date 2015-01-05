@@ -198,7 +198,7 @@ namespace seoWebApplication
                     Literal lblDivStart = (Literal)e.Item.FindControl("lblDivStart");
                     Literal lblDivEnd = (Literal)e.Item.FindControl("lblDivEnd");
 
-                    lblDivStart.Text = "<div class=row work-row'>";
+                    lblDivStart.Text = "<div class='row work-row'>";
                     i++;
                     if (i == 3)
                     {

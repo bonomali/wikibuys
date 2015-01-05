@@ -11,7 +11,7 @@ ToolTip="Go to the registration page"/>
 
 <asp:LoginName ID="LoginName2" runat="server" FormatString="Hello, <b>{0}</b>!" />
 <asp:LoginStatus ID="LoginStatus1" runat="server" />
-<asp:HyperLink runat="server" ID="detailsLink" NavigateUrl="~/CustomerDetails.aspx"
+<asp:HyperLink runat="server" ID="detailsLink" NavigateUrl="~/Account/Manage/"
 Text="My Account"
 ToolTip="Edit your personal details" />
 <%} %>

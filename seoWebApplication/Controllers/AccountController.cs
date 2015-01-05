@@ -43,8 +43,20 @@ namespace seoWebApplication.Controllers
         // GET: /Account/AdminLogin
         [AllowAnonymous]
         public ActionResult Manage()
-        { 
+        {
+            ViewBag.HasLocalPassword = HasPassword();
             return View();
+        }
+
+
+        private bool HasPassword()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if (user != null)
+            {
+                return user.PasswordHash != null;
+            }
+            return false;
         }
 
         // GET: /Account/AdminLogin
@@ -465,6 +477,9 @@ namespace seoWebApplication.Controllers
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+            // Require the user to have a confirmed email before they can log on.
+            string currentUserId = User.Identity.GetUserName();
+ 
             if (loginInfo == null)
             {
                 return RedirectToAction("Login");
@@ -472,9 +487,11 @@ namespace seoWebApplication.Controllers
 
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInHelper.ExternalSignIn(loginInfo, isPersistent: false);
+           
             switch (result)
             {
                 case seoWebApplication.Models.SignInStatus.Success:
+                    Session["UserName"] = currentUserId; 
                     return RedirectToLocal(returnUrl);
                 case seoWebApplication.Models.SignInStatus.LockedOut:
                     return View("Lockout");
@@ -517,6 +534,19 @@ namespace seoWebApplication.Controllers
                     if (result.Succeeded)
                     {
                         await SignInHelper.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                        
+                        // Send an email with this link
+                        string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        
+
+                        var callbackUrl = Url.Action("ConfirmEmail", "Account",
+                   new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        await UserManager.SendEmailAsync(user.Id,
+                           "Confirm your account", "Please confirm your account by clicking <a href=\""
+                           + callbackUrl + "\">here</a>");
+        
+
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -537,6 +567,14 @@ namespace seoWebApplication.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult LogOut()
+        {
+            var ctx = Request.GetOwinContext();
+            var authManager = ctx.Authentication;
+
+            authManager.SignOut("ApplicationCookie");
+            return RedirectToAction("index", "home");
+        }
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]

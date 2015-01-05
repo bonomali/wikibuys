@@ -23,7 +23,7 @@ namespace seoWebApplication
         public string url;
         public string host;
 
-
+        public int i = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             webstoreId = seoWebAppConfiguration.IdWebstore;
@@ -61,23 +61,24 @@ namespace seoWebApplication
 
         protected void R1_ItemCreated(Object Sender, RepeaterItemEventArgs e)
         {
-            int i = 0;
+            
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
+                Literal lblDivEnd = (Literal)e.Item.FindControl("lblDivEnd");
                 if (e.Item.ItemIndex % 3 == 0)
                 {
                     Literal lblDivStart = (Literal)e.Item.FindControl("lblDivStart");
-                    Literal lblDivEnd = (Literal)e.Item.FindControl("lblDivEnd");
+                 
 
-                    lblDivStart.Text = "<div class=row work-row'>";
-                    i++;
-                    if (i == 3)
-                    {
-                        lblDivEnd.Text = "</div>";
-                        i = 0;
-                    }
+                    lblDivStart.Text = "<div class='row work-row'>";
+                 
                 }
-
+                i++;
+                if (i == 3)
+                {
+                    lblDivEnd.Text = "</div>";
+                    i = 0;
+                }
             }
         }
 

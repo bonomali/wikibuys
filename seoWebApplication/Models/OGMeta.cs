@@ -35,5 +35,7 @@ namespace seoWebApplication.Models
         public string Price { set; get; } 
         public string offerlink { set; get; }
         public OGVideo Video { set; get; }
+
+        public string Specifications { get; set; }
     }
 }

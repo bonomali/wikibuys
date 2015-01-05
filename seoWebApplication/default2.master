@@ -151,8 +151,8 @@
 </section>
 
     
-        <a id="contact-nav"></a>
-        <section id="contact">
+<a id="contact-nav"></a>
+<section id="contact">
 
 	<div id="contact-holder">
 		<div class="row">
@@ -161,28 +161,25 @@
 		</div>
 		
 		 
-  </div>
+    </div>
 		
-		<div class="row">
+    <div class="row">
 			<div class="large-12 columns text-center">
 				<div id="footer">
-					 <ul id="footer-social"> 
+					    <ul id="footer-social"> 
 						<li><a href="<%=facebookUrl %>" target="_blank"><i class="myicon myicon-facebook"></i></a></li>
 						<li><a href="<%=twitterUrl %>" target="_blank"><i class="myicon myicon-twitter"></i></a></li>
 						<li><a href="mailto:support@wikibuys.com"><i class="myicon myicon-email"></i></a></li>
 					</ul>
-					<div id="copy-text" &copy; 
+					<div id="copy-text">
                     - Powered By - <a href="http://www.mongo-commerce.com">Mongo-Commerce <i class="icon-chevron-right"></i></a>
                         <span class="logo-text">Hale</span>&nbsp;&nbsp;2014     <span class="label label-info"><%=address%>, <%=city2%> Phone: <%=phone%></span></div>
 				</div>
 			</div>
 		</div>
 		
-	</div><!-- end of contact holder -->
+	<!-- end of contact holder -->
 	
-	
-	
-
 </section>
 
 
