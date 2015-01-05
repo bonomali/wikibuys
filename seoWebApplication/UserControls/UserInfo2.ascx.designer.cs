@@ -31,13 +31,13 @@ namespace seoWebApplication.UserControls {
         protected global::System.Web.UI.WebControls.LoginName LoginName2;
         
         /// <summary>
-        /// LoginStatus1 control.
+        /// HpLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
+        protected global::System.Web.UI.WebControls.HyperLink HpLogout;
         
         /// <summary>
         /// detailsLink control.
