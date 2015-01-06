@@ -2358,6 +2358,7 @@
     <Compile Include="FBHandler.ashx.cs">
       <DependentUpon>FBHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Framework\BreakUpper.cs" />
     <Compile Include="Framework\ControlTypes.cs" />
     <Compile Include="Framework\emailSend.cs" />
     <Compile Include="Framework\EmailService.cs" />

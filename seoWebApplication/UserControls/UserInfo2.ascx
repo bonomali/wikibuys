@@ -17,5 +17,5 @@ Text="Log Out"
 ToolTip="Log Out" />
 <asp:HyperLink runat="server" ID="detailsLink" NavigateUrl="~/Account/Manage/"
 Text="My Account"
-ToolTip="Edit your personal details" />
+ToolTip="Edit your personal details" /> 
 <%} %>

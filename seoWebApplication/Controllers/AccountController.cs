@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using seoWebApplication.st.SharkTankDAL;
+using seoWebApplication.Framework;
 
 namespace seoWebApplication.Controllers
 {
@@ -477,9 +478,14 @@ namespace seoWebApplication.Controllers
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+
+            Session["ProviderKey"] = loginInfo.Login.ProviderKey;
+         
             // Require the user to have a confirmed email before they can log on.
             string currentUserId = User.Identity.GetUserName();
- 
+
+           
+
             if (loginInfo == null)
             {
                 return RedirectToAction("Login");
@@ -526,7 +532,13 @@ namespace seoWebApplication.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //ApplicationUser model = UserManager.FindById(currentUserId);
+                //model.UserId = loginInfo.DefaultUserName;  
+
+                //IdentityResult result2 = UserManager.Update(model);
+                var sResult = BreakUpper.BreakUpperCB(info.DefaultUserName);
+                var uId = sResult[0].Substring(0, 1) + sResult[1];
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserId = uId, FirstName = sResult[0], LastName = sResult[1] };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -563,12 +575,14 @@ namespace seoWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            Session["UserName"] = null;
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
 
         public ActionResult LogOut()
         {
+            Session["UserName"] = null;
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
 
