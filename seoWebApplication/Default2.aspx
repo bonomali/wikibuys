@@ -34,7 +34,7 @@
      </div>
      <div class="header_block">
     <h2><a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
-    <%# HttpUtility.HtmlEncode(Eval("name").ToString()) %>
+    <%# HttpUtility.HtmlEncode(Eval("NameTrimmed").ToString()) %>
     </a></h2> 
     </div>
 
@@ -43,7 +43,7 @@
      </div> 
 
     <div class="description-block">
-    <%# HttpUtility.HtmlEncode(Eval("description").ToString()) %>         
+    <%# HttpUtility.HtmlEncode(Eval("DescriptionTrimmed").ToString()) %>         
     </div> 
     <div class="details-block">
     <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button">Details</a>

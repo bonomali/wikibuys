@@ -39,7 +39,48 @@ namespace seoWebApplication.Controllers
             }
         }
 
-        //
+        public ActionResult Index()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            ViewBag.imageUrl = "/ProductImages/" + user.ImageName;
+
+            var loginInfo = AuthenticationManager.GetExternalLoginInfo();
+              
+            if (user.ImageName == null) {
+                ViewBag.imageUrl = "/ProductImages/" + user.Id + ".jpg";
+            }
+
+            ViewBag.FirstName = user.FirstName;
+            ViewBag.LastName = user.LastName;
+
+            return View();
+        }
+
+        // GET: /Account/AdminLogin
+        [AllowAnonymous]
+        public ActionResult ChangePicture()
+        { 
+            return PartialView();
+        }
+        // POST: /Account/ChangePicture
+        [HttpPost]
+        public async Task<ActionResult> ChangePicture(PictureViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            string currentUserId = User.Identity.GetUserId();
+
+            var user = UserManager.FindById(currentUserId);
+
+            ApplicationUser model2 = UserManager.FindById(user.Id);
+            model2.ImageName = model.ImageName;
+
+            IdentityResult result2 = UserManager.Update(model2);
+
+            return RedirectToAction("Index", "Account");  
+        }
 
         // GET: /Account/AdminLogin
         [AllowAnonymous]
@@ -47,6 +88,20 @@ namespace seoWebApplication.Controllers
         {
             ViewBag.HasLocalPassword = HasPassword();
             return View();
+        }
+
+        // POST: /Manage/SetPassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Manage(ManageUserViewModel model)
+        { 
+                var result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
+                
+                AddErrors(result);
+           
+            ViewBag.HasLocalPassword = HasPassword();
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
 
 
@@ -479,12 +534,17 @@ namespace seoWebApplication.Controllers
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
 
-            Session["ProviderKey"] = loginInfo.Login.ProviderKey;
-         
+            var providerKey = loginInfo.Login.ProviderKey;
+             
             // Require the user to have a confirmed email before they can log on.
-            string currentUserId = User.Identity.GetUserName();
-
            
+            var dlUrl = "http://graph.facebook.com/" + providerKey + "/picture?type=small";
+            System.Drawing.Image image = ImageHelpers.DownloadImageFromUrl(dlUrl);
+            string rootPath = Server.MapPath("~/ProductImages");
+            string slug = providerKey + ".jpg";
+            string fileName = System.IO.Path.Combine(rootPath, slug);
+            image.Save(fileName);
+             
 
             if (loginInfo == null)
             {
@@ -493,6 +553,15 @@ namespace seoWebApplication.Controllers
 
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInHelper.ExternalSignIn(loginInfo, isPersistent: false);
+
+            string currentUserId = User.Identity.GetUserName();
+
+            var user = await UserManager.FindAsync(loginInfo.Login);
+
+            ApplicationUser model = UserManager.FindById(user.Id);
+            model.ImageName = slug;
+
+            IdentityResult result2 = UserManager.Update(model);
            
             switch (result)
             {

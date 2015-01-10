@@ -927,6 +927,9 @@
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\foundation.css" />
+    <Content Include="css\foundation\foundation.css" />
+    <Content Include="css\foundation\foundation.min.css" />
+    <Content Include="css\foundation\normalize.css" />
     <Content Include="css\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\banner_top.jpg" />
@@ -966,6 +969,7 @@
     <Content Include="js\foundation\foundation.js" />
     <Content Include="js\foundation\foundation.magellan.js" />
     <Content Include="js\foundation\foundation.offcanvas.js" />
+    <Content Include="js\foundation\foundation.orbit.js" />
     <Content Include="js\foundation\foundation.reveal.js" />
     <Content Include="js\foundation\foundation.slider.js" />
     <Content Include="js\foundation\foundation.tab.js" />
@@ -2363,6 +2367,7 @@
     <Compile Include="Framework\emailSend.cs" />
     <Compile Include="Framework\EmailService.cs" />
     <Compile Include="Framework\HtmlHelpers\SeoHtmlHelper.cs" />
+    <Compile Include="Framework\ImageHelpers.cs" />
     <Compile Include="Framework\phasher.cs" />
     <Compile Include="Framework\ResultHelper.cs" />
     <Compile Include="Global.asax.cs">
@@ -3220,6 +3225,9 @@
     <Content Include="Views\Manage\_RemoveAccountPartial.cshtml" />
     <Content Include="Views\Manage\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Manage\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutFoundation.cshtml" />
+    <Content Include="Views\Account\ChangePicture.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

@@ -39,13 +39,13 @@
                                     <a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
                                     <img width="225" border="0"
                                     src="<%# Link.ToProductImage(Eval("thumbnail").ToString()) %>"
-                                    alt='<%# HttpUtility.HtmlEncode(Eval("name").ToString())%>' class="product-image" />
+                                    alt='<%# HttpUtility.HtmlEncode(Eval("NameTrimmed").ToString())%>' class="product-image" />
                                     </a>
                                   
 				                </div>
                                  <div class="caption"> 
                                     <div class="description-block">
-                                    <%# HttpUtility.HtmlDecode(Eval("description").ToString().Trim().Substring(0,60) + "(...)") %>         
+                                    <%# HttpUtility.HtmlDecode(Eval("DescriptionTrimmed").ToString().Trim()) %>         
                                     </div> 
 			                        </div>
                                     <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button [tiny small large radius round]">Details</a>

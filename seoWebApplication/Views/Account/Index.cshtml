@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Manage Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <div class="UserHeader liked-page">
+        <div class="UserHeader-AvatarContainer">
+            <img src="@ViewBag.imageUrl" style="max-height:200px; max-width:100%;">
+           
+        </div>
+        <div class="primary-cta"> 
+            <a href="/Account/ChangePicture/" data-reveal-id="myModal" data-reveal-ajax="true" class="button edit fancybox fancybox.ajax profile-action">
+                Edit
+            </a>
+        </div>
+        <div class="UserInfo">
+            <a class="UserInfo-Name" href="/Account/">@ViewBag.FirstName @ViewBag.LastName</a>
+            
+            <div class="UserInfo-Bio">
+                <a class="fancybox" href="/Account/Manage/">
+                    Change Password
+                </a>
+            </div>
+        </div>
+        <section class="gs-modal">
+            <div id="myModal" class="reveal-modal" data-reveal> <h2>Awesome. I have it.</h2> <p class="lead">Your couch. It is mine.</p> <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p> <a class="close-reveal-modal">&#215;</a> </div>
+        </section>
+    </div>
+</div>
+

@@ -23,8 +23,28 @@ namespace seoWebApplication.Models
          public int category_id { get; set; }        
          [BsonElement("name")]
         public string name { get; set; }
+         public string NameTrimmed
+         {
+             get
+             {
+                 if (name.Length > 60)
+                     return name.Substring(0, 60) + "...";
+                 else
+                     return name;
+             }
+         }
          [BsonElement("description")]
         public string description { get; set; }
+        public string DescriptionTrimmed
+        {
+            get
+            {
+                if (description.Length > 60)
+                    return description.Substring(0, 60) + "...";
+                else
+                    return description;
+            }
+        }
          [BsonElement("price")]
         public decimal price { get; set; }
          [BsonElement("thumbnail")]

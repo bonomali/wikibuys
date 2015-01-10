@@ -111,6 +111,12 @@ namespace seoWebApplication.Models {
         public bool Newsletter { get; set; }
     }
 
+    public class PictureViewModel
+    {
+        [Required] 
+        [Display(Name = "ImageName")]
+        public string ImageName { get; set; } 
+    }
     public class ResetPasswordViewModel {
         [Required]
         [EmailAddress]

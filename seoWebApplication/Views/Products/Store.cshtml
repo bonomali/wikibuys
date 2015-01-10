@@ -20,7 +20,7 @@
                 <div class="work-img-holder">
                     <p align="center">
                         <a href="@Linkor.ToProduct(item.product_id.ToString())">
-                            @Html.DisplayFor(modelItem => item.name)
+                            @Html.DisplayFor(modelItem => item.NameTrimmed)
                         </a>
                     </p>
                     <a href="@Linkor.ToProduct(item.product_id.ToString())">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="caption">
                     <div class="description-block">
-                        @Html.DisplayFor(modelItem => item.description).ToString().Trim().Substring(0, 60) (...)
+                        @Html.DisplayFor(modelItem => item.DescriptionTrimmed).ToString().Trim()
                     </div>
                 </div>
                 <a href='@Linkor.ToProduct(item.product_id.ToString())' class="button [tiny small large radius round]">Details</a>

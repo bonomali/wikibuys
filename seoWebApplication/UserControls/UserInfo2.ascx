@@ -15,7 +15,7 @@ ToolTip="Go to the registration page"/>
 <asp:HyperLink runat="server" ID="HpLogout" NavigateUrl="~/Account/Logout/"
 Text="Log Out"
 ToolTip="Log Out" />
-<asp:HyperLink runat="server" ID="detailsLink" NavigateUrl="~/Account/Manage/"
+<asp:HyperLink runat="server" ID="detailsLink" NavigateUrl="~/Account/"
 Text="My Account"
 ToolTip="Edit your personal details" /> 
 <%} %>
