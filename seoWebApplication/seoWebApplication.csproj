@@ -2284,6 +2284,7 @@
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />
     <Compile Include="Controllers\DeviceLogController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -2486,6 +2487,7 @@
     <Compile Include="Models\mStores.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\AttributeService.cs" />
+    <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\StoreService.cs" />
     <Compile Include="Service\ScrapeService.cs" />
     <Compile Include="Service\ShoppingCartService.cs" />
@@ -3232,6 +3234,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Search\Details.cshtml" />
+    <Content Include="Views\Errors\NotFound.cshtml" />
+    <Content Include="Views\User\Notfound.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

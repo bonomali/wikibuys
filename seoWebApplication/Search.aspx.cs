@@ -19,6 +19,8 @@ namespace seoWebApplication
 {
     public partial class Search : System.Web.UI.Page
     {
+
+        private UserService _userService = new UserService();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -49,7 +51,8 @@ namespace seoWebApplication
                 mp.store = new StoreService().Getstores("Amazon").Id;
                 if (User.Identity.IsAuthenticated)
                 {
-                    string currentUserId = User.Identity.Name;
+                    ApplicationUser model = _userService.GetUserByEmail(User.Identity.Name);
+                    string currentUserId = model.UserId.ToLower();
                     mp.UserKey = currentUserId;
                 }
                 mp.Url = id + "?tag=wikibuys-20";

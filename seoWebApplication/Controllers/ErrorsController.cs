@@ -10,22 +10,22 @@ using System.Web.Mvc;
 using seoWebApplication.Data;
 using seoWebApplication.Models;
 using seoWebApplication.Service;
-using seoWebApplication.Framework;
-using seoWebApplication.DAL;
 
 namespace seoWebApplication.Controllers
 {
-    public class SearchController : BaseController
+    public class ErrorsController : BaseController
     {
         private ProductService _productService = new ProductService();
-
-        public SearchController()
+        private UserService _userService = new UserService();
+          public ErrorsController()
         {
         }
-        public SearchController(ApplicationUserManager userManager)
+          public ErrorsController(ApplicationUserManager userManager)
         {
             UserManager = userManager;
         }
+
+
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -38,42 +38,64 @@ namespace seoWebApplication.Controllers
                 _userManager = value;
             }
         }
-        // GET: Search
+        public ActionResult NotFound()
+        {
+            string id = Request.Url.PathAndQuery.Replace("/", "").ToLower();
+            int page = 1; 
+            ActionResult result;
+            if (!Request.IsAjaxRequest())
+            { 
+                ApplicationUser model = _userService.GetUser(id);
+                if (model != null)
+                {
+                    ViewBag.catalogTitleLabel = "Product Search";
+                    ViewBag.catalogDescriptionLabel = "You searched for \"" + id + "\"";
+                    // set the title of the page
+                    ViewBag.Title = seoWebAppConfiguration.SiteName +
+                    " : Product Search : " + id;
+                    var listPaged = GetPagedUser(page, id); // GetPagedNames is found in BaseController
+                    if (listPaged == null)
+                        return HttpNotFound();
+                    ViewBag.Name = id;
+
+                    ViewBag.Title = id;
+
+                    ViewBag.seoTitle = id;
+                    ViewBag.storeName = id;
+                    ViewBag.seoDesc = id;
+                    ViewBag.seoKeywords = id;
+                    return View("../User/Details", listPaged); 
+                 
+                   
+                }
+                else {
+                    ViewBag.Id = id;
+                    return View();
+                }
+            }
+            else
+                return PartialView("_NotFound", id);
+           
+        }
+        // GET: Errors
         public ActionResult Index()
-        { 
+        {
             return View();
         }
-        
-        // GET: Search/Details/5
-        public ActionResult Details(string id, int? page)
-        {  
-            ViewBag.catalogTitleLabel = "Product Search";
-            ViewBag.catalogDescriptionLabel = "You searched for \"" + id + "\"";
-            // set the title of the page
-            ViewBag.Title = seoWebAppConfiguration.SiteName +
-            " : Product Search : " + id; 
-            var listPaged = GetPagedSearch(page, id); // GetPagedNames is found in BaseController
-            if (listPaged == null)
-                return HttpNotFound();
-            ViewBag.Name = id;
 
-            ViewBag.Title = id;
-
-            ViewBag.seoTitle = id;
-            ViewBag.storeName = id;
-            ViewBag.seoDesc = id;
-            ViewBag.seoKeywords = id;
-
-            return View(listPaged);   
+        // GET: Errors/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
         }
 
-        // GET: Search/Create
+        // GET: Errors/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Search/Create
+        // POST: Errors/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -89,13 +111,13 @@ namespace seoWebApplication.Controllers
             }
         }
 
-        // GET: Search/Edit/5
+        // GET: Errors/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Search/Edit/5
+        // POST: Errors/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -111,13 +133,13 @@ namespace seoWebApplication.Controllers
             }
         }
 
-        // GET: Search/Delete/5
+        // GET: Errors/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Search/Delete/5
+        // POST: Errors/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

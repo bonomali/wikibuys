@@ -65,9 +65,15 @@ namespace seoWebApplication.DAL
                 _price = node.InnerHtml.Replace("$", "");
             }
             else {
-                _price = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_ourprice']").InnerHtml.Replace("$", "");
+                var ourprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_ourprice']");
+                if(ourprice != null){
+                _price = ourprice.InnerHtml.Replace("$", "");
+                }
+                else{
+                    _price = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_saleprice']").InnerHtml.Replace("$", "");
+                }
             } 
-
+            
             meta.Price = _price;
 
             return meta;

@@ -46,13 +46,25 @@ namespace seoWebApplication.Service
         public IList<mProducts> GetProducts()
         {
             try
-            {
-                int Id = dBHelper.GetWebstoreId();
+            { 
                 return _product.Collection.FindAll().ToList<mProducts>();
             }
             catch (MongoConnectionException)
             {
                 return new List<mProducts>();
+            }
+        }
+
+        public IList<mProducts> GetProductsByUserId(string Id)
+        {
+            try
+            {
+                return _product.Collection.Find(Query.EQ("UserKey", Id)).ToList<mProducts>();
+
+            }
+            catch (MongoConnectionException)
+            {
+                return new List<mProducts>();//
             }
         }
 
