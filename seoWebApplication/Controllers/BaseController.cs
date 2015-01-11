@@ -35,6 +35,25 @@ namespace seoWebApplication.Controllers
             return listPaged;
         }
 
+        protected IPagedList<mProducts> GetPagedSearch(int? page, string name)
+        {
+            // return a 404 if user browses to before the first page
+            if (page.HasValue && page < 1)
+                return null;
+             
+            List<mProducts> products = _productService.GetProductsBySearch(name);
+
+            // page the list
+            const int pageSize = 20;
+            var listPaged = products.ToPagedList(page ?? 1, pageSize);
+
+            // return a 404 if user browses to pages beyond last page. special case first page if no items exist
+            if (listPaged.PageNumber != 1 && page.HasValue && page > listPaged.PageCount)
+                return null;
+
+            return listPaged;
+        }
+
         // in this case we return IEnumerable<string>, but in most
         // - DB situations you'll want to return IQueryable<string>
         protected IEnumerable<string> GetStuffFromDatabase()

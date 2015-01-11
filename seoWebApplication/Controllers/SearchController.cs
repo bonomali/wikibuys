@@ -10,22 +10,22 @@ using System.Web.Mvc;
 using seoWebApplication.Data;
 using seoWebApplication.Models;
 using seoWebApplication.Service;
+using seoWebApplication.Framework;
+using seoWebApplication.DAL;
 
 namespace seoWebApplication.Controllers
 {
-    public class UserController : Controller
+    public class SearchController : BaseController
     {
         private ProductService _productService = new ProductService();
 
-        public UserController()
+        public SearchController()
         {
         }
-        public UserController(ApplicationUserManager userManager)
+        public SearchController(ApplicationUserManager userManager)
         {
             UserManager = userManager;
         }
-
-
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -38,29 +38,42 @@ namespace seoWebApplication.Controllers
                 _userManager = value;
             }
         }
-        // GET: User
+        // GET: Search
         public ActionResult Index()
-        {
+        { 
             return View();
         }
+        [ValidateInput(false)]
+        // GET: Search/Details/5
+        public ActionResult Details(string id, int? page)
+        {  
+            ViewBag.catalogTitleLabel = "Product Search";
+            ViewBag.catalogDescriptionLabel = "You searched for \"" + id + "\"";
+            // set the title of the page
+            ViewBag.Title = seoWebAppConfiguration.SiteName +
+            " : Product Search : " + id; 
+            var listPaged = GetPagedSearch(page, id); // GetPagedNames is found in BaseController
+            if (listPaged == null)
+                return HttpNotFound();
+            ViewBag.Name = id;
 
-        // GET: User/Details/5
-        public ActionResult Details(string id)
-        { 
-            ApplicationUser model = UserManager.FindByName(id);
-            List<mProducts> products = (from e in _productService.GetProducts()
-                                        where e.UserKey == model.UserName
-                                        select e).ToList();
-            return View(products); 
+            ViewBag.Title = id;
+
+            ViewBag.seoTitle = id;
+            ViewBag.storeName = id;
+            ViewBag.seoDesc = id;
+            ViewBag.seoKeywords = id;
+
+            return View(listPaged);   
         }
 
-        // GET: User/Create
+        // GET: Search/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: User/Create
+        // POST: Search/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -76,13 +89,13 @@ namespace seoWebApplication.Controllers
             }
         }
 
-        // GET: User/Edit/5
+        // GET: Search/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: User/Edit/5
+        // POST: Search/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -98,13 +111,13 @@ namespace seoWebApplication.Controllers
             }
         }
 
-        // GET: User/Delete/5
+        // GET: Search/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: User/Delete/5
+        // POST: Search/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

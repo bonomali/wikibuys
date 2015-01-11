@@ -1,11 +1,13 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using seoWebApplication.DAL;
-using seoWebApplication.Models; 
+using seoWebApplication.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq; 
+using System.Linq;
+using System.Text.RegularExpressions; 
 
 namespace seoWebApplication.Service
 {
@@ -80,7 +82,7 @@ namespace seoWebApplication.Service
 
         public mStores Getstores(string name)
         {
-            var post = _store.Collection.Find(Query.EQ("name", name)).Single();
+            var post = _store.Collection.Find(Query.EQ("name", BsonRegularExpression.Create(new Regex(name, RegexOptions.IgnoreCase)))).Single();
             return post;
         }
 

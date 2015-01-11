@@ -5,6 +5,16 @@
 <script src="@Url.Content("~/Scripts/kendo/2014.1.528/kendo.all.min.js")"></script>
 <script src="@Url.Content("~/Scripts/kendo/2014.1.528/kendo.web.min.js")"></script>
 <script src="@Url.Content("~/Scripts/kendo/2014.1.528/kendo.aspnetmvc.min.js")"></script>
+
+
+<script>
+    $(".close-reveal-modal").click(function () {
+        $('.reveal-modal-bg').hide();
+    });
+    $(".reveal-modal-bg").click(function () {
+        $('.reveal-modal-bg').hide();
+    });
+</script>
 <a class="close-reveal-modal">&#215;</a>
 @using (Html.BeginForm())
 {

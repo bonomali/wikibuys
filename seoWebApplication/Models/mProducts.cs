@@ -10,6 +10,7 @@ namespace seoWebApplication.Models
     public class mProducts
     {
         private DateTime date;
+        public object UserKey;
         //added
         [BsonId(IdGenerator = typeof(CombGuidGenerator))]
         public Guid Id { get; set; }

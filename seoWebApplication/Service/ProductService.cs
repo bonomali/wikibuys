@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using seoWebApplication.DAL;
@@ -7,6 +8,7 @@ using seoWebApplication.st.SharkTankDAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace seoWebApplication.Service
@@ -46,7 +48,7 @@ namespace seoWebApplication.Service
             try
             {
                 int Id = dBHelper.GetWebstoreId();
-                return _product.Collection.Find(Query.EQ("webstore_id", Id)).ToList<mProducts>();
+                return _product.Collection.FindAll().ToList<mProducts>();
             }
             catch (MongoConnectionException)
             {
@@ -419,6 +421,20 @@ namespace seoWebApplication.Service
             try
             { 
                 return _product.Collection.Find(Query.EQ("store", id)).ToList<mProducts>();
+            }
+            catch (MongoConnectionException)
+            {
+                return new List<mProducts>();
+            }
+        }
+
+        internal List<mProducts> GetProductsBySearch(string id)
+        {
+            try
+            {
+                List<mProducts> names = _product.Collection.AsQueryable().Where(name =>
+    name.name.ToLower().Contains(id)).ToList();
+                return names;
             }
             catch (MongoConnectionException)
             {

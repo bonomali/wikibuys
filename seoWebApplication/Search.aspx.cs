@@ -1,4 +1,8 @@
-﻿using System;
+﻿using seoWebApplication.DAL;
+using seoWebApplication.Framework;
+using seoWebApplication.Models;
+using seoWebApplication.Service;
+using System;
 using System.Collections;
 using System.Configuration;
 using System.Data;
@@ -17,25 +21,46 @@ namespace seoWebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             // fill the table contents
-            string searchString = Request.QueryString["Search"];
-            this.catalogTitleLabel.Text = "Product Search";
-            this.catalogDescriptionLabel.Text = "You searched for \"" + searchString + "\"";
-            // set the title of the page
-            this.Title = seoWebAppConfiguration.SiteName +
-            " : Product Search : " + searchString;
-            // don't reload data during postbacks
-            if (!IsPostBack)
+            string id = Request.QueryString["Search"];
+            if (id.Contains("amazon.com/"))
             {
-                try
+
+                OGMeta meta = HtmlTool.FetchAmazon(id);
+
+                System.Drawing.Image image = ImageHelpers.DownloadImageFromUrl(meta.Image);
+                string rootPath = Server.MapPath("~/ProductImages");
+                string slug = Helpers.GenerateSlug(meta.Title) + ".jpg";
+                string fileName = System.IO.Path.Combine(rootPath, slug);
+                image.Save(fileName);
+
+                ProductService PS = new ProductService();
+                mProducts mp = new mProducts();
+
+                mp.description = meta.Title;
+                mp.Specifications = meta.Description;
+                mp.name = meta.Title;
+                mp.price = Convert.ToDecimal(meta.Price);
+                mp.IsActive = false;
+                mp.image = slug;
+                mp.thumbnail = slug;
+                mp.store = new StoreService().Getstores("Amazon").Id;
+                if (User.Identity.IsAuthenticated)
                 {
-                    PopulateControls();
+                    string currentUserId = User.Identity.Name;
+                    mp.UserKey = currentUserId;
                 }
-                catch (Exception ex)
-                {
-                    Response.Write("Exception Occured:   " + ex);
-                }
+                mp.Url = id + "?tag=wikibuys-20";
+
+                PS.Create(mp);
+                Response.Redirect(Linkor.ToProduct(mp.product_id.ToString()));
             }
+            else {
+                Response.Redirect("/Search/" + id);
+            }
+          
         }
 
         // Fill the page with data

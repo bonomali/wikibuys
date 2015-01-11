@@ -537,13 +537,7 @@ namespace seoWebApplication.Controllers
             var providerKey = loginInfo.Login.ProviderKey;
              
             // Require the user to have a confirmed email before they can log on.
-           
-            var dlUrl = "http://graph.facebook.com/" + providerKey + "/picture?type=small";
-            System.Drawing.Image image = ImageHelpers.DownloadImageFromUrl(dlUrl);
-            string rootPath = Server.MapPath("~/ProductImages");
-            string slug = providerKey + ".jpg";
-            string fileName = System.IO.Path.Combine(rootPath, slug);
-            image.Save(fileName);
+         
              
 
             if (loginInfo == null)
@@ -559,10 +553,18 @@ namespace seoWebApplication.Controllers
             var user = await UserManager.FindAsync(loginInfo.Login);
 
             ApplicationUser model = UserManager.FindById(user.Id);
-            model.ImageName = slug;
 
-            IdentityResult result2 = UserManager.Update(model);
-           
+            if (model.ImageName == null)
+            {
+                var dlUrl = "http://graph.facebook.com/" + providerKey + "/picture?type=small";
+                System.Drawing.Image image = ImageHelpers.DownloadImageFromUrl(dlUrl);
+                string rootPath = Server.MapPath("~/ProductImages");
+                string slug = providerKey + ".jpg";
+                string fileName = System.IO.Path.Combine(rootPath, slug);
+                image.Save(fileName); 
+                model.ImageName = slug; 
+                IdentityResult result2 = UserManager.Update(model);
+            }
             switch (result)
             {
                 case seoWebApplication.Models.SignInStatus.Success:

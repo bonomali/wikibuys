@@ -2295,6 +2295,7 @@
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\ProductAttributeValuesController.cs" />
     <Compile Include="Controllers\ScrapeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -3228,6 +3229,9 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutFoundation.cshtml" />
     <Content Include="Views\Account\ChangePicture.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\Search\Details.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
