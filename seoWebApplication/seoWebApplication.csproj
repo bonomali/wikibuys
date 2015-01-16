@@ -2274,6 +2274,7 @@
     </Compile>
     <Compile Include="Common\Config.cs" />
     <Compile Include="Common\mvcConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -3236,6 +3237,7 @@
     <Content Include="Views\Search\Details.cshtml" />
     <Content Include="Views\Errors\NotFound.cshtml" />
     <Content Include="Views\User\Notfound.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

@@ -30,6 +30,7 @@
                  <asp:Literal ID="lblDivStart" runat="server"></asp:Literal>
                       <div class="large-4 columns">
 			                <div class="work-item" data-project-id="project-1">
+                                <div><i class="fa fa-heart"></i><i class="fa fa-plus"></i></div> 
 				                <div class="work-img-holder">
 					                <p align="center"><a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
                                         <%# Eval("name").ToString().Length > 30 ? HttpUtility.HtmlEncode(Eval("name").ToString().Trim().Substring(0,30)) : HttpUtility.HtmlEncode(Eval("name").ToString().Trim())%>

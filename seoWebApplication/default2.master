@@ -97,7 +97,7 @@
 		
 		<div class="large-4 columns text-left width375">
 			<ul class="navigation hide-for-small">
-				<li><a class="scroll" href="/wiki">Wiki</a></li>
+				<li><a class="scroll" href="/about">About</a></li>
                 <li><a class="scroll" href="/blog">Blog</a></li> 
 			</ul>
 		</div>
@@ -110,7 +110,7 @@
 			<ul class="navigation">
 				<li><a class="scroll" href="#highlights-nav">Stores</a></li>
                 <li><a class="scroll" href="#info-nav">Categories</a></li> 
-			    <li><a class="scroll" href="/wiki">Wiki</a></li>
+			    <li><a class="scroll" href="/about">About</a></li>
                 <li><a class="scroll" href="/blog">Blog</a></li> 
 			</ul>
             <div class="main-nav-side-search">
@@ -137,18 +137,18 @@
         <a id="work-nav">&nbsp;</a>
         <section id="work" class="pad-large">
 
-	<div class="row">
-		<div class="large-12 columns text-center">
-			<div class="page-header pad-bottom">
-				<h2>Featured Deals</h2>
-				<div class="hr large-1 small-3"></div>
-			</div>
-		</div>
-	</div>
-	<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+	    <div class="row">
+		    <div class="large-12 columns text-center">
+			    <div class="page-header pad-bottom">
+				    <h2>Featured Deals</h2>
+				    <div class="hr large-1 small-3"></div>
+			    </div>
+		    </div>
+	    </div>
+	    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>  
 	
-</section>
+        </section>
 
     
 <a id="contact-nav"></a>
@@ -156,9 +156,15 @@
 
 	<div id="contact-holder">
 		<div class="row">
-			<div class="large-12 columns text-center"> 
-			<a href="mailto:info@wikibuys.com"><img src="images/page_images/footer_images/email2.png" height="32" width="32" /></a></div>
-		</div>
+			<div class="large-12 columns text-center">
+                <h1 class="tagline">
+                Learn about the best products on Amazon, <br>
+                We are a curated Wiki of great buys.<br>
+                </h1> 
+			<a href="mailto:info@wikibuys.com"><img src="images/page_images/footer_images/email2.png" height="32" width="32" /></a></br>
+		    WikiBuys is an independent company. Amazon is a trademarked brand. <br />
+            ©2015 WikiBuys.com. All rights reserved.</div>
+        </div>
 		
 		 
     </div>

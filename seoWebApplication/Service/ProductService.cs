@@ -420,6 +420,53 @@ namespace seoWebApplication.Service
             _product.Collection.Update(query, update);
         }
 
+        internal void LikeProduct(int id, string userLike)
+        { 
+
+            try
+            {
+                var query = Query<mProducts>.EQ(e => e.product_id, id);
+
+                IList<string> likes = GetProduct(id).Likes;
+
+                if (likes != null)
+                {
+                    likes.Add(userLike);
+                    var update = Update<mProducts>.Set(e => e.Likes, likes);
+
+                    _product.Collection.Update(query, update);
+                }
+                else
+                {
+                    List<string> _likes = new List<string>();
+                    _likes.Add(userLike);
+                    var update = Update<mProducts>.Set(e => e.Likes, _likes);
+
+                    _product.Collection.Update(query, update);
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        internal void UnLikeProduct(int id, string userLike)
+        {
+
+            try
+            {
+                List<string> attr = GetProduct(id).Likes;
+                var query = Query<mProducts>.EQ(e => e.product_id, id);
+                attr.RemoveAll((x) => x == userLike);
+                var update = Update<mProducts>.Set(e => e.Likes, attr);
+
+                _product.Collection.Update(query, update);
+            }
+            catch
+            {
+            }
+        }
+
         internal void RemovePromoDefault()
         { 
             var query = Query<mProducts>.EQ(e => e.promofront, true);

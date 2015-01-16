@@ -49,6 +49,54 @@ namespace seoWebApplication.Service
             }
         }
 
+        internal void Follow(string id, string userFollowers)
+        {
+
+            try
+            {
+                var query = Query<Users>.EQ(e => e.UserId, id);
+
+                IList<string> followers = GetUser(id).Followers;
+
+                if (followers != null)
+                {
+                    followers.Add(userFollowers);
+                    var update = Update<Users>.Set(e => e.Followers, followers);
+
+                    _user.Collection.Update(query, update);
+                }
+                else
+                {
+                    List<string> _followers = new List<string>();
+                    _followers.Add(userFollowers);
+                    var update = Update<Users>.Set(e => e.Followers, _followers);
+
+                    _user.Collection.Update(query, update);
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        internal void UnFollow(string id, string userFollower)
+        {
+
+            try
+            { 
+                List<string> followers = GetUser(id).Followers;
+
+                var query = Query<Users>.EQ(e => e.UserId, id);
+                followers.RemoveAll((x) => x == userFollower);
+                var update = Update<Users>.Set(e => e.Followers, followers);
+
+                _user.Collection.Update(query, update);
+            }
+            catch
+            {
+            }
+        }
+
 
 
 

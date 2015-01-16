@@ -1,5 +1,7 @@
 ﻿using AspNet.Identity.MongoDB;
 using Microsoft.AspNet.Identity;
+using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -41,6 +43,8 @@ namespace seoWebApplication.Models {
         public int RewardPoints { get; set; }
 
         public bool Newsletter { get; set; }
+
+        public List<string> Followers { get; set; } 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

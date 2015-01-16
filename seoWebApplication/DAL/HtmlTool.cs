@@ -64,15 +64,34 @@ namespace seoWebApplication.DAL
                 //do something with node
                 _price = node.InnerHtml.Replace("$", "");
             }
-            else {
+            else
+            {
                 var ourprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_ourprice']");
-                if(ourprice != null){
-                _price = ourprice.InnerHtml.Replace("$", "");
+                if (ourprice != null)
+                {
+                    _price = ourprice.InnerHtml.Replace("$", "");
                 }
-                else{
-                    _price = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_saleprice']").InnerHtml.Replace("$", "");
+                else
+                {
+                    var saleprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_saleprice']");
+                    if (saleprice != null)
+                    {
+                        _price = saleprice.InnerHtml.Replace("$", "");
+                    }
+                    else
+                    {
+                        var dealprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_dealprice']");
+                        if (dealprice != null)
+                        {
+                            _price = dealprice.InnerHtml.Replace("$", "");
+                        }
+                        else
+                        {
+                            _price = "0".ToString();
+                        }
+                    }
                 }
-            } 
+            }
             
             meta.Price = _price;
 

@@ -87,7 +87,7 @@
 		
 		<div class="large-4 columns text-left width375">
 			<ul class="navigation hide-for-small">
-				<li><a class="scroll" href="/wiki">Wiki</a></li>
+				 <li><a class="scroll" href="/about">About</a></li>
                 <li><a class="scroll" href="/blog">Blog</a></li> 
 			</ul>
 		</div>
@@ -100,7 +100,7 @@
 			<ul class="navigation"> 
 				<li><a class="scroll" href="#highlights-nav">Stores</a></li>
                 <li><a class="scroll" href="#info-nav">Categories</a></li> 
-			    <li><a class="scroll" href="/wiki">Wiki</a></li>
+			     <li><a class="scroll" href="/about">About</a></li>
                 <li><a class="scroll" href="/blog">Blog</a></li> 
 			</ul>
             <div class="main-nav-side-search">
@@ -148,32 +148,41 @@
 
 </section>
 
-        <a id="contact-nav"></a>
-        <section id="contact">
+<a id="contact-nav"></a>
+<section id="contact">
 
-	 
-		
+	<div id="contact-holder">
 		<div class="row">
 			<div class="large-12 columns text-center">
+                <h1 class="tagline">
+                Learn about the best products on Amazon, <br>
+                We are a curated Wiki of great buys.<br>
+                </h1> 
+			<a href="mailto:info@wikibuys.com"><img src="images/page_images/footer_images/email2.png" height="32" width="32" /></a></br>
+		    WikiBuys is an independent company. Amazon is a trademarked brand. <br />
+            ©2015 WikiBuys.com. All rights reserved.</div>
+        </div>
+		
+		 
+    </div>
+		
+    <div class="row">
+			<div class="large-12 columns text-center">
 				<div id="footer">
-					 <ul id="footer-social"> 
+					    <ul id="footer-social"> 
 						<li><a href="<%=facebookUrl %>" target="_blank"><i class="myicon myicon-facebook"></i></a></li>
 						<li><a href="<%=twitterUrl %>" target="_blank"><i class="myicon myicon-twitter"></i></a></li>
-						<li><a href="mailto:info@wikibuys.com"><i class="myicon myicon-email"></i></a></li>
+						<li><a href="mailto:support@wikibuys.com"><i class="myicon myicon-email"></i></a></li>
 					</ul>
-					<div id="copy-text" &copy;
-                  
+					<div id="copy-text">
                     - Powered By - <a href="http://www.mongo-commerce.com">Mongo-Commerce <i class="icon-chevron-right"></i></a>
                         <span class="logo-text">Hale</span>&nbsp;&nbsp;2014     <span class="label label-info"><%=address%>, <%=city2%> Phone: <%=phone%></span></div>
 				</div>
 			</div>
 		</div>
 		
-	</div><!-- end of contact holder -->
+	<!-- end of contact holder -->
 	
-	
-	
-
 </section>
 
 
