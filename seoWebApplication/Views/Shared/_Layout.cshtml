@@ -60,21 +60,15 @@
         <div class="mk-header-right">
 
         </div>
-
-        <div class="mk-header-login">
-            <uc3:UserInfo2 runat="server" ID="UserInfo2" />
-            <div class="mk-login-register mk-box-to-trigger">
-                <div id="mk-login-panel">
-                    <uc3:LogIn runat="server" ID="LogIn" />
-                </div>
-            </div>
+        <div class="mk-header-login"> 
+                    @Html.Partial("_LoginPartial") 
         </div>
-        <div class="mk-header-signup">
+        @*<div class="mk-header-signup">
             <a href="#" id="mk-header-subscribe-button" class="mk-subscribe-link mk-toggle-trigger"><i class="fa fa-envelope"></i>Subscribe</a>
             <div id="mk-header-subscribe" class="mk-box-to-trigger">
 
             </div>
-        </div>
+        </div>*@
         <div class="clearboth"></div>
     </div>
     <a id="home-nav"></a>
@@ -268,11 +262,7 @@
     <section id="work" class="row"> 
             @RenderBody() 
     </section>
-    <section class="row">
-        <div style="width:50%;float:left;">
-            <div class="fb-comments" data-href="www.wikibuys.com/@Request.Url.PathAndQuery" data-numposts="5" data-colorscheme="light"></div>
-        </div>
-    </section>
+  
      
     <a id="contact-nav"></a>
     <section id="contact">

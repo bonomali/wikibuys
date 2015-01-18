@@ -23,14 +23,18 @@
 <div class="paperShadow"> 
 <asp:Label ID="catalogTitleLabel" CssClass="CatalogTitle" runat="server" />
 </div>
-
+<input type="hidden" id="userid" name="userid" value="<%=Page.User.Identity.Name %>" />
 
 		 <asp:Repeater ID="list" runat="server" OnItemCreated="R1_ItemCreated">   
              <itemtemplate>   
                  <asp:Literal ID="lblDivStart" runat="server"></asp:Literal>
                       <div class="large-4 columns">
 			                <div class="work-item" data-project-id="project-1">
-                                <div><i class="fa fa-heart"></i><i class="fa fa-plus"></i></div> 
+                                <div><a href="#" class="ProductLike" data-id="<%#Eval("product_id").ToString()%>">
+                                     <div id="like_<%#Eval("product_id").ToString()%>"><i class="fa fa-heart" ></i></div>
+                                     </a>
+                                   <%--  <i class="fa fa-plus"></i> <i class="fa fa-comment">2</i></div> --%>
+                                </div>
 				                <div class="work-img-holder">
 					                <p align="center"><a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
                                         <%# Eval("name").ToString().Length > 30 ? HttpUtility.HtmlEncode(Eval("name").ToString().Trim().Substring(0,30)) : HttpUtility.HtmlEncode(Eval("name").ToString().Trim())%>

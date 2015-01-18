@@ -13,9 +13,10 @@ using seoWebApplication.Service;
 
 namespace seoWebApplication.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private ProductService _productService = new ProductService();
+        private UserService _userService = new UserService();
 
         public HomeController()
         {
@@ -26,9 +27,26 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Home/
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         { 
-            return Redirect("default.aspx"); 
+            //return Redirect("default.aspx"); 
+            ViewBag.catalogTitleLabel = "Welcome to WikiBUys.com";
+            ViewBag.catalogDescriptionLabel = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
+            // set the title of the page
+            ViewBag.Title = seoWebAppConfiguration.SiteName +
+            " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
+            var listPaged = GetPromoPage(page); // GetPagedNames is found in BaseController
+            if (listPaged == null)
+                return HttpNotFound();
+            ViewBag.Name = "Welcome to WikiBUys.com"; ;
+
+            ViewBag.Title = "LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
+
+            ViewBag.seoTitle = "Welcome to WikiBUys.com";
+            ViewBag.storeName = seoWebAppConfiguration.SiteName;
+            ViewBag.seoDesc = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS"; ;
+            ViewBag.seoKeywords = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS"; ;
+            return View(listPaged); 
         }
 
 

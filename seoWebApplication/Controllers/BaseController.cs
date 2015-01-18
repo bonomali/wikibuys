@@ -54,6 +54,25 @@ namespace seoWebApplication.Controllers
             return listPaged;
         }
 
+        protected IPagedList<mProducts> GetPromoPage(int? page)
+        {
+            // return a 404 if user browses to before the first page
+            if (page.HasValue && page < 1)
+                return null;
+
+            IList<mProducts> products = _productService.GetProductsOnFrontPromo();
+
+            // page the list
+            const int pageSize = 18;
+            var listPaged = products.ToPagedList(page ?? 1, pageSize);
+
+            // return a 404 if user browses to pages beyond last page. special case first page if no items exist
+            if (listPaged.PageNumber != 1 && page.HasValue && page > listPaged.PageCount)
+                return null;
+
+            return listPaged;
+        }
+
         protected IPagedList<mProducts> GetPagedUser(int? page, string id)
         {
             // return a 404 if user browses to before the first page
