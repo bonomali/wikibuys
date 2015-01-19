@@ -30,7 +30,7 @@ namespace seoWebApplication.Controllers
         public ActionResult Index(int? page)
         { 
             //return Redirect("default.aspx"); 
-            ViewBag.catalogTitleLabel = "Welcome to WikiBUys.com";
+            ViewBag.catalogTitleLabel = "Welcome to WikiBuys.com";
             ViewBag.catalogDescriptionLabel = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
             // set the title of the page
             ViewBag.Title = seoWebAppConfiguration.SiteName +
