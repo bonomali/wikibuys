@@ -22,8 +22,12 @@ namespace seoWebApplication.api
         {
             int _id = Convert.ToInt32(id);
             string _userid = userid;
-
-            _productService.LikeProduct(_id, userid);
+            var mp = _productService.GetProduct(Convert.ToInt32(id)).Likes;
+          
+            if (!mp.Exists(x => x == userid))
+            { 
+                _productService.LikeProduct(_id, userid);
+            } 
 
             int likes = _productService.GetProduct(_id).Likes.Count;
 

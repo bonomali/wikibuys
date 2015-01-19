@@ -259,7 +259,12 @@
        
     </section>  
     <a id="work-nav">&nbsp;</a>
-    <section id="work" class="row"> 
+    <section id="work" class="row">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <input type="hidden" id="userid" name="userid" value="@User.Identity.Name" />
+        }
+        
             @RenderBody() 
     </section>
   

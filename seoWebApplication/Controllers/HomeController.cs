@@ -42,7 +42,7 @@ namespace seoWebApplication.Controllers
 
             ViewBag.Title = "LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
 
-            ViewBag.seoTitle = "Welcome to WikiBUys.com";
+            ViewBag.seoTitle = "Welcome to WikiBuys.com";
             ViewBag.storeName = seoWebAppConfiguration.SiteName;
             ViewBag.seoDesc = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS"; ;
             ViewBag.seoKeywords = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS"; ;

@@ -102,12 +102,12 @@ $("#home-bg").mouseover(function () {
 //    }
 //});
 
-$(".ProductLike").click(function () { 
+$(".ProductLike").click(function (event) {
     var id = $(this).attr("data-id");
     var userid = $('#userid').val();
     var url = "/api/like/";
-
-    if (userid == "") {
+    event.preventDefault();
+    if (userid == null) {
         window.location.href = "/Account/Login/";
     }
     else

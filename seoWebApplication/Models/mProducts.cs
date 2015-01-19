@@ -83,6 +83,17 @@ namespace seoWebApplication.Models
         public List<mProductAttributeValue> Attributes { get; set; } 
         public List<Categories> Categories { get; set; } 
         public List<Departments> Departments { get; set; }
-        public List<string> Likes { get; set; } 
+        public List<string> Likes { get; set; }
+
+        public string LikesCount
+        {
+            get
+            {
+                if (Likes != null)
+                    return Likes.Count.ToString();
+                else
+                    return "0".ToString();
+            }
+        }
     }
 }
