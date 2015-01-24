@@ -25,11 +25,11 @@ namespace seoWebApplication.Service
             _categories.Collection.Insert(categories);
         }
 
-         public bool Delete(int id)
+         public bool Delete(Guid id)
          {
              try
              {
-                 var query = Query<Categories>.EQ(e => e.category_id, id);
+                 var query = Query<Categories>.EQ(e => e.Id, id);
                  _categories.Collection.Remove(query);
                  return true;
              }
@@ -117,6 +117,25 @@ namespace seoWebApplication.Service
              {
                  return 1;
              }
+         }
+
+         internal Categories GetCategoryByGuid(Guid id)
+         {
+             try
+             {
+                 if (id != null)
+                 {
+                     var query = Query<Categories>.EQ(e => e.Id, id);
+                     var list = _categories.Collection.Find(query).First<Categories>();
+                     return list;
+                 }
+                 else
+                 {
+                     return null;
+                 }
+
+             }
+             catch { return null; }
          }
     }
 }

@@ -346,11 +346,7 @@
     <Content Include="admin\catalog\attribute.aspx" />
     <Content Include="admin\catalog\attributes.aspx" />
     <Content Include="admin\catalog\attributeValue.aspx" />
-    <Content Include="admin\catalog\categories.aspx" />
-    <Content Include="admin\catalog\category.aspx" />
     <Content Include="admin\catalog\deleteProductCategory.aspx" />
-    <Content Include="admin\catalog\department.aspx" />
-    <Content Include="admin\catalog\departments.aspx" />
     <Content Include="admin\catalog\includes\images.jpg" />
     <Content Include="admin\catalog\includes\style.css" />
     <Content Include="admin\catalog\includes\style2.css" />
@@ -2142,40 +2138,12 @@
     <Compile Include="admin\catalog\attributeValue.aspx.designer.cs">
       <DependentUpon>attributeValue.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\catalog\categories.aspx.cs">
-      <DependentUpon>categories.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\categories.aspx.designer.cs">
-      <DependentUpon>categories.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\category.aspx.cs">
-      <DependentUpon>category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\category.aspx.designer.cs">
-      <DependentUpon>category.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin\catalog\deleteProductCategory.aspx.cs">
       <DependentUpon>deleteProductCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\catalog\deleteProductCategory.aspx.designer.cs">
       <DependentUpon>deleteProductCategory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\department.aspx.cs">
-      <DependentUpon>department.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\department.aspx.designer.cs">
-      <DependentUpon>department.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\departments.aspx.cs">
-      <DependentUpon>departments.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\departments.aspx.designer.cs">
-      <DependentUpon>departments.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\catalog\product.aspx.cs">
       <DependentUpon>product.aspx</DependentUpon>

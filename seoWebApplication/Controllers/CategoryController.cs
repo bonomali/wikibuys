@@ -83,13 +83,13 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Category/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var category = _categoriesService.GetCategoryById(id);
+            var category = _categoriesService.GetCategoryByGuid(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -115,13 +115,13 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Category/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var category = _categoriesService.GetCategoryById(id);
+            var category = _categoriesService.GetCategoryByGuid(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -132,7 +132,7 @@ namespace seoWebApplication.Controllers
         // POST: /Category/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             _categoriesService.Delete(id);
             return RedirectToAction("Index");

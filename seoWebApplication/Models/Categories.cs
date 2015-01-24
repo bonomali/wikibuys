@@ -37,5 +37,7 @@ namespace seoWebApplication.Models
         public int UpdateENTUserAccountId { get; set; }
         [BsonElement("Version")]
         public byte[] Version { get; set; }
+
+        public List<Categories> Category { get; set; }
     }
 }

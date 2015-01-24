@@ -7,30 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace seoWebApplication.admin.catalog {
+namespace seoWebApplication.UserControls {
     
     
-    public partial class departments {
+    public partial class StoreList {
         
         /// <summary>
-        /// cgvDepartments control.
+        /// list control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView cgvDepartments;
-        
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new seoWebApplication.seoWebAppAdminEditGrid Master {
-            get {
-                return ((seoWebApplication.seoWebAppAdminEditGrid)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.WebControls.Repeater list;
     }
 }

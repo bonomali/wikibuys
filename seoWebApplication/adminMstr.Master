@@ -168,8 +168,8 @@ padding-bottom: 20px !important;
                             <li>
                                 <a href="/product">Products</a>
                                 <a href="/admin/catalog/attributes.aspx">Attributes</a>
-                                <a href="/admin/catalog/departments.aspx">Departments</a>
-                                <a href="/admin/catalog/categories.aspx">Categories</a> 
+                                <a href="/departments">Departments</a>
+                                <a href="/category">Categories</a> 
                             </li>
 
                         </ul>
