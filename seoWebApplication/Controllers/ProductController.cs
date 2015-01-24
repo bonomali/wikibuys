@@ -6,6 +6,7 @@ using seoWebApplication.Service;
 using seoWebApplication.Models;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
+using System.Collections.Generic;
 
 namespace seoWebApplication.Controllers
 {
@@ -13,7 +14,8 @@ namespace seoWebApplication.Controllers
     public class ProductController : Controller
     {
         private ProductService _productService = new ProductService();
-
+        private CategoriesService _categoriesService = new CategoriesService();
+        private DepartmentService _departmentsService = new DepartmentService();
         // GET: /Product/
         public ActionResult Index()
         {
@@ -122,6 +124,28 @@ namespace seoWebApplication.Controllers
                 return RedirectToAction("Index");
             }
             return View(product);
+        }
+
+        [HttpPost, ValidateInput(false)]
+        // GET: AddProductCategories
+        public ActionResult AddProductCategories(int id, int categoryid)
+        {
+            _productService.AddProductToCategory(id, categoryid);
+            return View();
+        }
+
+        public JsonResult GetCascadeCategories(int departmentId)
+        {
+            var categories = _categoriesService.GetCategories().AsQueryable();
+
+            return Json(categories.Where(p => p.department_id == departmentId).Select(p => new { Id = p.Id, Name = p.Name }), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetDepartments()
+        {
+            var departments = _departmentsService.GetDepartments().AsQueryable();
+             
+            return Json(departments.Select(p => new { DepartmentId = p.department_id, Name = p.Name }), JsonRequestBehavior.AllowGet);
         }
 
         // GET: /Product/Delete/5

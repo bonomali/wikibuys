@@ -23,7 +23,7 @@ namespace seoWebApplication.Controllers
         { 
             return View();
         }
-
+         
         public ActionResult Categories_Read([DataSourceRequest]DataSourceRequest request, int id)
         {
             var cats = (from e in _categoriesService.GetCategories()

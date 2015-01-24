@@ -15,7 +15,7 @@
             Attributes
         </li>
         <li>
-            Other
+            Categories
         </li>
        
     </ul>
@@ -32,7 +32,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.store, "store", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.DropDownList("store", null, htmlAttributes: new { @class = "form-control col-md-6" })
                         @Html.ValidationMessageFor(model => model.store, "", new { @class = "text-danger" })
                     </div>
@@ -40,56 +40,24 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.name, new { @class = "control-label col-md-10" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.name, new { @class = "control-label col-md-6" })
                         @Html.ValidationMessageFor(model => model.name)
                     </div>
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.description, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @(Html.Kendo().Editor()
- .Name("description")
-      .HtmlAttributes(new { style = "width: 740px;height:440px" })
-      .Value(@<text>
-        <p>
-            <img src="@Url.Content("~/content/web/editor/kendo-ui-web.png")" alt="Editor for ASP.NET MVC logo" style="display:block;margin-left:auto;margin-right:auto;" />
-        </p>
-        <p>
-            Kendo UI Editor allows your users to edit HTML in a familiar, user-friendly way.<br />
-            In this version, the Editor provides the core HTML editing engine, which includes basic text formatting, hyperlinks, lists,
-            and image handling. The widget <strong>outputs identical HTML</strong> across all major browsers, follows
-            accessibility standards and provides API for content manipulation.
-        </p>
-        <p>Features include:</p>
-        <ul>
-            <li>Text formatting &amp; alignment</li>
-            <li>Bulleted and numbered lists</li>
-            <li>Hyperlink and image dialogs</li>
-            <li>Cross-browser support</li>
-            <li>Identical HTML output across browsers</li>
-            <li>Gracefully degrades to a <code>textarea</code> when JavaScript is turned off</li>
-        </ul>
-        <p>
-            Read <a href="http://docs.telerik.com/kendo-ui">more details</a> or send us your
-            <a href="http://www.telerik.com/forums">feedback</a>!
-        </p>
-    </text>)
-.ImageBrowser(imageBrowser => imageBrowser
-.Image("~/Content/UserFiles/Images/{0}")
-.Read("Read", "ImageBrowser")
-.Create("Create", "ImageBrowser")
-.Destroy("Destroy", "ImageBrowser")
-.Upload("Upload", "ImageBrowser")
-.Thumbnail("Thumbnail", "ImageBrowser"))
-                        )
+                    <div class="col-md-6">
+                         @Html.EditorFor(model => model.description, new { @class = "control-label col-md-6" })
+                         @Html.ValidationMessageFor(model => model.description)
+                 
                     </div>
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.price, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.price)
                         @Html.ValidationMessageFor(model => model.price)
                     </div>
@@ -97,7 +65,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.thumbnail, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.thumbnail)
                         @Html.ValidationMessageFor(model => model.thumbnail)
                         @(Html.Kendo().Upload()
@@ -122,21 +90,21 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.image, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.image)
                         @Html.ValidationMessageFor(model => model.image)
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Url, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.Url)
                         @Html.ValidationMessageFor(model => model.Url)
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Specifications, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @(Html.Kendo().Editor()
  .Name("Specifications")
       .HtmlAttributes(new { style = "width: 740px;height:440px" })
@@ -155,7 +123,7 @@
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.promofront, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.promofront)
                         @Html.ValidationMessageFor(model => model.promofront)
                     </div>
@@ -163,7 +131,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.promodept, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.promodept)
                         @Html.ValidationMessageFor(model => model.promodept)
                     </div>
@@ -171,7 +139,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.defaultAttribute, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.defaultAttribute)
                         @Html.ValidationMessageFor(model => model.defaultAttribute)
                     </div>
@@ -179,7 +147,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.defaultAttCat, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.defaultAttCat)
                         @Html.ValidationMessageFor(model => model.defaultAttCat)
                     </div>
@@ -187,7 +155,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.InsertDate, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.InsertDate)
                         @Html.ValidationMessageFor(model => model.InsertDate)
                     </div>
@@ -195,7 +163,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.InsertENTUserAccountId, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.InsertENTUserAccountId)
                         @Html.ValidationMessageFor(model => model.InsertENTUserAccountId)
                     </div>
@@ -203,7 +171,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.UpdateDate, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.UpdateDate)
                         @Html.ValidationMessageFor(model => model.UpdateDate)
                     </div>
@@ -211,7 +179,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.UpdateENTUserAccountId, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.UpdateENTUserAccountId)
                         @Html.ValidationMessageFor(model => model.UpdateENTUserAccountId)
                     </div>
@@ -219,14 +187,14 @@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Version, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.EditorFor(model => model.Version)
                         @Html.ValidationMessageFor(model => model.Version)
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-offset-2 col-md-6">
                         <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
@@ -275,50 +243,71 @@
         </table>
     </div>
     <div>
+         
+        <div>
+            <label for="Departments">Departments:</label>
+            @(Html.Kendo().DropDownList()
+              .Name("departments")
+              .HtmlAttributes(new { style = "width:300px" })
+              .OptionLabel("Select Department...")
+              .DataTextField("Name")
+              .DataValueField("DepartmentId")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetDepartments", "Product");
+                  });
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Add
-        </button>
+              })
+            )
+            
+            <label for="categories">Catergories:</label>
+            @(Html.Kendo().DropDownList()
+              .Name("categories")
+              .HtmlAttributes(new { style = "width:300px" })
+              .OptionLabel("Select category...")
+                      .DataTextField("Name")
+              .DataValueField("Id")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetCascadeCategories", "Product").Data("filterCategories");
+                  }).ServerFiltering(true);
+              })
+                      .Enable(false)
+                      .AutoBind(false)
+              .CascadeFrom("departments")
+            )
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Create</h4>
-                    </div>
-
-                    @*@{Html.RenderAction("Create", "ProductCategories", new { id = Model.product_id });}*@
-
-                </div>
-            </div>
+            
+       
         </div>
+         
         <table class="table">
-            @if (Model.Attributes != null)
+            @if (Model.Categories != null)
             {
-                foreach (var item in Model.Attributes)
+                foreach (var item in Model.Categories)
                 {
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Value)
+                            @Html.DisplayFor(modelItem => item.Description)
                         </td>
-                        <td>
-                            <button class="demo btn btn-primary btn-large" data-id="@item.AttributeValueID" id="BtnEdit">Edit</button>
-                            <button class="demo btn btn-primary btn-large" data-id="@item.AttributeValueID" id="BtnDelete">Delete</button>
+                        <td> 
+                            <button class="demo btn btn-primary btn-large" data-id="@item.Id" id="BtnDelete">Delete</button>
                         </td>
                     </tr>
                 }
             }
         </table>
-    </div> 
+   
     </div>
 
-
+</div>
 
     <div>
         @Html.ActionLink("Back to List", "Index")
@@ -348,6 +337,14 @@
             </div>
         </div>
     </div>
+
+<script>
+    function filterCategories() {
+        return {
+            departmentId: $("#departments").val()
+        };
+    }
+</script>
 
     <script>
         $(document).ready(function () {
