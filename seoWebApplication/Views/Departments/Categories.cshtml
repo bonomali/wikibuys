@@ -9,18 +9,17 @@
 @(Html.Kendo().Grid<seoWebApplication.Models.Categories>()
             .Name("Grid")
         .Columns(columns =>
-    {
-        columns.Bound(p => p.category_id);
+    { 
         columns.Bound(p => p.Description);
         columns.Bound(p => p.Name);
-        columns.Bound(p => p.category_id).ClientTemplate("<a href='" + Url.Action("edit", "Category", new { id = "#= category_id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>view</a>  ").Title("view").Groupable(false);
+        columns.Bound(p => p.Id).ClientTemplate("<a href='" + Url.Action("edit", "Category", new { id = "#= Id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>view</a>  ").Title("view").Groupable(false);
     })
                     .ToolBar(toolbar => toolbar.Template("<a class='k-button k-button-icontext k-grid-add' href='/Category/create/'>create</a>"))
 
         .DataSource(datasource => datasource
             .Ajax() // specify that the data source is of ajax type
             // specify that the useraccountid property is the unique identifier of the model
-                            .Model(model => model.Id(p => p.category_id))
+                                .Model(model => model.Id(p => p.Id))
 
             // configure crud -->
                     .Events(events => events.Error("error_handler"))
