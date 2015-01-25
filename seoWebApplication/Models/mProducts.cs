@@ -7,6 +7,7 @@ using System.Web;
 
 namespace seoWebApplication.Models
 {
+    [BsonIgnoreExtraElements]
     public class mProducts
     {
         private DateTime date;
@@ -81,8 +82,10 @@ namespace seoWebApplication.Models
         [BsonElement("Version")]
         public byte[] Version { get; set; }
         public List<mProductAttributeValue> Attributes { get; set; } 
-        public List<Categories> Categories { get; set; } 
-        public List<Departments> Departments { get; set; }
+        public Guid BrandId { get; set; }
+        public Guid SubcategoryId { get; set; }
+        public Guid CategoryId { get; set; } 
+        public Guid DepartmentId { get; set; }
         public List<string> Likes { get; set; }
 
         public string LikesCount

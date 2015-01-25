@@ -15,6 +15,7 @@ namespace seoWebApplication.Controllers
     {
         private ProductService _productService = new ProductService();
         private CategoriesService _categoriesService = new CategoriesService();
+        private SubcategoriesService _subcategoriesService = new SubcategoriesService();
         private DepartmentService _departmentsService = new DepartmentService();
         // GET: /Product/
         public ActionResult Index()
@@ -126,14 +127,14 @@ namespace seoWebApplication.Controllers
             return View(product);
         }
 
-        [HttpPost, ValidateInput(false)]
-        // GET: AddProductCategories
-        public ActionResult AddProductCategories(int id, int categoryid)
-        {
-            _productService.AddProductToCategory(id, categoryid);
-            return View();
-        }
+      
 
+        public JsonResult GetCascadeSubcategories(Guid categoryId)
+        {
+            var subcategories = _subcategoriesService.GetSubcategories().AsQueryable();
+
+            return Json(subcategories.Where(p => p.category_id == categoryId).Select(p => new { Id = p.Id, Name = p.Name }), JsonRequestBehavior.AllowGet);
+        }
         public JsonResult GetCascadeCategories(int departmentId)
         {
             var categories = _categoriesService.GetCategories().AsQueryable();

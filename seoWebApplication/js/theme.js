@@ -74,33 +74,11 @@ $("#home-bg").mouseover(function () {
     $('.mk-shopping-cart-box').hide();
 });
 
-//$(".ProductLike").hover(function () {
-//    console.log('hover');
-//    var id = $(this).attr("data-id");
-//    var userid = $('#userid').val();
-//    var url = "/api/like/";
-
-//    if (userid == "") {
-//        window.location.href = "/Account/Login/";
-//    }
-//    else {
-//        // Send the data using post 
-//        var dataJSON = { id: id, userid: userid };
-//        $.ajax({
-//            type: 'get',
-//            url: url,
-//            data: dataJSON,
-//            contentType: 'application/json; charset=utf-8',
-//            dataType: 'json',
-//            success: function (data) {
-//                $("#like_" + id).html(data);
-//            },
-//            error: function (msg) {
-//                $('#mainimage').html(msg);
-//            }
-//        });
-//    }
-//});
+$("#Search").click(function () { 
+    var url = "/search.aspx?search=" + $('#searchTextBox').val();
+    
+    window.location.href = url; 
+});
 
 $(".ProductLike").click(function (event) {
     var id = $(this).attr("data-id");

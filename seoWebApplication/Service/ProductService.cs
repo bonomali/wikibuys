@@ -15,7 +15,7 @@ namespace seoWebApplication.Service
 {
     public class ProductService
     {
-
+        private DepartmentService _departmentsService = new DepartmentService();
         private readonly MongoHelper<mProducts> _product;
         public ProductService()
         {
@@ -197,21 +197,7 @@ namespace seoWebApplication.Service
             }
            
         }
-        internal List<Departments> GetDepartments(int Id)
-        {
-            if (Id > 0)
-            {
-                mProducts pquery = (from e in _product.Collection.AsQueryable<mProducts>()
-                                    where e.product_id == Id
-                                    select e).First();
-                return pquery.Departments.ToList();
-            }
-            else
-            {
-                return null;
-            }
-
-        }
+         
         internal mProductAttributeValue GetProductAttribute(int Id, int AttrId)
         {
             if (Id > 0)
@@ -229,87 +215,30 @@ namespace seoWebApplication.Service
 
         }
 
-        internal IList<Categories> ProductCategorySelect(int Id)
-        {
-            if (Id > 0)
-            {
-                mProducts query = (from e in _product.Collection.AsQueryable<mProducts>()
-                                   where e.product_id == Id
-                                   select e).First();
-
-                return query.Categories;
-            }
-            else {
-                return null;
-            }
-            
-        }
+     
 
         public IList<mProducts> GetProductsOnDeptPromo(string department_id, string pageNumber)
         {
+            Guid deptId = _departmentsService.GetDepartmentsById(Convert.ToInt32(department_id)).Id;
             try
-            { 
-                int Id = dBHelper.GetWebstoreId();
-                int deptId = Convert.ToInt32(department_id);
-                var ancestorsQuery = Query<Categories>.EQ(d => d.department_id, deptId);
-                var finalQuery = Query<mProducts>.ElemMatch(p => p.Categories, builder => ancestorsQuery);
-                 
-                return _product.Collection.Find(finalQuery).ToList<mProducts>();
+            {
+                var query = Query.And(
+                                      Query<mProducts>.EQ(e => e.DepartmentId, deptId),
+                                      Query<mProducts>.EQ(e => e.promofront, true),
+                                      Query<mProducts>.EQ(e => e.webstore_id, dBHelper.GetWebstoreId())
+                                  );
+                return _product.Collection.Find(query).ToList<mProducts>();
+
             }
             catch (MongoConnectionException)
             {
                 return new List<mProducts>();
             }
         } 
-        internal void AddProductToCategory(int productid, int categoryid)
-        {
-            try
-            {
-                var query =  Query<mProducts>.EQ(e => e.product_id, productid);
-
-                IList<Categories> cat = GetProduct(productid).Categories;
-                var dc = new CategoriesService();
-                Categories category = dc.GetCategoryById(categoryid); 
-                if (cat != null)
-                {
-                    cat.Add(category);
-                    var update = Update<mProducts>.Set(e => e.Categories, cat);
-
-                    _product.Collection.Update(query, update);
-                }
-                else {
-                    List<Categories> _category = new List<Categories>();
-                    _category.Add(category);
-                    var update = Update<mProducts>.Set(e => e.Categories, _category);
-
-                    _product.Collection.Update(query, update);
-                } 
-            }
-            catch
-            {
-            }
-        }
+        
 
 
-        internal void DeleteCategory(int id, int pid)
-        {
-            try
-            {  
-                List<Categories> cat = GetProduct(pid).Categories;
-                var dc = new CategoriesService(); 
-
-                var query = Query<mProducts>.EQ(e => e.product_id, pid); 
-                cat.RemoveAll((x) => x.category_id == id);
-                var update = Update<mProducts>.Set(e => e.Categories, cat);
-
-                _product.Collection.Update(query, update); 
-                
-            }
-            catch
-            {
-                
-            } 
-        }
+       
 
         internal void Update(mProducts p)
         {  
@@ -324,7 +253,10 @@ namespace seoWebApplication.Service
                                            .Set(e => e.promofront, p.promofront)
                                            .Set(e => e.defaultAttCat, p.defaultAttCat)
                                            .Set(e => e.defaultAttribute, p.defaultAttribute)
-                                           .Set(e => e.Categories, p.Categories)
+                                           .Set(e => e.CategoryId, p.CategoryId)
+                                           .Set(e => e.SubcategoryId, p.SubcategoryId)
+                                           .Set(e => e.DepartmentId, p.DepartmentId)
+                                           .Set(e => e.BrandId, p.BrandId)
                                            .Set(e => e.Attributes, p.Attributes)
                                            .Set(e => e.Url, p.Url)
                                            .Set(e => e.store, p.store)

@@ -333,40 +333,6 @@
   <ItemGroup>
     <Content Include="about_us.aspx" />
     <Content Include="account.aspx" />
-    <Content Include="admin\admin.aspx" />
-    <Content Include="admin\AdminCategories.aspx" />
-    <Content Include="admin\AdminDepartments.aspx" />
-    <Content Include="admin\AdminLogin.aspx" />
-    <Content Include="admin\AdminOrderDetails.aspx" />
-    <Content Include="admin\AdminOrders.aspx" />
-    <Content Include="admin\AdminProductDetails.aspx" />
-    <Content Include="admin\AdminProducts.aspx" />
-    <Content Include="admin\AdminShoppingCart.aspx" />
-    <Content Include="admin\admin_parent.aspx" />
-    <Content Include="admin\catalog\attribute.aspx" />
-    <Content Include="admin\catalog\attributes.aspx" />
-    <Content Include="admin\catalog\attributeValue.aspx" />
-    <Content Include="admin\catalog\deleteProductCategory.aspx" />
-    <Content Include="admin\catalog\includes\images.jpg" />
-    <Content Include="admin\catalog\includes\style.css" />
-    <Content Include="admin\catalog\includes\style2.css" />
-    <Content Include="admin\catalog\includes\tabs.css" />
-    <Content Include="admin\catalog\product.aspx" />
-    <Content Include="admin\catalog\productAttributeValue.aspx" />
-    <Content Include="admin\catalog\products.aspx" />
-    <Content Include="admin\Dashboard.aspx" />
-    <Content Include="admin\default.aspx" />
-    <Content Include="admin\includes\images.jpg" />
-    <Content Include="admin\includes\style.css" />
-    <Content Include="admin\includes\style2.css" />
-    <Content Include="admin\includes\tabs.css" />
-    <Content Include="admin\Logout.aspx" />
-    <Content Include="admin\settings\addGeoMap.aspx" />
-    <Content Include="admin\settings\admin.aspx" />
-    <Content Include="admin\settings\admins.aspx" />
-    <Content Include="admin\settings\point.aspx" />
-    <Content Include="admin\settings\shippingOptions.aspx" />
-    <Content Include="admin\settings\viewDeliveryZone.aspx" />
     <Content Include="App_Themes\SeoWebAppDefault\images\button-bg.gif" />
     <Content Include="App_Themes\SeoWebAppDefault\images\button-bg2.gif" />
     <Content Include="App_Themes\SeoWebAppDefault\images\GSA.jpg" />
@@ -2047,188 +2013,6 @@
       <DependentUpon>adminMstr.Master</DependentUpon>
     </Compile>
     <Content Include="st.SharkTankDAL\DynamicLibrary.cs" />
-    <Compile Include="admin\admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminCategories.aspx.cs">
-      <DependentUpon>AdminCategories.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminCategories.aspx.designer.cs">
-      <DependentUpon>AdminCategories.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminDepartments.aspx.cs">
-      <DependentUpon>AdminDepartments.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminDepartments.aspx.designer.cs">
-      <DependentUpon>AdminDepartments.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminLogin.aspx.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminLogin.aspx.designer.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminOrderDetails.aspx.cs">
-      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminOrderDetails.aspx.designer.cs">
-      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminOrders.aspx.cs">
-      <DependentUpon>AdminOrders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminOrders.aspx.designer.cs">
-      <DependentUpon>AdminOrders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminProductDetails.aspx.cs">
-      <DependentUpon>AdminProductDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminProductDetails.aspx.designer.cs">
-      <DependentUpon>AdminProductDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminProducts.aspx.cs">
-      <DependentUpon>AdminProducts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminProducts.aspx.designer.cs">
-      <DependentUpon>AdminProducts.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\AdminShoppingCart.aspx.cs">
-      <DependentUpon>AdminShoppingCart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminShoppingCart.aspx.designer.cs">
-      <DependentUpon>AdminShoppingCart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\admin_parent.aspx.cs">
-      <DependentUpon>admin_parent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\admin_parent.aspx.designer.cs">
-      <DependentUpon>admin_parent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\attribute.aspx.cs">
-      <DependentUpon>attribute.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\attribute.aspx.designer.cs">
-      <DependentUpon>attribute.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\attributes.aspx.cs">
-      <DependentUpon>attributes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\attributes.aspx.designer.cs">
-      <DependentUpon>attributes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\attributeValue.aspx.cs">
-      <DependentUpon>attributeValue.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\attributeValue.aspx.designer.cs">
-      <DependentUpon>attributeValue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\deleteProductCategory.aspx.cs">
-      <DependentUpon>deleteProductCategory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\deleteProductCategory.aspx.designer.cs">
-      <DependentUpon>deleteProductCategory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\product.aspx.cs">
-      <DependentUpon>product.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\product.aspx.designer.cs">
-      <DependentUpon>product.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\productAttributeValue.aspx.cs">
-      <DependentUpon>productAttributeValue.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\productAttributeValue.aspx.designer.cs">
-      <DependentUpon>productAttributeValue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\catalog\products.aspx.cs">
-      <DependentUpon>products.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\catalog\products.aspx.designer.cs">
-      <DependentUpon>products.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Logout.aspx.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\Logout.aspx.designer.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\settings\addGeoMap.aspx.cs">
-      <DependentUpon>addGeoMap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\settings\addGeoMap.aspx.designer.cs">
-      <DependentUpon>addGeoMap.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\settings\admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\settings\admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\settings\admins.aspx.cs">
-      <DependentUpon>admins.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\settings\admins.aspx.designer.cs">
-      <DependentUpon>admins.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\settings\point.aspx.cs">
-      <DependentUpon>point.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\settings\point.aspx.designer.cs">
-      <DependentUpon>point.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\settings\shippingOptions.aspx.cs">
-      <DependentUpon>shippingOptions.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\settings\shippingOptions.aspx.designer.cs">
-      <DependentUpon>shippingOptions.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\settings\viewDeliveryZone.aspx.cs">
-      <DependentUpon>viewDeliveryZone.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\settings\viewDeliveryZone.aspx.designer.cs">
-      <DependentUpon>viewDeliveryZone.aspx</DependentUpon>
-    </Compile>
     <Compile Include="api\LikeController.cs" />
     <Compile Include="api\SocialMediaController.cs" />
     <Compile Include="api\WidgetController.cs" />
@@ -2251,7 +2035,10 @@
     <Compile Include="Common\mvcConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BrandController.cs" />
+    <Compile Include="Controllers\SubcategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
@@ -2353,6 +2140,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\Brands.cs" />
+    <Compile Include="Models\SubCategories.cs" />
     <Compile Include="Models\Images.cs" />
     <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\Company.cs" />
@@ -2457,6 +2246,8 @@
       <DependentUpon>seoWebAppAdminEditPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Service\AttributeValueService.cs" />
+    <Compile Include="Service\BrandsService.cs" />
+    <Compile Include="Service\SubcategoriesService.cs" />
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\CategoriesService.cs" />
     <Compile Include="Service\CustomerService.cs" />
@@ -3213,6 +3004,17 @@
     <Content Include="Views\Errors\NotFound.cshtml" />
     <Content Include="Views\User\Notfound.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Subcategory\Create.cshtml" />
+    <Content Include="Views\Subcategory\Delete.cshtml" />
+    <Content Include="Views\Subcategory\Details.cshtml" />
+    <Content Include="Views\Subcategory\Edit.cshtml" />
+    <Content Include="Views\Subcategory\Index.cshtml" />
+    <Content Include="Views\Brand\Create.cshtml" />
+    <Content Include="Views\Brand\Delete.cshtml" />
+    <Content Include="Views\Brand\Details.cshtml" />
+    <Content Include="Views\Brand\Edit.cshtml" />
+    <Content Include="Views\Brand\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
@@ -3244,7 +3046,6 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="admin\ajax\" />
     <Folder Include="factoryClasses\" />
     <Folder Include="Images\page_images\NewFolder2\" />
     <Folder Include="js\libs\bootstrap\" />

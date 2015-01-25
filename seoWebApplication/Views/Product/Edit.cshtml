@@ -245,8 +245,16 @@
     <div>
          
         <div>
-            <label for="Departments">Departments:</label>
-            @(Html.Kendo().DropDownList()
+            <div class="form-horizontal">
+                <h4>Category</h4>
+                <hr />
+
+
+                <div class="form-group">
+
+                    <label class="control-label col-md-2" for="Departments">Departments:</label>
+                    <div class="col-md-6">
+                        @(Html.Kendo().DropDownList()
               .Name("departments")
               .HtmlAttributes(new { style = "width:300px" })
               .OptionLabel("Select Department...")
@@ -260,10 +268,14 @@
                   });
 
               })
-            )
-            
-            <label for="categories">Catergories:</label>
-            @(Html.Kendo().DropDownList()
+                        )
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label class="control-label col-md-2" for="Catergories">Catergories:</label>
+                    <div class="col-md-6">
+                        @(Html.Kendo().DropDownList()
               .Name("categories")
               .HtmlAttributes(new { style = "width:300px" })
               .OptionLabel("Select category...")
@@ -279,111 +291,140 @@
                       .Enable(false)
                       .AutoBind(false)
               .CascadeFrom("departments")
-            )
+        )
+        </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-2" for="Subcatergories">Sub Catergories:</label>
+            <div class="col-md-6">
+                @(Html.Kendo().DropDownList()
+              .Name("subcategories")
+              .HtmlAttributes(new { style = "width:300px" })
+                      .OptionLabel("Select subcategory...")
+                      .DataTextField("Name")
+              .DataValueField("Id")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetCascadeSubcategories", "Product").Data("filterSubcategories");
+                  }).ServerFiltering(true);
+              })
+                      .Enable(false)
+                      .AutoBind(false)
+              .CascadeFrom("categories")
+                )
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" id="SaveProductCategory">
+                    Save
+                </button>
+            </div>
+
+         </div>
+
+
+             
+
+
+            </div>
 
             
-       
+
         </div>
-         
-        <table class="table">
-            @if (Model.Categories != null)
-            {
-                foreach (var item in Model.Categories)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td> 
-                            <button class="demo btn btn-primary btn-large" data-id="@item.Id" id="BtnDelete">Delete</button>
-                        </td>
-                    </tr>
+
+
+
+        </div>
+
+
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+
+
+            <div class="modal fade bs-example-modal-sm" id="ajax-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Delete</h4>
+                    </div>
+                    <div class="modal-content" id="modal-content">
+                        ...
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade bs-example-modal-sm" id="ajax-modal-edit" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit</h4>
+                    </div>
+                    <div class="modal-content" id="modal-content">
+                        ...
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function filterCategories() {
+                    return {
+                        departmentId: $("#departments").val()
+                    };
                 }
+
+                function filterSubcategories() {
+                    return {
+                        categoryId: $("#categories").val()
+                    };
+                }
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    // Handler for .ready() called.
+                    var $modal = $('#ajax-modal');
+
+                    $('#SaveProductCategory').on('click', function () {
+                        $("#target").submit();
+                    });
+
+                    $('#BtnDelete').on('click', function () {
+                        var thisID = $(this).data("id");
+                        console.log(thisID);
+
+                        setTimeout(function () {
+                            $('#ajax-modal #modal-content').load('/productattributevalues/delete?id=' + @Model.product_id + '&attrId=' + thisID, '', function () {
+                                $('#ajax-modal').modal();
+                            });
+                        }, 1000);
+                    });
+
+                    $('#BtnEdit').on('click', function () {
+                        var thisID = $(this).data("id");
+                        setTimeout(function () {
+                            $('#ajax-modal-edit #modal-content').load('/productattributevalues/edit?id=' + @Model.product_id + '&attrId=' + thisID, '', function () {
+                                $('#ajax-modal-edit').modal();
+                            });
+                        }, 1000);
+                    });
+
+                });
+
+
+                $(document).ready(function () {
+                    $("#tabstrip").kendoTabStrip({
+                        animation: {
+                            open: {
+                                effects: "fadeIn"
+                            }
+                        }
+                    });
+                });
+            </script>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
             }
-        </table>
-   
-    </div>
-
-</div>
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-
-
-    <div class="modal fade bs-example-modal-sm" id="ajax-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Delete</h4>
-            </div>
-            <div class="modal-content" id="modal-content">
-                ...
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade bs-example-modal-sm" id="ajax-modal-edit" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Edit</h4>
-            </div>
-            <div class="modal-content" id="modal-content">
-                ...
-            </div>
-        </div>
-    </div>
-
-<script>
-    function filterCategories() {
-        return {
-            departmentId: $("#departments").val()
-        };
-    }
-</script>
-
-    <script>
-        $(document).ready(function () {
-            // Handler for .ready() called.
-            var $modal = $('#ajax-modal');
-
-            $('#BtnDelete').on('click', function () {
-                var thisID = $(this).data("id");
-                console.log(thisID);
-
-                setTimeout(function () {
-                    $('#ajax-modal #modal-content').load('/productattributevalues/delete?id=' + @Model.product_id + '&attrId=' + thisID, '', function () {
-                        $('#ajax-modal').modal();
-                    });
-                }, 1000);
-            });
-
-            $('#BtnEdit').on('click', function () {
-                var thisID = $(this).data("id");
-                setTimeout(function () {
-                    $('#ajax-modal-edit #modal-content').load('/productattributevalues/edit?id=' + @Model.product_id + '&attrId=' + thisID, '', function () {
-                        $('#ajax-modal-edit').modal();
-                    });
-                }, 1000);
-            });
-
-        });
-
-
-        $(document).ready(function () {
-            $("#tabstrip").kendoTabStrip({
-                animation: {
-                    open: {
-                        effects: "fadeIn"
-                    }
-                }
-            });
-        });
-    </script>
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
