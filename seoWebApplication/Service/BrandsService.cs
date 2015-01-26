@@ -22,13 +22,15 @@ namespace seoWebApplication.Service
         {
             Brands.brand_id = GetLastId();
             Brands.webstore_id = dBHelper.GetWebstoreId();
+            Brands.Name = Helpers.GenerateSlug(Brands.Name.ToLower());
             _brands.Collection.Insert(Brands);
         }
 
          internal void Update(Brands p)
          {
+             string name = Helpers.GenerateSlug(p.Name.ToLower());
              var query = Query<Brands>.EQ(e => e.Id, p.Id);
-             var update = Update<Brands>.Set(e => e.Name, p.Name)
+             var update = Update<Brands>.Set(e => e.Name, name)
                                         .Set(e => e.Description, p.Description);
 
              _brands.Collection.Update(query, update);
