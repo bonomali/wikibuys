@@ -65,7 +65,17 @@ namespace seoWebApplication.Service
                  return new List<Brands>();
              }
          }
-
+         public Brands GetBrandByName(string name)
+         {
+             try
+             { 
+                     var query = Query<Brands>.EQ(e => e.Name, name);
+                     var list = _brands.Collection.Find(query).First<Brands>();
+                     return list;
+                
+             }
+             catch { return null; }
+         }
          public Brands GetBrandById(int Id)
          {
              try

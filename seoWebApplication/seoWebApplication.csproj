@@ -3015,6 +3015,7 @@
     <Content Include="Views\Brand\Edit.cshtml" />
     <Content Include="Views\Brand\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Products\Brand.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

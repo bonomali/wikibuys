@@ -1,0 +1,44 @@
+﻿@model IEnumerable<seoWebApplication.Models.mProducts>
+@using PagedList;
+@using PagedList.Mvc;
+
+@Styles.Render("~/Content/PagedList.css")
+
+<div class="row">
+    <div class="large-12 columns text-center">
+        <div class="page-header pad-bottom">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("store/" + ViewBag.Name, new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
+    </div>
+</div>
+<div class="row" work-row="">
+    @foreach (var item in Model)
+    {
+
+        <div class="large-4 columns">
+            <div class="work-item" data-project-id="project-1">
+                <div class="work-img-holder">
+                    <p align="center">
+                        <a href="@Linkor.ToProduct(item.product_id.ToString())">
+                            @Html.DisplayFor(modelItem => item.NameTrimmed)
+                        </a>
+                    </p>
+                    <a href="@Linkor.ToProduct(item.product_id.ToString())">
+                        <img width=" 225" border="0"
+                             src="@Linkor.ToProductImage(item.thumbnail.ToString())"
+                             alt='@Html.DisplayFor(modelItem => item.name)' class="product-image" />
+                    </a>
+                    <span class="label label-info price">@Html.DisplayFor(modelItem => item.price)</span>
+                </div>
+                <div class="caption">
+                    <div class="description-block">
+                        @Html.DisplayFor(modelItem => item.DescriptionTrimmed).ToString().Trim()
+                    </div>
+                </div>
+                <a href='@Linkor.ToProduct(item.product_id.ToString())' class="button [tiny small large radius round]">Details</a>
+            </div>
+        </div>
+
+    }
+</div>
+

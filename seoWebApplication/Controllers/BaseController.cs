@@ -15,6 +15,26 @@ namespace seoWebApplication.Controllers
         private StoreService _StoreService = new StoreService();
         private ProductService _productService = new ProductService();
 
+        protected IPagedList<mProducts> GetPagedBrands(int? page, string name)
+        {
+            // return a 404 if user browses to before the first page
+            if (page.HasValue && page < 1)
+                return null;
+
+            var brandId = new BrandsService().GetBrandByName(name).Id;
+            List<mProducts> products = _productService.GetProductsByBrand(brandId);
+
+            // page the list
+            const int pageSize = 20;
+            var listPaged = products.ToPagedList(page ?? 1, pageSize);
+
+            // return a 404 if user browses to pages beyond last page. special case first page if no items exist
+            if (listPaged.PageNumber != 1 && page.HasValue && page > listPaged.PageCount)
+                return null;
+
+            return listPaged;
+        }
+
         protected IPagedList<mProducts> GetPagedNames(int? page, string name)
         {
             // return a 404 if user browses to before the first page

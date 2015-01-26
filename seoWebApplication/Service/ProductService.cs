@@ -450,5 +450,17 @@ namespace seoWebApplication.Service
                 return new List<mProducts>();
             }
         }
+
+        internal List<mProducts> GetProductsByBrand(Guid brandId)
+        {
+            try
+            {
+                return _product.Collection.Find(Query.EQ("BrandId", brandId)).ToList<mProducts>();
+            }
+            catch (MongoConnectionException)
+            {
+                return new List<mProducts>();
+            }
+        }
     }
 }

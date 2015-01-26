@@ -40,8 +40,23 @@ namespace seoWebApplication.Controllers
 
             return View(listPaged);
         }
-        
 
+        public ActionResult Brand(string id, int? page)
+        {
+            var listPaged = GetPagedBrands(page, id); // GetPagedNames is found in BaseController
+            if (listPaged == null)
+                return HttpNotFound();
+            ViewBag.Name = id;
+
+            ViewBag.Title = id;
+
+            ViewBag.seoTitle = id;
+            ViewBag.storeName = id;
+            ViewBag.seoDesc = id;
+            ViewBag.seoKeywords = id;
+
+            return View(listPaged);
+        }
          
     }
 }
