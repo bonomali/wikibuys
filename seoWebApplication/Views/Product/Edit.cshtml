@@ -6,6 +6,10 @@
     Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
 }
  
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 <div id="tabstrip">
     <ul>
         <li class="k-state-active">
@@ -243,12 +247,42 @@
         </table>
     </div>
     <div>
-         
         <div>
             <div class="form-horizontal">
                 <h4>Category</h4>
                 <hr />
+                <div class="form-group">
+                        <div class="col-md-3">
+                            Department
+                        </div>
+                        <div class="col-md-6">
+                            @ViewBag.Department
+                        </div>
+                    </div>
 
+                <div class="form-group">
+                    <div class="col-md-3">
+                        Category
+                    </div>
+                    <div class="col-md-6">
+                        @ViewBag.Category
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        Subcategory
+                    </div>
+                    <div class="col-md-6">
+                        @ViewBag.Subcategory
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="form-horizontal">
+                <h4>Category</h4>
+                <hr />
 
                 <div class="form-group">
 
@@ -291,15 +325,14 @@
                       .Enable(false)
                       .AutoBind(false)
               .CascadeFrom("departments")
-        )
-        </div>
-        </div>
+                        )
+                    </div>
+                </div>
+                <div class="form-group">
 
-        <div class="form-group">
-
-            <label class="control-label col-md-2" for="Subcatergories">Sub Catergories:</label>
-            <div class="col-md-6">
-                @(Html.Kendo().DropDownList()
+                    <label class="control-label col-md-2" for="Subcatergories">Sub Catergories:</label>
+                    <div class="col-md-6">
+                        @(Html.Kendo().DropDownList()
               .Name("subcategories")
               .HtmlAttributes(new { style = "width:300px" })
                       .OptionLabel("Select subcategory...")
@@ -315,34 +348,25 @@
                       .Enable(false)
                       .AutoBind(false)
               .CascadeFrom("categories")
-                )
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" id="SaveProductCategory">
-                    Save
-                </button>
-            </div>
+                        )
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" id="SaveProductCategory">
+                            Save
+                        </button>
+                    </div>
 
-         </div>
-
-
-             
-
+                </div>
 
             </div>
 
-            
-
-        </div>
 
 
+        </div> 
+   </div>
+</div>
+ 
 
-        </div>
 
-
-
-            <div>
-                @Html.ActionLink("Back to List", "Index")
-            </div>
 
 
             <div class="modal fade bs-example-modal-sm" id="ajax-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -389,12 +413,36 @@
                     var $modal = $('#ajax-modal');
 
                     $('#SaveProductCategory').on('click', function () {
-                        $("#target").submit();
+                        var id = $("#product_id").val();
+                        var depts = $("#departments").val();
+                        var cat = $("#categories").val();
+                        var subcats = $("#subcategories").val();
+
+                      
+                        // Send the data using post 
+                        var dataJSON = { ProductId: id, departmentId: depts , categoryId: cat, subcategoryId: subcats};
+                     
+
+                        $.ajax({
+                            type: 'get',
+                            url: "/product/SaveCategory/",
+                            data: dataJSON,
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            success: function (data) {
+                                window.location.href = "/Product/Edit/" + id;
+                            },
+                            error: function (msg) {
+                               alert(msg);
+                            }
+                        }); 
+                    
+
                     });
 
                     $('#BtnDelete').on('click', function () {
                         var thisID = $(this).data("id");
-                        console.log(thisID);
+                   
 
                         setTimeout(function () {
                             $('#ajax-modal #modal-content').load('/productattributevalues/delete?id=' + @Model.product_id + '&attrId=' + thisID, '', function () {

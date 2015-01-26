@@ -62,7 +62,20 @@ namespace seoWebApplication.Service
                 return new List<Departments>();
             }
         }
+         public Departments GetDepartmentsByGuid(Guid Id)
+         {
+             try
+             { 
+                     var query = Query<Departments>.EQ(e => e.Id, Id);
+                     var list = _departments.Collection.Find(query).First<Departments>();
+                     return list; 
 
+             }
+             catch (MongoConnectionException)
+             {
+                 return new Departments();
+             }
+         }
          public Departments GetDepartmentsById(int Id)
          {
              try

@@ -65,7 +65,17 @@ namespace seoWebApplication.Service
                  return new List<Subcategories>();
              }
          }
+         public Subcategories GetSubcategoryByGuid(Guid Id)
+         {
+             try
+             { 
+                     var query = Query<Subcategories>.EQ(e => e.Id, Id);
+                     var list = _subcategories.Collection.Find(query).First<Subcategories>();
+                     return list; 
 
+             }
+             catch { return null; }
+         }
          public Subcategories GetSubcategoryById(int Id)
          {
              try

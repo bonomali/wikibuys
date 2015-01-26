@@ -197,6 +197,24 @@ namespace seoWebApplication.Service
             }
            
         }
+
+        internal void UpdateCategory(int productId, Guid departmentId, Guid categoryId, Guid subcategoryId)
+        {
+            try
+            {
+               
+                var query = Query<mProducts>.EQ(e => e.product_id, productId);
+
+                var update = Update<mProducts>.Set(e => e.DepartmentId, departmentId) 
+                                              .Set(e => e.SubcategoryId, subcategoryId)
+                                              .Set(e => e.CategoryId, categoryId);
+
+                _product.Collection.Update(query, update);
+            }
+            catch
+            {
+            }
+        }
          
         internal mProductAttributeValue GetProductAttribute(int Id, int AttrId)
         {

@@ -104,7 +104,11 @@ namespace seoWebApplication.Controllers
             seoWebApplication.Models.mProducts product = _productService.GetProduct(id);
             product.description = WebUtility.HtmlDecode(product.description); 
             product.Specifications = WebUtility.HtmlDecode(product.Specifications); 
-            ViewBag.store = new SelectList(stores, "Id", "Name", product.store); 
+            ViewBag.store = new SelectList(stores, "Id", "Name", product.store);
+
+            ViewBag.Department = _departmentsService.GetDepartmentsByGuid(product.DepartmentId).Name;
+            ViewBag.Category = _categoriesService.GetCategoryByGuid(product.CategoryId).Name;
+            ViewBag.Subcategory = _subcategoriesService.GetSubcategoryByGuid(product.SubcategoryId).Name;
             if (product == null)
             {
                 return HttpNotFound();
@@ -127,7 +131,20 @@ namespace seoWebApplication.Controllers
             return View(product);
         }
 
-      
+        public JsonResult SaveCategory(int ProductId, int departmentId, Guid categoryId, Guid subcategoryId)
+        {
+            try
+            {
+                Guid dId = _departmentsService.GetDepartmentsById(departmentId).Id;
+                _productService.UpdateCategory(ProductId, dId, categoryId, subcategoryId);
+
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            catch {
+
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         public JsonResult GetCascadeSubcategories(Guid categoryId)
         {
