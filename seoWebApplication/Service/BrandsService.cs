@@ -25,6 +25,14 @@ namespace seoWebApplication.Service
             _brands.Collection.Insert(Brands);
         }
 
+         internal void Update(Brands p)
+         {
+             var query = Query<Brands>.EQ(e => e.Id, p.Id);
+             var update = Update<Brands>.Set(e => e.Name, p.Name)
+                                        .Set(e => e.Description, p.Description);
+
+             _brands.Collection.Update(query, update);
+         }
          public bool Delete(Guid id)
          {
              try
@@ -104,14 +112,7 @@ namespace seoWebApplication.Service
             return post;
         }
 
-         internal void Update(Brands p)
-         {
-             var query = Query<Brands>.EQ(e => e.brand_id, p.brand_id);
-             var update = Update<Brands>.Set(e => e.Name, p.Name) 
-                                            .Set(e => e.Description, p.Description);
-
-             _brands.Collection.Update(query, update);
-         }
+        
          public int GetLastId()
          {
              try

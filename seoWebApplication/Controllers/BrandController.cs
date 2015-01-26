@@ -68,7 +68,7 @@ namespace seoWebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "category_id,department_id,webstore_id,name,description,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version")] seoWebApplication.Models.Brands brand)
+        public ActionResult Create([Bind(Include = "name,description")] seoWebApplication.Models.Brands brand)
         {
             if (ModelState.IsValid)
             {
@@ -99,13 +99,14 @@ namespace seoWebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "category_id,department_id,webstore_id,name,description,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version")] seoWebApplication.Models.Brands brand)
+        public ActionResult Edit([Bind(Include = "Id,name,description")] seoWebApplication.Models.Brands brand)
         {
             if (ModelState.IsValid)
             {
                 _brandsService.Update(brand);
                 return RedirectToAction("Index");
             }
+
             return View(brand);
         }
 
