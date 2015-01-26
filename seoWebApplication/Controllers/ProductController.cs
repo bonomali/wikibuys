@@ -100,15 +100,18 @@ namespace seoWebApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var stores = new StoreService().Getstores();
-            
+            var BrandId = new BrandsService().GetBrands();
             seoWebApplication.Models.mProducts product = _productService.GetProduct(id);
             product.description = WebUtility.HtmlDecode(product.description); 
             product.Specifications = WebUtility.HtmlDecode(product.Specifications); 
             ViewBag.store = new SelectList(stores, "Id", "Name", product.store);
-
+            ViewBag.BrandId = new SelectList(BrandId, "Id", "Name", product.BrandId);
+            if (product.DepartmentId != Guid.Empty)
+            { 
             ViewBag.Department = _departmentsService.GetDepartmentsByGuid(product.DepartmentId).Name;
             ViewBag.Category = _categoriesService.GetCategoryByGuid(product.CategoryId).Name;
             ViewBag.Subcategory = _subcategoriesService.GetSubcategoryByGuid(product.SubcategoryId).Name;
+            }
             if (product == null)
             {
                 return HttpNotFound();
@@ -121,7 +124,7 @@ namespace seoWebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,webstore_id,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications,store")] mProducts product)
+        public ActionResult Edit([Bind(Include = "product_id,webstore_id,BrandId,name,description,price,thumbnail,image,promofront,promodept,defaultAttribute,defaultAttCat,InsertDate,InsertENTUserAccountId,UpdateDate,UpdateENTUserAccountId,Version,IsSpecial,Url,Specifications,store")] mProducts product)
         {
             if (ModelState.IsValid)
             { 
