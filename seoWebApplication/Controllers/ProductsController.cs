@@ -43,6 +43,7 @@ namespace seoWebApplication.Controllers
 
         public ActionResult Brand(string id, int? page)
         {
+            
             var listPaged = GetPagedBrands(page, id.ToLower()); // GetPagedNames is found in BaseController
             if (listPaged == null)
                 return HttpNotFound();

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<seoWebApplication.Models.Departments>
+<nav class="top-bar" data-topbar>
+
+    <ul class="title-area">
+        <!-- Title Area -->
+
+        <li class="name">
+           
+        </li>
+
+        <li class="toggle-topbar menu-icon">
+            <a href="#"><span>menu</span></a>
+        </li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Right Nav Section -->
+
+        <ul class="right"> 
+            <li class="divider"></li>
+
+            <li class="has-dropdown">
+                <a href="#">Departments</a>
+
+                <ul class="dropdown">
+                    <li><label>Departments</label></li>
+
+                    @foreach (var item in Model)
+                    {
+                        <li><a href="/Department/@Html.DisplayFor(modelItem => item.Name)/" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Description)</a></li>
+                    }
+                </ul>
+            </li>
+
+            <li class="divider"></li>
+
+            <li>
+                <a href="/About/">About</a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li>
+                <a href="/Blog/">Blog</a>
+            </li>
+            @Html.Partial("_LoginPartial")
+        </ul>
+    </section>
+</nav>

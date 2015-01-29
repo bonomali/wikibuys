@@ -1,0 +1,15 @@
+﻿@model IEnumerable<seoWebApplication.Models.Departments>
+<dd class="active">
+    <a href="#panel-nav">Departments</a>
+    <div id="panel-nav" class="content active"> 
+            <ul class="side-nav">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a href="/Department/@Html.DisplayFor(modelItem => item.Name)/" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Description)</a>
+                    </li>
+                }
+            </ul>
+    </div>
+</dd>
+

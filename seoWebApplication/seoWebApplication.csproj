@@ -873,6 +873,8 @@
     <Content Include="content\themes\start\images\ui-icons_fcd113_256x240.png" />
     <Content Include="content\themes\start\jquery-ui-1.8.16.custom.css" />
     <Content Include="css\admin.css" />
+    <Content Include="css\app.css" />
+    <Content Include="css\app.min.css" />
     <Content Include="css\Application.js" />
     <Content Include="css\area.js" />
     <Content Include="css\base-admin-2-responsive.css" />
@@ -897,6 +899,8 @@
     <Content Include="css\foundation\foundation.min.css" />
     <Content Include="css\foundation\normalize.css" />
     <Content Include="css\jquery-ui-1.10.0.custom.min.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\normalize.min.css" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\banner_top.jpg" />
     <Content Include="Images\bg-background-strips.jpg" />
@@ -2038,6 +2042,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\SubcategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
@@ -3016,6 +3021,12 @@
     <Content Include="Views\Brand\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Products\Brand.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Shared\_PartialMainMenu.cshtml" />
+    <Content Include="Views\Department\Menu.cshtml" />
+    <Content Include="Views\Shared\_PartialNavMenu.cshtml" />
+    <Content Include="Views\Department\SideNavMenu.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

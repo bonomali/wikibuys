@@ -81,8 +81,19 @@ namespace seoWebApplication.Service
             }
         }
 
+        public IList<mProducts> GetProductsByDepartmentGuid(Guid id)
+        {
+            try
+            {
+                return _product.Collection.Find(Query.EQ("DepartmentId", id)).ToList<mProducts>();
 
-
+            }
+            catch (MongoConnectionException)
+            {
+                return new List<mProducts>();//
+            }
+        }
+        
         public IList<mProducts> GetProductsOnFrontPromo()
         {
             try

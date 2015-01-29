@@ -20,6 +20,12 @@ namespace seoWebApplication
                "search/{id}",                            // URL with parameters
                new { controller = "Search", action = "Details" }  // Parameter defaults
            );
+
+            routes.MapRoute(
+              "department",                                           // Route name
+              "department/{id}",                            // URL with parameters
+              new { controller = "Department", action = "Details" }  // Parameter defaults
+          );
              
             routes.MapRoute(
                 name: "Default",

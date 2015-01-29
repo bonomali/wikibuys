@@ -1,8 +1,80 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@model IEnumerable<seoWebApplication.Models.mProducts>
+@using PagedList;
+@using PagedList.Mvc;
+
+@Styles.Render("~/Content/PagedList.css")
+
+@{ 
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+    int y = 0; 
+
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="block">
 
+        <div class="centered">
+            <div class="page-header pad-bottom">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("/", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+            </div>
+        </div>
+      
+    </div>
+</div>
+
+   
+    @foreach (var item in Model)
+    {    
+            if(i % 3 == 0 || i == 0) 
+            {
+            <text> <div class="row work-row">
+</text>
+
+            }
+             
+        <div class="large-4 small-6 columns">
+        <div>
+            <a href="" class="ProductLike" data-id="@item.product_id">
+                <div id="like_@item.product_id"><i class="fa fa-heart">@item.LikesCount</i></div>
+            </a>
+        </div>
+            <a href="@Linkor.ToProduct(item.product_id.ToString())">
+                <img width="225" border="0"
+                     src="@Linkor.ToProductImage(item.thumbnail.ToString())"
+                     alt='@Html.DisplayFor(modelItem => item.name)' class="th" />
+            </a>
+            <div class="panel"> 
+            <div class="work-img-holder">
+                <p align="center">
+                    <a href="@Linkor.ToProduct(item.product_id.ToString())">
+                        @Html.Raw(item.NameTrimmed)
+                    </a>
+                </p> 
+            </div> 
+            <a href='@Linkor.ToProduct(item.product_id.ToString())' class="button [tiny small large radius round]">Details</a>
+            <span class="[success alert secondary] round radius label pull-right">@String.Format("{0:#,##0.00}", item.price)</span>
+        </div>
+    </div>
+
+            y++;
+            if (y == 3)
+            {
+            @:</div>
+            y = 0; 
+            }
+            i++;
+    }
+
+
+<div class="row">
+    <div class="block">
+
+        <div class="centered">
+            <div class="page-header pad-bottom">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("/", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+            </div>
+        </div>
+
+    </div>
+</div>

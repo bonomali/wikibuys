@@ -12450,3 +12450,14 @@ div.out {
     width: 100%; 
     background-color: #bfbcbc; 
   }
+
+#search-box {
+position: absolute;
+/* right: -90px; */
+width: 307px;
+height: 45px;
+-webkit-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+-moz-box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.15);
+background-color: #fff; 
+}

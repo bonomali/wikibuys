@@ -14,7 +14,45 @@ namespace seoWebApplication.Controllers
     {
         private StoreService _StoreService = new StoreService();
         private ProductService _productService = new ProductService();
+        protected IPagedList<mProducts> GetPagedDepartments(int? page, string name)
+        {
+            try
+            {
+                // return a 404 if user browses to before the first page
+                if (page.HasValue && page < 1)
+                    return null;
 
+                Departments department = new DepartmentService().GetDepartmentsByName(name);
+
+
+                if (department != null)
+                {
+                    IList<mProducts> products = _productService.GetProductsByDepartmentGuid(department.Id);
+                    // page the list
+                    const int pageSize = 20;
+                    var listPaged = products.ToPagedList(page ?? 1, pageSize);
+
+                    // return a 404 if user browses to pages beyond last page. special case first page if no items exist
+                    if (listPaged.PageNumber != 1 && page.HasValue && page > listPaged.PageCount)
+                        return null;
+
+
+                    return listPaged;
+                }
+                else
+                {
+                    return null;
+                }
+
+
+
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
         protected IPagedList<mProducts> GetPagedBrands(int? page, string name)
         {
             try

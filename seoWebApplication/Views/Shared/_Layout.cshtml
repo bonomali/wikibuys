@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>@ViewBag.seoTitle - @ViewBag.storeName</title>
     <meta name="description" content="@ViewBag.seoDesc">
     <meta name="keywords" content="@ViewBag.seoKeywords">
@@ -11,14 +11,13 @@
     @using seoWebApplication.Framework.HtmlHelpers
     <meta name="robots" content="INDEX,FOLLOW">
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/foundation.css">
+    <link href="/css/foundation.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/flexslider.css">
     <link rel="stylesheet" href="/css/typicons.min.css">
 
     <link rel="stylesheet" href="/Styles/css/style.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/style.css"> 
-    <link href="/css/layout.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Petrona' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,100,300,400,700,900' rel='stylesheet' type='text/css'>
@@ -26,313 +25,144 @@
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5454ed505a28dd75" async="async"></script>
 
-    
+
 </head>
-<body>
-    <div class="mk-header-toolbar">
-        <span class="header-toolbar-contact"><i class="fa fa-phone"></i>@SeoHtmlHelper.GetPhone()</span>
-        <span class="header-toolbar-contact"><i class="fa fa-envelope-o"></i><a href="mailto:@SeoHtmlHelper.GetEmail()">@SeoHtmlHelper.GetEmail()</a></span>
-        <div class="main-nav-side-search">
-            <a class="mk-search-trigger mk-toggle-trigger mk-toggle-active" href="#"><i class="fa fa-search"></i>Search</a>
-            <div id="mk-nav-search-wrapper" class="mk-box-to-trigger" style="display: none; top: 30px;">
-                 
-
-                    <div style="display: flex;">
-                        <input type="text" style="height:55px;margin: 2px 2px 11px 73px;" placeholder="Search all products..." size="30" class="input-search" id="searchTextBox" maxlength="100" name="ctl00$SearchBox2$searchTextBox">
-                        <span class="searchAllWords"><input type="checkbox" name="ctl00$SearchBox2$allWordsCheckBox" id="ctl00_SearchBox2_allWordsCheckBox"></span>
-                        all words
-                        <input type="submit" style="height: 56px;margin-right: 23px;" class="tiny button" id="Search" value="Search" name="ctl00$SearchBox2$goButton">
-                    </div>
-
-                 
-            </div>
-
-        </div>
-        <div class="mk-header-right">
-
-        </div>
-        <div class="mk-header-login"> 
-                    @Html.Partial("_LoginPartial") 
-        </div>
-        @*<div class="mk-header-signup">
-            <a href="#" id="mk-header-subscribe-button" class="mk-subscribe-link mk-toggle-trigger"><i class="fa fa-envelope"></i>Subscribe</a>
-            <div id="mk-header-subscribe" class="mk-box-to-trigger">
-
-            </div>
-        </div>*@
-        <div class="clearboth"></div>
-    </div>
-    <a id="home-nav"></a>
-    <section id="navigation">
-        <div class="row">
-            <div class="large-4 columns text-right width375">
-                <ul class="navigation hide-for-small">
-                    <li><a class="scroll wiki-store-trigger" href="#highlights-nav">Stores</a></li>
-                    <li><a class="wiki-category-trigger scroll" href="#">Categories</a></li> 
-                </ul>
-            </div>
-
-            <div class="large-3 columns text-center">
-                <a class="home-link scroll" href="/"><div id="hale-logo"><img src="/Images/wikibuys.png" /></div></a>
-            </div>
-
-            <div class="large-4 columns text-left width375">
-                <ul class="navigation hide-for-small">
-                    <li><a class="scroll" href="/about">About</a></li>
-                    <li><a class="scroll" href="/blog">Blog</a></li>
-                </ul>
-            </div>
-
-            <div class="open-menu show-for-small right"><i class="typcn typcn-th-menu"></i></div>
-        </div>
-
-        <div class="row">
-            <div class="large-12 columns mobile-nav">
-                <ul class="navigation">
-                    <li><a class="scroll" href="#highlights-nav">Stores</a></li>
-                    <li><a class="scroll" href="#info-nav">Categories</a></li>
-                    <li><a class="scroll" href="/about">About</a></li>
-                    <li><a class="scroll" href="/blog">Blog</a></li>
-                </ul>
-                <div class="main-nav-side-search">
-                    <a class="mk-search-trigger mk-toggle-trigger" href="#"><i class="mk-icon-search"></i></a>
-                    <div id="mk-nav-search-wrapper" class="mk-box-to-trigger" style="display: none; top: 93px;">
-                        <div style="top: 30px; display: none;" class="mk-box-to-trigger" id="mk-nav-search-wrapper">
-
-                            <script type="text/javascript" language="javascript">
-                                // &lt;!CDATA[
-
-                                function searchQueryInputField_onclick() {
-
-                                }
-
-                                // ]]&gt;
-                            </script>
-
-                            <div style="display: flex;">
-                                <input type="text" style="height:55px;margin: 2px 2px 11px 73px;" placeholder="Search all products..." size="30" class="input-search" id="ctl00_SearchBox2_searchTextBox" maxlength="100" name="ctl00$SearchBox2$searchTextBox">
-                                <span class="searchAllWords"><input type="checkbox" name="ctl00$SearchBox2$allWordsCheckBox" id="ctl00_SearchBox2_allWordsCheckBox"></span>
-                                all words
-                                <input type="submit" style="height: 56px;margin-right: 23px;" class="tiny button" id="ctl00_SearchBox2_goButton" value="Search" name="ctl00$SearchBox2$goButton">
-                            </div>
-
-
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<body> 
     <div class="row">
-        <div id="wikibuys-nav-store-wrapper" class="wiki-store-box f-dropdown" style="display: none;">
+        <div class="large-12 columns">
+            <!-- Navigation -->
 
-            <li id="ctl00_StoreList_list_ctl00_liProdView" class="prodviewwide">
-                <a id="ctl00_StoreList_list_ctl00_storeHyperLink" title="Amazon Deals" class="class_menuitem_categorytype" href="/products/store/Amazon">Amazon</a>
-            </li>
-
-            <li id="ctl00_StoreList_list_ctl01_liProdView" class="prodviewwide">
-                <a id="ctl00_StoreList_list_ctl01_storeHyperLink" title="No more rack" class="class_menuitem_categorytype" href="/products/store/Nomorerack">Nomorerack</a>
-            </li>
-
-            <li id="ctl00_StoreList_list_ctl02_liProdView" class="prodviewwide">
-                <a id="ctl00_StoreList_list_ctl02_storeHyperLink" title="Best Buy" class="class_menuitem_categorytype" href="/products/store/Best%20Buy">Best Buy</a>
-            </li>
-
-
-
-        </div>
-    </div>
-    <div class="row">
-        <div id="wikibuys-nav-category-wrapper" class="wiki-box-to-trigger f-dropdown" style="display: none; left: 428.623504638672px; top: 52px;">
-
-
-            <li id="ctl00_DepartmentsList_list_ctl00_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl00_deptHyperLink" title="Electronics" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Electronics-d1.html">Electronics</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl01_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl01_deptHyperLink" title="Apparel" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Apparel-d2.html">Apparel</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl02_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl02_deptHyperLink" title="Automotive" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Automotive-d3.html">Automotive</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl03_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl03_deptHyperLink" title="Children" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Children-d4.html">Children</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl04_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl04_deptHyperLink" title="Computers" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Computers-d5.html">Computers</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl05_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl05_deptHyperLink" title="Finance" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Finance-d6.html">Finance</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl06_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl06_deptHyperLink" title="Games" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Games-d7.html">Games</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl07_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl07_deptHyperLink" title="Freebies" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Freebies-d8.html">Freebies</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl08_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl08_deptHyperLink" title="Jewelry" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Jewelry-d9.html">Jewelry</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl09_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl09_deptHyperLink" title="Groceries" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Groceries-d10.html">Groceries</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl10_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl10_deptHyperLink" title="HDTV" class="class_menuitem_categorytype" href="http://wikibuys.com:80/High-Definition-Televisions-d11.html">High Definition Televisions</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl11_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl11_deptHyperLink" title="Home" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Home-d12.html">Home</a>
-            </li>
-
-            <li id="ctl00_DepartmentsList_list_ctl12_liProdView" class="prodviewwide">
-                <a id="ctl00_DepartmentsList_list_ctl12_deptHyperLink" title="Photos" class="class_menuitem_categorytype" href="http://wikibuys.com:80/Photos-d13.html">Photos</a>
-            </li>
-
-
-
-        </div>
-    </div>
-    <br />
-    <a id="work-nav">&nbsp;</a>
-    <section id="work" >
-        <div class="row">
-            <div class="large-12 columns text-center">
-                <div class="page-header pad-bottom">
-                    <h2>@ViewBag.Title</h2>
-                    <div class="hr large-1 small-3"></div>
-                </div>
-            </div>
-        </div>
-         
-
-    </section>
-    <a id="home-nav"></a>
-    <section id="nav">
-        <div class="row">
-            <div class="large-3 columns text-right width200">
-              
-            </div>
-
-            <div class="large-6 columns text-right width600">
-                <uc4:SearchBox runat="server" ID="SearchBox" />
-            </div>
-
-            <div class="large-3 columns text-right width200">
-                
-                <!-- Facebook div for like button -->
-
-                <div id="fb-root"></div>
-                <script>
-(function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=741995452511167";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script> 
-
-            </div>
-        </div> 
-       
-    </section>  
-    <a id="work-nav">&nbsp;</a>
-    <section id="work" class="row">
-        @if (User.Identity.IsAuthenticated)
-        {
-            <input type="hidden" id="userid" name="userid" value="@User.Identity.Name" />
-        }
-        
-            @RenderBody() 
-    </section>
-  
-     
-    <a id="contact-nav"></a>
-    <section id="contact">
-
-        <div id="contact-holder">
             <div class="row">
-                <div class="large-12 columns text-center">
-
-                    <div class="page-header pad-small-bottom">
-                        <h1 class="tagline">
-                            Learn about the best products on Amazon, <br>
-                            We are a curated Wiki of great buys.<br>
-                        </h1> 
-                    </div>
-                    <a href="mailto:info@wikibuys.com"><img src="/images/page_images/footer_images/email2.png" height="32" width="32" /></a><br/>
-                    WikiBuys is an independent company. Amazon is a trademarked brand.<br/>
-                    ©2015 WikiBuys.com. All rights reserved.
-                  </div>
-            </div>
-
-            <!-- <div class="row">
-                <div class="large-10 columns">
-                     <div id="contact-form">
-                        <div id="name">
-                            <input id="form-name" type="text" placeholder="Name" />
-                        </div>
-
-                        <div id="email">
-                            <input id="form-email" type="email" placeholder="Email" />
-                        </div>
-                        <div class="btn-wrapper"><div class="btn">SIGN UP</div></div>
-
-                        <div id="details-error" class="text-white"><i class="typcn typcn-warning">&nbsp;</i>Error: Please ensure all fields are completed correctly.</div>
-                        <div id="form-sent" class="text-white"><i class="typcn typcn-thumbs-up">&nbsp;</i>You are now on the list! Stay tuned for some exciting updates.</div>
-                    </div>
-                </div>-->
-        </div>
-
-        <div class="row">
-            <div class="large-12 columns text-center">
-                <div id="footer">
-                    
-                    <div id="copy-text" &copy;
-                    <script>document.write(new Date().getFullYear());</script>
-                    - Powered By - <a href="http://www.Mongo-Commerce.com">Mongo-Commerce.com <i class="icon-chevron-right"></i></a>
-                        <span class="logo-text">Hale</span>&nbsp;&nbsp;2014 </div>
+                <div class="large-4 columns">
+                    <a href="/"><img src="/Images/wikibuys.png"></a>
                 </div>
-            </div>
+                <div class="large-8 columns">
+                    @{Html.RenderAction("Menu", "Department");} 
+                </div>
+            </div><!-- End Navigation -->
+
+            <div class="row">
+                <!-- Side Bar -->
+
+                <div class="large-4 small-12 columns">
+                    <div id="search-box">
+                        <div style="display: flex;">
+                            <input type="text" style="height: 46px;" placeholder="Search all products..." size="30" class="input-search" id="searchTextBox" maxlength="100" name="ctl00$SearchBox2$searchTextBox">
+                            <input type="submit" style="height: 46px;margin-right: 0;width: 190px;" class="tiny button" id="Search" value="Search" name="ctl00$SearchBox2$goButton">
+                        </div>
+
+
+                    </div>
+
+                    <div class="hide-for-small"> 
+                        <h5 class="subheader">
+                            @Html.Partial("_PartialNavMenu")
+                        </h5>
+                    </div>
+
+                    <div id="fb-root"></div>
+                    <div class="panel callout radius">
+                        <!-- Facebook div for like button -->
+
+                        <script>
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=741995452511167";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                    </div>
+
+                </div><!-- End Side Bar -->
+                <!-- Thumbnails -->
+
+                <div class="large-8 columns">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <input type="hidden" id="userid" name="userid" value="@User.Identity.Name" />
+                    }
+                    @RenderBody()
+
+                    <!-- End Thumbnails -->
+                    <!-- Managed By -->
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="panel">
+                                <div class="row">
+                                    <div class="large-2 small-6 columns">
+                                        <a href="mailto:info@wikibuys.com"><img src="/images/page_images/footer_images/email2.png" height="32" width="32" /></a>
+                                    </div>
+
+                                    <div class="large-10 small-6 columns">
+                                        <strong>Learn about the best products on Amazon, We are a curated Wiki of great buys. </strong>
+
+                                        <hr>
+                                        <br />
+                                        WikiBuys is an independent company. Amazon is a trademarked brand.<br />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End Managed By -->
+                    </div>
+                </div>
+            </div><!-- Footer -->
+
+            <footer class="row">
+                <div class="large-12 columns">
+                    <hr>
+
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <p>©2015 WikiBuys.com. All rights reserved.</p>
+                        </div>
+
+                        <div class="large-6 columns">
+                            @*<ul class="inline-list right">
+                                    <li>
+                                        <a href="#">Link 1</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">Link 2</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">Link 3</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">Link 4</a>
+                                    </li>
+                                </ul>*@
+                        </div>
+                    </div>
+                </div>
+            </footer><!-- End Footer -->
         </div>
+    </div>
+    <script>
+        document.write('<script src=js/vendor/' +
+        ('__proto__' in {} ? 'zepto' : 'jquery') +
+        '.js><\/script>')
+    </script>
 
-       <!-- end of contact holder -->
-
-
-
-
-    </section>
-
-
+    <script>
+        $(document).foundation();
+    </script>
     <script src="~/js/vendor/jquery.js"></script>
-    <script src="~/js/foundation.min.js"></script> 
+    <script src="~/js/foundation.min.js"></script>
     <script src="/js/smooth-scroll.js"></script>
     <script src="/js/scripts.js"></script>
     <script src="/js/theme.js"></script>
-     
     <script>
-        $(document).foundation({
-            dropdown: {
-                // specify the class used for active dropdowns
-                active_class: 'open'
-            }
-        }); 
-    </script>
+        $(document).foundation();
 
-     
+        var doc = document.documentElement;
+        doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -345,6 +175,6 @@
         ga('send', 'pageview');
 
     </script>
-    @RenderSection("scripts", required: false)
+
 </body>
 </html>

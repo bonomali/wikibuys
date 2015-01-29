@@ -116,5 +116,19 @@ namespace seoWebApplication.Service
                 return 1;
             }
         }
+
+         internal Departments GetDepartmentsByName(string name)
+         {
+             try
+             {
+                     var query = Query<Departments>.EQ(e => e.Name, name);
+                     var list = _departments.Collection.Find(query).First<Departments>();
+                     return list;
+             }
+             catch (MongoConnectionException)
+             {
+                 return new Departments();
+             }
+         }
     }
 }
