@@ -1,0 +1,12 @@
+﻿@model IEnumerable<seoWebApplication.Models.Categories>
+ 
+            @foreach (var item in Model)
+            {
+                <li class="has-dropdown">
+                    <a href="/Category/@Html.DisplayFor(modelItem => item.Name)" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Name)</a>
+                    <ul class="dropdown">
+                        @{Html.RenderAction("Subcategory", "Menu", new { id = item.Name });}
+                    </ul>
+                </li>
+            }
+       

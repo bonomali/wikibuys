@@ -16,7 +16,7 @@
 
         <div class="centered">
             <div class="page-header pad-bottom">
-                @Html.PagedListPager((IPagedList)Model, page => Url.Action("/", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("category/" + ViewBag.Name, new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
             </div>
         </div>
 
@@ -60,23 +60,24 @@
     y++;
     if (y == 3)
     {
-        @:</div>
-            y = 0;
+        @:
+    </div>
+        y = 0;
     }
     i++;
 }
 
 @if (i > 3)
-    {
-<div class="row">
-    <div class="block">
+{
+    <div class="row">
+        <div class="block">
 
-        <div class="centered">
-            <div class="page-header pad-bottom">
-                @Html.PagedListPager((IPagedList)Model, page => Url.Action("/Search/", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+            <div class="centered">
+                <div class="page-header pad-bottom">
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("category/" + ViewBag.Name, new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
 }

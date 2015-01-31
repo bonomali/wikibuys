@@ -26,7 +26,19 @@ namespace seoWebApplication
               "department/{id}",                            // URL with parameters
               new { controller = "Department", action = "Details" }  // Parameter defaults
           );
-             
+
+            routes.MapRoute(
+              "category",                                           // Route name
+              "category/{id}",                            // URL with parameters
+              new { controller = "Category", action = "Products" }  // Parameter defaults
+          );
+
+            routes.MapRoute(
+            "subcategory",                                           // Route name
+            "subcategory/{id}",                            // URL with parameters
+            new { controller = "Subcategory", action = "Products" }  // Parameter defaults
+        );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

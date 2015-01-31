@@ -1,4 +1,4 @@
-﻿@model seoWebApplication.Models.Brands
+﻿@model seoWebApplication.Models.Subcategories
 
 @{
     ViewBag.Title = "Edit";
@@ -16,8 +16,24 @@
     <div class="form-horizontal">
         <h4>category</h4>
         <hr />
-        @Html.ValidationSummary(true) 
-          
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.category_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.category_id, "category_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("category_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.category_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.webstore_id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.webstore_id)
+                @Html.ValidationMessageFor(model => model.webstore_id)
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })

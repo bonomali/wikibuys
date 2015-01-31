@@ -96,7 +96,7 @@ namespace seoWebApplication.Service
 
          internal void Update(Categories p)
          {
-             var query = Query<Categories>.EQ(e => e.category_id, p.category_id);
+             var query = Query<Categories>.EQ(e => e.Id, p.Id);
              var update = Update<Categories>.Set(e => e.Name, p.Name)
                                             .Set(e => e.department_id, p.department_id)
                                             .Set(e => e.Description, p.Description)
@@ -126,6 +126,25 @@ namespace seoWebApplication.Service
                  if (id != null)
                  {
                      var query = Query<Categories>.EQ(e => e.Id, id);
+                     var list = _categories.Collection.Find(query).First<Categories>();
+                     return list;
+                 }
+                 else
+                 {
+                     return null;
+                 }
+
+             }
+             catch { return null; }
+         }
+
+         internal Categories GetCategoryByName(string id)
+         {
+             try
+             {
+                 if (id != null)
+                 {
+                     var query = Query<Categories>.EQ(e => e.Name, id);
                      var list = _categories.Collection.Find(query).First<Categories>();
                      return list;
                  }

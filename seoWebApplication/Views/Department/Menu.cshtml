@@ -27,7 +27,12 @@
 
                     @foreach (var item in Model)
                     {
-                        <li><a href="/Department/@Html.DisplayFor(modelItem => item.Name)/" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Description)</a></li>
+                        <li class="has-dropdown">
+                            <a href="@Linkor.ToDepartment(item.department_id.ToString())" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Name)</a>
+                            <ul class="dropdown">
+                                @{Html.RenderAction("Category", "Menu", new { id = item.Name });}
+                            </ul>
+                        </li>
                     }
                 </ul>
             </li>

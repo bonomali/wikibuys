@@ -14,7 +14,7 @@ using Kendo.Mvc.Extensions;
 namespace seoWebApplication.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class CategoryController : BaseController
+    public class CategoriesController : BaseController
     { 
         private CategoriesService _categoriesService = new CategoriesService();
         private DepartmentService ds = new DepartmentService();

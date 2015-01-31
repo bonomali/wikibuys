@@ -124,6 +124,32 @@ namespace seoWebApplication.Service
             }
         }
 
+        public IList<mProducts> GetProductsByCategoryGuid(Guid Id)
+        {
+            try
+            {
+                return _product.Collection.Find(Query.EQ("CategoryId", Id)).ToList<mProducts>();
+
+            }
+            catch (MongoConnectionException)
+            {
+                return new List<mProducts>();
+            }
+        }
+
+        public IList<mProducts> GetProductsBySubCategoryGuid(Guid Id)
+        {
+            try
+            {
+                return _product.Collection.Find(Query.EQ("SubcategoryId", Id)).ToList<mProducts>();
+
+            }
+            catch (MongoConnectionException)
+            {
+                return new List<mProducts>();
+            }
+        }
+
         public mProducts GetProducts(string name)
         {
             var post = _product.Collection.Find(Query.EQ("Name", name)).Single();

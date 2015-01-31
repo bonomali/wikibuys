@@ -76,8 +76,9 @@ $("#home-bg").mouseover(function () {
 
 $("#Search").click(function () { 
     var url = "/search.aspx?search=" + $('#searchTextBox').val();
-    
-    window.location.href = url; 
+    if ($('#searchTextBox').val().length > 0) {
+        window.location.href = url;
+    } 
 });
 
 $(".ProductLike").click(function (event) {

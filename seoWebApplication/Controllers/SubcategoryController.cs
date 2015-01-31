@@ -44,7 +44,7 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Category/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Products(int id)
         {
             if (id == null)
             {
