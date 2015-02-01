@@ -111,7 +111,15 @@ namespace seoWebApplication.Controllers
             if (product.DepartmentId != Guid.Empty)
             { 
             ViewBag.Department = _departmentsService.GetDepartmentsByGuid(product.DepartmentId).Name;
+            }
+            if (product.CategoryId != Guid.Empty)
+            {
+                if (_categoriesService.GetCategoryByGuid(product.CategoryId) != null)
             ViewBag.Category = _categoriesService.GetCategoryByGuid(product.CategoryId).Name;
+            }
+            if (product.SubcategoryId != Guid.Empty)
+            {
+                if (_subcategoriesService.GetSubcategoryByGuid(product.SubcategoryId) != null)
             ViewBag.Subcategory = _subcategoriesService.GetSubcategoryByGuid(product.SubcategoryId).Name;
             }
             if (product == null)

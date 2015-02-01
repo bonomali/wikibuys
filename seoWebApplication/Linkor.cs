@@ -2,6 +2,7 @@
 using System.Web; 
 using System.Linq;  
 using System.Text.RegularExpressions;
+using System.Configuration;
   
 namespace seoWebApplication
 {
@@ -41,6 +42,31 @@ namespace seoWebApplication
             String.Format("http://{0}:{1}{2}{3}",
             uri.Host, uri.Port, app, relativeUri));
         }
+
+        public static string GetFacebookUrl()
+        {
+            // get current uri
+            return ConfigurationManager.AppSettings["FacebookUrl"];
+        }
+
+        public static string GetFacebookAppId()
+        {
+            // get current uri
+            return ConfigurationManager.AppSettings["FacebookAppId"];
+        }
+
+        public static string GetTwitterUrl()
+        {
+            // get current uri
+            return ConfigurationManager.AppSettings["TwitterUrl"];
+        }
+
+        public static string GetTwitterName()
+        {
+            // get current uri
+            return ConfigurationManager.AppSettings["TwitterName"];
+        }
+
         // Generate a department URL
         public static string ToDepartment(string department_id, string page)
         {
@@ -54,6 +80,22 @@ namespace seoWebApplication
             else
                 return BuildAbsolute(String.Format("{0}-d{1}-Page-{2}.html", deptUrlName, department_id, page));
 
+        }
+        public static string RemoveAccent(string txt)
+        {
+            byte[] bytes = System.Text.Encoding.GetEncoding("Cyrillic").GetBytes(txt);
+            return System.Text.Encoding.ASCII.GetString(bytes);
+        }
+        public static string GenerateSlug(string phrase)
+        {
+            string str = RemoveAccent(phrase).ToLower();
+
+            str = Regex.Replace(str, @"[^a-z0-9\s-]", ""); // invalid chars           
+            str = Regex.Replace(str, @"\s+", " ").Trim(); // convert multiple spaces into one space   
+            str = str.Substring(0, str.Length <= 45 ? str.Length : 45).Trim(); // cut and trim it   
+            str = Regex.Replace(str, @"\s", "-"); // hyphens   
+
+            return str;
         }
         // Generate a department URL for the first page
         public static string ToDepartment(string department_id)

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<seoWebApplication.Models.Departments>
-<nav class="top-bar" data-topbar>
+ 
 
     <ul class="title-area">
         <!-- Title Area -->
@@ -28,7 +28,7 @@
                     @foreach (var item in Model)
                     {
                         <li class="has-dropdown">
-                            <a href="@Linkor.ToDepartment(item.department_id.ToString())" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Name)</a>
+                            <a href="/department/@Linkor.GenerateSlug(item.Name.ToString())" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Name)</a>
                             <ul class="dropdown">
                                 @{Html.RenderAction("Category", "Menu", new { id = item.Name });}
                             </ul>
@@ -51,4 +51,4 @@
             @Html.Partial("_LoginPartial")
         </ul>
     </section>
-</nav>
+ 

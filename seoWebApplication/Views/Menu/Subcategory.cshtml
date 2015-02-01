@@ -3,7 +3,7 @@
 @foreach (var item in Model)
 {
     <li>
-        <a href="/Subcategory/@Html.DisplayFor(modelItem => item.Name)/" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Description)</a>
+        <a href="/Subcategory/@Linkor.GenerateSlug(item.Name.ToString())/" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.Description)</a>
     </li>
 }
 

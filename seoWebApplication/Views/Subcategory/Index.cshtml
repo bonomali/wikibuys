@@ -13,9 +13,9 @@
         columns.Bound(p => p.Id);
         columns.Bound(p => p.Description);
         columns.Bound(p => p.Name);
-        columns.Bound(p => p.Id).ClientTemplate("<a href='" + Url.Action("edit", "Subcategory", new { id = "#= Id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>view</a>  ").Title("view").Groupable(false);
+        columns.Bound(p => p.Id).ClientTemplate("<a href='" + Url.Action("edit", "Subcategories", new { id = "#= Id #" }) + " ' class='k-button k-button-icontext'><span class='k-icon k-edit'></span>view</a>  ").Title("view").Groupable(false);
     })
-                    .ToolBar(toolbar => toolbar.Template("<a class='k-button k-button-icontext k-grid-add' href='/Subcategory/create/'>create</a>"))
+                        .ToolBar(toolbar => toolbar.Template("<a class='k-button k-button-icontext k-grid-add' href='/Subcategories/create/'>create</a>"))
 
         .DataSource(datasource => datasource
             .Ajax() // specify that the data source is of ajax type
@@ -24,7 +24,7 @@
 
             // configure crud -->
                     .Events(events => events.Error("error_handler"))
-                                    .Read(read => read.Action("Category_Read", "Subcategory"))
+                                    .Read(read => read.Action("Category_Read", "Subcategories"))
         // <-- configure crud
     )
         .Pageable()

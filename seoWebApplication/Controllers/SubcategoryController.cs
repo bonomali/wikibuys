@@ -14,7 +14,7 @@ using Kendo.Mvc.Extensions;
 namespace seoWebApplication.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class SubcategoryController : Controller
+    public class SubcategoryController : BaseController
     {
         private SubcategoriesService _categoriesService = new SubcategoriesService();
         private CategoriesService ds = new CategoriesService(); 
@@ -44,18 +44,21 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Category/Details/5
-        public ActionResult Products(int id)
+        public ActionResult Products(string id, int? page)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var category = _categoriesService.GetSubcategoriesById(id);
-            if (category == null)
-            {
+            var listPaged = GetPagedSubcategory(page, id.ToLower()); // GetPagedNames is found in BaseController
+            if (listPaged == null)
                 return HttpNotFound();
-            }
-            return View(category);
+            ViewBag.Name = id;
+
+            ViewBag.Title = id;
+
+            ViewBag.seoTitle = id;
+            ViewBag.storeName = id;
+            ViewBag.seoDesc = id;
+            ViewBag.seoKeywords = id;
+
+            return View(listPaged);
         }
 
         // GET: /Category/Create
