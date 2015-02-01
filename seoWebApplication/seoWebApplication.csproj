@@ -3046,6 +3046,7 @@
     <Content Include="Views\Subcategories\Edit.cshtml" />
     <Content Include="Views\Subcategories\Index.cshtml" />
     <Content Include="Views\Subcategories\Products.cshtml" />
+    <Content Include="Views\Home\Html.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

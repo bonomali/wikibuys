@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using seoWebApplication.Data;
 using seoWebApplication.Models;
 using seoWebApplication.Service;
+using System.Text.RegularExpressions;
 
 namespace seoWebApplication.Controllers
 {
@@ -20,6 +21,38 @@ namespace seoWebApplication.Controllers
 
         public HomeController()
         {
+        }
+
+        public ActionResult Html(string page)
+        {
+            Regex regex = new Regex("^.*-p([0-9]+)?$");
+            var v = regex.Match(page);
+            string match = v.Groups[1].ToString();
+
+            if (match != null)
+            {
+               
+                seoWebApplication.Models.mProducts product = _productService.GetProduct(Convert.ToInt32(match));
+                if (product == null)
+                    return HttpNotFound();
+                 
+                // set the title of the page
+                ViewBag.Title = seoWebAppConfiguration.SiteName + product.name;
+
+                ViewBag.Name = product.name;
+
+                ViewBag.Title = product.name;
+
+                ViewBag.seoTitle = product.name; 
+                ViewBag.seoDesc = product.description;
+                ViewBag.seoKeywords = product.description;
+
+                ViewBag.Url = page + ".html";
+                return View("../product/Details", product);
+            }
+            else {
+                return View();
+            }
         }
         public HomeController(ApplicationUserManager userManager)
         {

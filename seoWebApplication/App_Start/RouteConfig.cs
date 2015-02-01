@@ -16,6 +16,12 @@ namespace seoWebApplication
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
+       name: "CrazyPants",
+       url: "{page}.html",
+       defaults: new { controller = "Home", action = "Html", page = UrlParameter.Optional }
+   );
+
+            routes.MapRoute(
                "search",                                           // Route name
                "search/{id}",                            // URL with parameters
                new { controller = "Search", action = "Details" }  // Parameter defaults

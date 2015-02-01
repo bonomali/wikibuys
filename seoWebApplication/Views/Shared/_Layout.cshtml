@@ -24,7 +24,7 @@
     <link rel="shortcut icon" href="/images/page_images/haletabimage.ico">
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5454ed505a28dd75" async="async"></script>
-
+    @RenderSection("OpenGraph", required: false)
 
 </head>
 <body> 
@@ -61,7 +61,7 @@
                     <a href="/"><img src="/Images/wikibuys.png"></a>
                 </div>
                 <div class="large-8 columns">
-                 
+                    @RenderSection("Header", required: false)
                 </div>
             </div><!-- End Navigation -->
 

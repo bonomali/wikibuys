@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using seoWebApplication.Data;
 using seoWebApplication.Models;
 using seoWebApplication.Service;
+using System.Text.RegularExpressions;
 
 namespace seoWebApplication.Controllers
 {
@@ -41,6 +42,7 @@ namespace seoWebApplication.Controllers
         public ActionResult NotFound()
         {
             string id = Request.Url.PathAndQuery.Replace("/", "").ToLower();
+              
             int page = 1; 
             ActionResult result;
             if (!Request.IsAjaxRequest())

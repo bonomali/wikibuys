@@ -61,6 +61,18 @@ namespace seoWebApplication
             return ConfigurationManager.AppSettings["TwitterUrl"];
         }
 
+        public static string GetStoreUrl()
+        {
+            // get current uri
+            return ConfigurationManager.AppSettings["StoreUrl"];
+        }
+
+        public static string GetStoreName()
+        {
+            // get current uri
+            return ConfigurationManager.AppSettings["StoreName"];
+        }
+
         public static string GetTwitterName()
         {
             // get current uri
