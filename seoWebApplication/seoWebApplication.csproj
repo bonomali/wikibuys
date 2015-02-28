@@ -927,6 +927,7 @@
     <Content Include="Images\style.css" />
     <Content Include="Images\tab-sprite.jpg" />
     <Content Include="Images\wikibuys.png" />
+    <Content Include="Images\WikiDeals.png" />
     <Content Include="js\foundation.min.js" />
     <Content Include="js\foundation\foundation.abide.js" />
     <Content Include="js\foundation\foundation.accordion.js" />
@@ -2149,6 +2150,11 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Brands.cs" />
+    <Compile Include="Models\Campaigns.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\School.cs" />
+    <Compile Include="Models\State.cs" />
     <Compile Include="Models\SubCategories.cs" />
     <Compile Include="Models\Images.cs" />
     <Compile Include="Models\Comments.cs" />

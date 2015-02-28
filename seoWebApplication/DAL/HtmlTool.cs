@@ -344,5 +344,72 @@ namespace seoWebApplication.DAL
             return o;
         }
 
+
+        internal static OGMeta FetchEbay(string url)
+        {
+            OGMeta meta = new OGMeta();
+
+            //var getHtmlWeb = new HtmlWeb(); 
+             
+            var doc = Download(url);
+            //var doc = getHtmlWeb.Load(url);
+
+            meta.Description = doc.DocumentNode.SelectSingleNode("//div[@id='x-tm-desc']").InnerHtml.Replace("\n", "").Replace("\t", "");
+
+            //var releaseYearNode = doc.DocumentNode.SelectNodes("//*[contains(@class,'productDescriptionWrapper')]");
+
+            meta.Title = doc.DocumentNode.SelectSingleNode("//h1[@id='itemTitle']").InnerHtml.Replace("\n", "").Replace("\t", "").Replace("<span class=\"g-hdn\">Details about  &nbsp;</span>","");
+
+             
+
+            HtmlNode imageNode = doc.DocumentNode.SelectSingleNode("//img[@id='icImg']");
+            HtmlAttribute src = imageNode.Attributes["src"];
+             
+            string imageStr = src.Value;
+  
+            meta.Image = imageStr;
+
+            string _price = "";
+
+            var node = doc.DocumentNode.SelectSingleNode("//span[@id='prcIsum_bidPrice']");
+
+            if (node != null)
+            {
+                //do something with node
+                _price = node.InnerHtml.Replace("$", "").Replace("US", "");
+            }
+            else
+            {
+                var ourprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_ourprice']");
+                if (ourprice != null)
+                {
+                    _price = ourprice.InnerHtml.Replace("$", "");
+                }
+                else
+                {
+                    var saleprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_saleprice']");
+                    if (saleprice != null)
+                    {
+                        _price = saleprice.InnerHtml.Replace("$", "");
+                    }
+                    else
+                    {
+                        var dealprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_dealprice']");
+                        if (dealprice != null)
+                        {
+                            _price = dealprice.InnerHtml.Replace("$", "");
+                        }
+                        else
+                        {
+                            _price = "0".ToString();
+                        }
+                    }
+                }
+            }
+
+            meta.Price = _price;
+
+            return meta;
+        }
     }
 }

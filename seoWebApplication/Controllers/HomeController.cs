@@ -63,22 +63,21 @@ namespace seoWebApplication.Controllers
         public ActionResult Index(int? page)
         { 
             //return Redirect("default.aspx"); 
-            ViewBag.catalogTitleLabel = "Welcome to WikiBuys.com";
-            ViewBag.catalogDescriptionLabel = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
+            ViewBag.catalogTitleLabel = "Welcome to WikiDeals.Co";
+            ViewBag.catalogDescriptionLabel = seoWebAppConfiguration.SiteName + " WikiDeals.Co is a wiki about deals. Its a site that allows companies to post deals online.";
             // set the title of the page
             ViewBag.Title = seoWebAppConfiguration.SiteName +
-            " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
+            " WikiDeals.Co is a wiki about deals. Its a site that allows companies to post deals online";
             var listPaged = GetPromoPage(page); // GetPagedNames is found in BaseController
             if (listPaged == null)
                 return HttpNotFound();
-            ViewBag.Name = "Welcome to WikiBUys.com"; ;
+            ViewBag.Name = "Welcome to WikiDeals.Co"; ;
+ 
 
-            ViewBag.Title = "LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS";
-
-            ViewBag.seoTitle = "Welcome to WikiBuys.com";
+            ViewBag.seoTitle = "Welcome to WikiDeals.Co";
             ViewBag.storeName = seoWebAppConfiguration.SiteName;
-            ViewBag.seoDesc = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS"; ;
-            ViewBag.seoKeywords = seoWebAppConfiguration.SiteName + " LEARN ABOUT THE BEST PRODUCTS ON AMAZON, WE ARE A CURATED WIKI OF GREAT BUYS"; ;
+            ViewBag.seoDesc = seoWebAppConfiguration.SiteName + " is a wiki about deals. Its a site that allows companies to post deals online"; ;
+            ViewBag.seoKeywords = seoWebAppConfiguration.SiteName + " is a wiki about deals. Its a site that allows companies to post deals online"; ;
             return View(listPaged); 
         }
 

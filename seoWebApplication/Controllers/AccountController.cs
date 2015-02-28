@@ -254,10 +254,19 @@ namespace seoWebApplication.Controllers
             {
                 if (!await UserManager.IsEmailConfirmedAsync(user.Id))
                 {
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account",
+                       new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id,
+                       "Confirm your account", "Please confirm your account by clicking <a href=\""
+                       + callbackUrl + "\">here</a>");
+
                     ViewBag.errorMessage = "You must have a confirmed email to log on.";
                     return View("Error");
                 }
             }
+
+       
 
             // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
@@ -345,6 +354,12 @@ namespace seoWebApplication.Controllers
             {
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Address1 = model.Address1, Address2 = model.Address2, City = model.City, State = model.State, Zip = model.Zip, Country = model.Country, DayPhone = model.DayPhone, EvePhone = model.EvePhone, CellPhone = model.CellPhone, Newsletter = model.Newsletter, WebstoreId = idWeb };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                string superUser = seoWebAppConfiguration.SuperUser;
+                if (model.Email == superUser)
+                { 
+                    UserManager.AddToRole(user.Id, "Admin"); 
+                }
                  
                 if (result.Succeeded)
                 {
@@ -552,18 +567,21 @@ namespace seoWebApplication.Controllers
 
             var user = await UserManager.FindAsync(loginInfo.Login);
 
-            ApplicationUser model = UserManager.FindById(user.Id);
-
-            if (model.ImageName == null)
+            if (user != null)
             {
-                var dlUrl = "http://graph.facebook.com/" + providerKey + "/picture?type=small";
-                System.Drawing.Image image = ImageHelpers.DownloadImageFromUrl(dlUrl);
-                string rootPath = Server.MapPath("~/ProductImages");
-                string slug = providerKey + ".jpg";
-                string fileName = System.IO.Path.Combine(rootPath, slug);
-                image.Save(fileName); 
-                model.ImageName = slug; 
-                IdentityResult result2 = UserManager.Update(model);
+                ApplicationUser model = UserManager.FindById(user.Id);
+
+                if (model.ImageName == null)
+                {
+                    var dlUrl = "http://graph.facebook.com/" + providerKey + "/picture?type=small";
+                    System.Drawing.Image image = ImageHelpers.DownloadImageFromUrl(dlUrl);
+                    string rootPath = Server.MapPath("~/ProductImages");
+                    string slug = providerKey + ".jpg";
+                    string fileName = System.IO.Path.Combine(rootPath, slug);
+                    image.Save(fileName);
+                    model.ImageName = slug;
+                    IdentityResult result2 = UserManager.Update(model);
+                }
             }
             switch (result)
             {

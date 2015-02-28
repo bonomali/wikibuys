@@ -213,7 +213,7 @@ namespace seoWebApplication.Controllers
                 return null;
 
             IList<mProducts> products = _productService.GetProductsOnFrontPromo();
-            var orderList = products.OrderByDescending(x => x.LikesCount);
+            var orderList = products.OrderByDescending(x => x.LikesCount).OrderByDescending(x => x.InsertDate);
             // page the list
             const int pageSize = 18;
             var listPaged = orderList.ToPagedList(page ?? 1, pageSize);
