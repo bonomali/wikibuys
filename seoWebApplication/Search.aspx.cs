@@ -80,7 +80,7 @@ namespace seoWebApplication
                 mp.IsActive = false;
                 mp.image = slug;
                 mp.thumbnail = slug;
-                mp.store = new StoreService().Getstores("Amazon").Id;
+                mp.store = new StoreService().Getstores("Ebay").Id;
                 if (User.Identity.IsAuthenticated)
                 {
                     ApplicationUser model = _userService.GetUserByEmail(User.Identity.Name);

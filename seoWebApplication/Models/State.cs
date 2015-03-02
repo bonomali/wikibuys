@@ -2,6 +2,7 @@
 using MongoDB.Bson.Serialization.IdGenerators;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,28 +17,10 @@ namespace seoWebApplication.Models
         public Guid Id { get; set; }
         [BsonElement("Name")]
         public string Name { get; set; }
-        public string NameTrimmed
-        {
-            get
-            {
-                if (Name.Length > 60)
-                    return Name.Substring(0, 60) + "...";
-                else
-                    return Name;
-            }
-        }
+       
         [BsonElement("Description")]
         public string Description { get; set; }
-        public string DescriptionTrimmed
-        {
-            get
-            {
-                if (Description.Length > 60)
-                    return Description.Substring(0, 60) + "...";
-                else
-                    return Description;
-            }
-        }
+        [UIHint("RegionEditor")]
         public Guid RegionId { get; set; }
     }
 }

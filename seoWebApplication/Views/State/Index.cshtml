@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+@(Html.Kendo().Grid<seoWebApplication.Models.State>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Description); 
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(260);
+     })
+   .ToolBar(toolbar => toolbar.Create()) 
+    .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("AddEditUser"))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:430px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
+                 .Model(model =>
+              {
+                  model.Id(toolModel => toolModel.Id);
+                  model.Field(id => id.Id).DefaultValue(Guid.NewGuid());
+              })
+            .Create(update => update.Action("EditingPopup_Create", "State"))
+                        .Read(read => read.Action("States_Read", "State"))
+                    .Update(update => update.Action("EditingPopup_Update", "State"))
+                    .Destroy(update => update.Action("EditingPopup_Destroy", "State"))
+    )
+)
+
+<!--//Define the popup template -->
+
+<script id="AddEditUser" type="text/x-kendo-template">
+    <div class="k-edit-label">ProductName: </div>
+    <div class="k-edit-field">
+        <input class="text-box single-line" id="Id" name="Id" type="hidden" data-bind="value:Id">
+    </div>
+
+    <div class="k-edit-label">Name: </div>
+    <div class="k-edit-field">
+        <input class="text-box single-line" id="Name" name="Name" type="text" value="" data-bind="value:Name">
+        <span class="field-validation-valid" id="Name_validationMessage"></span>
+    </div>
+
+    <div class="k-edit-label">Description: </div>
+    <div class="k-edit-field">
+        <input class="text-box single-line" id="Description" name="Description" type="text" value="" data-bind="value:Description">
+        <span class="field-validation-valid" id="Description_validationMessage"></span>
+    </div>
+  
+
+    <div class="k-edit-label">State2: </div>
+    <div class="k-edit-field">
+        <input class="text-box single-line" id="StateId" name="StateId" type="text" data-bind="value:StateId">
+        <span class="field-validation-valid" id="Description_validationMessage"></span>
+    </div>
+   
+</script>
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>

@@ -354,9 +354,39 @@ namespace seoWebApplication.DAL
             var doc = Download(url);
             //var doc = getHtmlWeb.Load(url);
 
-            meta.Description = doc.DocumentNode.SelectSingleNode("//div[@id='x-tm-desc']").InnerHtml.Replace("\n", "").Replace("\t", "");
+            HtmlNode descriptionNode = doc.DocumentNode.SelectSingleNode("//div[@id='x-tm-desc']");
 
-            //var releaseYearNode = doc.DocumentNode.SelectNodes("//*[contains(@class,'productDescriptionWrapper')]");
+            string _description = "";
+            if (descriptionNode != null)
+            {
+                //do something with node
+                _description = descriptionNode.InnerHtml.Replace("\n", "").Replace("\t", "");
+            }
+            else if (descriptionNode == null)
+            {
+                //do something with node
+                HtmlNode descriptionNode2 = doc.DocumentNode.SelectSingleNode("//div[@class='prodDetailSec']");
+                if (descriptionNode2 != null)
+                {
+                    //do something with node
+                    _description = descriptionNode2.InnerHtml.Replace("\n", "").Replace("\t", "");
+                }
+                else if (descriptionNode2 == null)
+                {
+                    HtmlNode descriptionNode3 = doc.DocumentNode.SelectSingleNode("//div[@id='vi-desc-maincntr']");
+                    if (descriptionNode3 != null)
+                    {
+                        //do something with node
+                        _description = descriptionNode3.InnerHtml.Replace("\n", "").Replace("\t", "");
+                    }
+                    else {
+                        _description = "";
+                    }
+                }
+            }
+
+
+            meta.Description = _description;
 
             meta.Title = doc.DocumentNode.SelectSingleNode("//h1[@id='itemTitle']").InnerHtml.Replace("\n", "").Replace("\t", "").Replace("<span class=\"g-hdn\">Details about  &nbsp;</span>","");
 
@@ -376,11 +406,11 @@ namespace seoWebApplication.DAL
             if (node != null)
             {
                 //do something with node
-                _price = node.InnerHtml.Replace("$", "").Replace("US", "");
+                _price = node.InnerHtml.Replace("$", "");
             }
             else
             {
-                var ourprice = doc.DocumentNode.SelectSingleNode("//span[@id='priceblock_ourprice']");
+                var ourprice = doc.DocumentNode.SelectSingleNode("//span[@id='prcIsum']");
                 if (ourprice != null)
                 {
                     _price = ourprice.InnerHtml.Replace("$", "");
@@ -407,7 +437,7 @@ namespace seoWebApplication.DAL
                 }
             }
 
-            meta.Price = _price;
+            meta.Price = _price.Replace("US", ""); 
 
             return meta;
         }

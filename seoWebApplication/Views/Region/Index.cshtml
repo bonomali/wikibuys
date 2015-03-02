@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+@(Html.Kendo().Grid<seoWebApplication.Models.Region>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Description); 
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(260);
+     })
+   .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:430px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
+                 .Model(model =>
+              {
+                  model.Id(toolModel => toolModel.Id);
+                  model.Field(id => id.Id).DefaultValue(Guid.NewGuid());
+              })
+            .Create(update => update.Action("EditingPopup_Create", "Region"))
+                            .Read(read => read.Action("Region_Read", "Region"))
+                    .Update(update => update.Action("EditingPopup_Update", "Region"))
+                    .Destroy(update => update.Action("EditingPopup_Destroy", "Region"))
+    )
+)
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>

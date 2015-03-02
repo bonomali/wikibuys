@@ -333,6 +333,23 @@
   <ItemGroup>
     <Content Include="about_us.aspx" />
     <Content Include="account.aspx" />
+    <Content Include="android-icon-144x144.png" />
+    <Content Include="android-icon-192x192.png" />
+    <Content Include="android-icon-36x36.png" />
+    <Content Include="android-icon-48x48.png" />
+    <Content Include="android-icon-72x72.png" />
+    <Content Include="android-icon-96x96.png" />
+    <Content Include="apple-icon-114x114.png" />
+    <Content Include="apple-icon-120x120.png" />
+    <Content Include="apple-icon-144x144.png" />
+    <Content Include="apple-icon-152x152.png" />
+    <Content Include="apple-icon-180x180.png" />
+    <Content Include="apple-icon-57x57.png" />
+    <Content Include="apple-icon-60x60.png" />
+    <Content Include="apple-icon-72x72.png" />
+    <Content Include="apple-icon-76x76.png" />
+    <Content Include="apple-icon-precomposed.png" />
+    <Content Include="apple-icon.png" />
     <Content Include="App_Themes\SeoWebAppDefault\images\button-bg.gif" />
     <Content Include="App_Themes\SeoWebAppDefault\images\button-bg2.gif" />
     <Content Include="App_Themes\SeoWebAppDefault\images\GSA.jpg" />
@@ -394,6 +411,7 @@
     <Content Include="bootstrap-theme.min.css" />
     <Content Include="bootstrap.css" />
     <Content Include="bootstrap.min.css" />
+    <Content Include="browserconfig.xml" />
     <Content Include="content\Black\editor.png" />
     <Content Include="content\Black\imagebrowser.png" />
     <Content Include="content\Black\loading-image.gif" />
@@ -901,6 +919,10 @@
     <Content Include="css\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\normalize.min.css" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
+    <Content Include="favicon-96x96.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\banner_top.jpg" />
     <Content Include="Images\bg-background-strips.jpg" />
@@ -1242,6 +1264,10 @@
     <Content Include="js\vendor\jquery.js" />
     <Content Include="js\vendor\modernizr.js" />
     <Content Include="js\vendor\placeholder.js" />
+    <Content Include="ms-icon-144x144.png" />
+    <Content Include="ms-icon-150x150.png" />
+    <Content Include="ms-icon-310x310.png" />
+    <Content Include="ms-icon-70x70.png" />
     <Content Include="myaccount.aspx" />
     <Content Include="OrderComplete.aspx" />
     <Content Include="product_view.aspx" />
@@ -1332,6 +1358,7 @@
     <Content Include="Images\wings.psd" />
     <Content Include="content\kendo\2014.1.528\images\kendoui.ttf" />
     <Content Include="content\kendo\2014.1.528\images\kendoui.woff" />
+    <Content Include="manifest.json" />
     <None Include="Properties\PublishProfiles\hale.pubxml" />
     <None Include="Properties\PublishProfiles\halemeals.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\mongo-commerce.com - Web Deploy.pubxml" />
@@ -2044,8 +2071,11 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\StateController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\SubcategoriesController.cs" />
     <Compile Include="Controllers\SubcategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -2261,6 +2291,9 @@
     </Compile>
     <Compile Include="Service\AttributeValueService.cs" />
     <Compile Include="Service\BrandsService.cs" />
+    <Compile Include="Service\StateService.cs" />
+    <Compile Include="Service\RegionService.cs" />
+    <Compile Include="Service\CityService.cs" />
     <Compile Include="Service\SubcategoriesService.cs" />
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\CategoriesService.cs" />
@@ -3053,6 +3086,20 @@
     <Content Include="Views\Subcategories\Index.cshtml" />
     <Content Include="Views\Subcategories\Products.cshtml" />
     <Content Include="Views\Home\Html.cshtml" />
+    <Content Include="Views\City\Create.cshtml" />
+    <Content Include="Views\City\Details.cshtml" />
+    <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\City\Products.cshtml" />
+    <Content Include="Views\Region\Create.cshtml" />
+    <Content Include="Views\Region\Details.cshtml" />
+    <Content Include="Views\Region\Index.cshtml" />
+    <Content Include="Views\Region\Products.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\StateEditor.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\RegionEditor.cshtml" />
+    <Content Include="Views\State\Create.cshtml" />
+    <Content Include="Views\State\Details.cshtml" />
+    <Content Include="Views\State\Index.cshtml" />
+    <Content Include="Views\State\Products.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
