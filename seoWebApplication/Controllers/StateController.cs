@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace seoWebApplication.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class StateController : Controller
     {
         private StateService _StateService = new StateService();

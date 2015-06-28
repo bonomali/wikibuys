@@ -441,5 +441,76 @@ namespace seoWebApplication.DAL
 
             return meta;
         }
+
+        internal static OGMeta FetchNomorerack(string url)
+        {
+            OGMeta meta = new OGMeta();
+
+            //var getHtmlWeb = new HtmlWeb(); 
+
+            var doc = Download(url);
+            //var doc = getHtmlWeb.Load(url);
+
+            HtmlNode descriptionNode = doc.DocumentNode.SelectSingleNode("//p[@class='description']");
+
+            HtmlNode mdnode = doc.DocumentNode.SelectSingleNode("//meta[@name='description']");
+            var _description = "";
+            var _title = "";
+            if (mdnode != null)
+            {
+                HtmlAttribute desc;
+
+                desc = mdnode.Attributes["content"];
+                _description = desc.Value; 
+            }
+
+            HtmlNode mdtitle = doc.DocumentNode.SelectSingleNode("//meta[@property='og:title']");
+
+            if (mdtitle != null)
+            {
+                HtmlAttribute title;
+
+                title = mdtitle.Attributes["content"];
+                _title = title.Value;
+            }
+             
+            meta.Description = _description;
+
+            meta.Title = _title;
+
+             HtmlNode mdimage = doc.DocumentNode.SelectSingleNode("//meta[@property='og:image']");
+
+             HtmlNode imageNode = doc.DocumentNode.SelectSingleNode("//div[@class='main']//img");
+             HtmlAttribute src = imageNode.Attributes["src"];
+                 
+            var _image = "";
+            if (imageNode != null)
+            {
+                HtmlAttribute image;
+
+                image = imageNode.Attributes["src"]; ;
+                _image = image.Value;
+            }
+
+            meta.Image = _image;
+
+            string _price = "";
+
+            HtmlNode mdprice = doc.DocumentNode.SelectSingleNode("//meta[@property='og:price:amount']");
+
+            if (mdprice != null)
+            {
+                HtmlAttribute price;
+
+                price = mdprice.Attributes["content"];
+                _price = price.Value;
+            }
+
+
+            meta.Specifications = doc.DocumentNode.SelectSingleNode("//p[@class='description']").InnerHtml;
+            meta.Price = _price.Replace("US", "");
+
+            return meta;
+        }
     }
 }

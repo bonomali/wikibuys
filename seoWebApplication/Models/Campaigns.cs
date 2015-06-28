@@ -24,28 +24,10 @@ namespace seoWebApplication.Models
          public int category_id { get; set; }        
          [BsonElement("name")]
         public string name { get; set; }
-         public string NameTrimmed
-         {
-             get
-             {
-                 if (name.Length > 60)
-                     return name.Substring(0, 60) + "...";
-                 else
-                     return name;
-             }
-         }
+       
          [BsonElement("description")]
         public string description { get; set; }
-        public string DescriptionTrimmed
-        {
-            get
-            {
-                if (description.Length > 60)
-                    return description.Substring(0, 60) + "...";
-                else
-                    return description;
-            }
-        }
+      
          [BsonElement("price")]
         public decimal price { get; set; }
          [BsonElement("thumbnail")]
@@ -70,30 +52,7 @@ namespace seoWebApplication.Models
         public System.DateTime InsertDate { get; set; }
         [BsonElement("InsertENTUserAccountId")]
         public int InsertENTUserAccountId { get; set; }         
-        [BsonElement("UpdateDate")]
-        public DateTime UpdateDate
-        {
-            get { return date.ToLocalTime(); }
-            set { date = value; }
-        }
-        [BsonElement("UpdateENTUserAccountId")]
-        public int UpdateENTUserAccountId { get; set; }
-        [BsonElement("Version")]
-        public byte[] Version { get; set; }
-        public List<mProductAttributeValue> Attributes { get; set; } 
-        public List<Categories> Categories { get; set; } 
-        public List<Departments> Departments { get; set; }
-        public List<string> Likes { get; set; }
-
-        public string LikesCount
-        {
-            get
-            {
-                if (Likes != null)
-                    return Likes.Count.ToString();
-                else
-                    return "0".ToString();
-            }
-        }
+        
+ 
     }
 }

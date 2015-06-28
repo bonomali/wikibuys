@@ -12,7 +12,7 @@ using System.Collections;
 
 namespace seoWebApplication.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class CityController : Controller
     {
         private CityService _CityService = new CityService();

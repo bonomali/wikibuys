@@ -1364,6 +1364,7 @@
     <None Include="Properties\PublishProfiles\mongo-commerce.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tyronesdeals.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\wikibuys.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\wikideals.co - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3100,6 +3101,7 @@
     <Content Include="Views\State\Details.cshtml" />
     <Content Include="Views\State\Index.cshtml" />
     <Content Include="Views\State\Products.cshtml" />
+    <Content Include="Views\Products\Import.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

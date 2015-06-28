@@ -92,6 +92,38 @@ namespace seoWebApplication
                 PS.Create(mp);
                 Response.Redirect(Linkor.ToProduct(mp.product_id.ToString()));
             }
+            else if (id.Contains("nomorerack.com/"))
+            {
+                OGMeta meta = HtmlTool.FetchNomorerack(id);
+
+                System.Drawing.Image image = ImageHelpers.DownloadImageFromUrl(meta.Image);
+                string rootPath = Server.MapPath("~/ProductImages");
+                string slug = Helpers.GenerateSlug(meta.Title) + ".jpg";
+                string fileName = System.IO.Path.Combine(rootPath, slug);
+                image.Save(fileName);
+
+                ProductService PS = new ProductService();
+                mProducts mp = new mProducts();
+
+                mp.description = meta.Title;
+                mp.Specifications = meta.Description;
+                mp.name = meta.Title;
+                mp.price = Convert.ToDecimal(meta.Price);
+                mp.IsActive = false;
+                mp.image = slug;
+                mp.thumbnail = slug;
+                mp.store = new StoreService().Getstores("Nomorerack").Id;
+                if (User.Identity.IsAuthenticated)
+                {
+                    ApplicationUser model = _userService.GetUserByEmail(User.Identity.Name);
+                    string currentUserId = model.UserId.ToLower();
+                    mp.UserKey = currentUserId;
+                }
+                mp.Url = id + "?tag=wikibuys-20";
+                mp.promofront = true;
+                PS.Create(mp);
+                Response.Redirect(Linkor.ToProduct(mp.product_id.ToString()));
+            }
             else {
                 Response.Redirect("/Search/" + id);
             }
