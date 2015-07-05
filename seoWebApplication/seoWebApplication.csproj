@@ -1365,6 +1365,7 @@
     <None Include="Properties\PublishProfiles\tyronesdeals.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\wikibuys.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\wikideals.co - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\zimbook.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

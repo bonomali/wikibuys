@@ -1,138 +1,41 @@
 ﻿@model seoWebApplication.Models.mProducts
-
-@{
-    ViewBag.Title = "Details";
+  
+@section OpenGraph { 
+<!-- Open Graph data -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="@ViewBag.seoTitle at @ViewBag.storeName" />
+<meta property="og:image" content="@Linkor.GetStoreUrl()/ProductImages/@Html.DisplayFor(model => model.thumbnail)" />
+<meta property="og:site_name" content="@Linkor.GetStoreName()" />
+<meta property="og:url" content="@Linkor.ToProduct(Model.product_id.ToString()).Replace(":80", "")" />
+<meta property="og:description" content="@Html.DisplayFor(model => model.description)" />
+<meta property="og:price:amount" content="@Html.DisplayFor(model => model.price)" />
+<meta property="og:price:currency" content="USD" />
 }
-
-<h2>Details</h2>
+<div class="row">
+    <hr> 
+    <div class="large-5 columns">
+        <div>
+            <a href="" class="ProductLike" data-id="@Html.DisplayFor(model => model.product_id)">
+                <div id="like_@Html.DisplayFor(model => model.product_id)"><i class="fa fa-heart">@Html.DisplayFor(model => model.LikesCount)</i></div>
+            </a>
+            <div class="fb-like" data-href="@Linkor.ToProduct(Model.product_id.ToString()).Replace(":80", "")" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+        </div>
+        <img src="/ProductImages/@Html.DisplayFor(model => model.thumbnail)">
+    </div>
+    <div class="large-5 columns">
+        <h4>@Html.DisplayFor(model => model.name)</h4>
+        <p>@Html.DisplayFor(model => model.description)</p>
+        <div class="panel">
+            <h5>$@Html.DisplayFor(model => model.price)</h5>
+            <a target="_blank" href="@Html.DisplayFor(model => model.Url)" class="small button">View Offer</a>
+        </div>
+    </div>
+</div>
 
 <div>
-    <h4>product</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.webstore_id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.webstore_id)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.thumbnail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.thumbnail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.promofront)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.promofront)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.promodept)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.promodept)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.defaultAttribute)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.defaultAttribute)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.defaultAttCat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.defaultAttCat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InsertDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InsertDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InsertENTUserAccountId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InsertENTUserAccountId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateENTUserAccountId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateENTUserAccountId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Version)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Version)
-        </dd> 
-
-    </dl>
+    <div class="large-12 columns">
+         @Html.Raw(HttpUtility.HtmlDecode(Model.Specifications))
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+  
